@@ -4,14 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>Archives | Hexo</title>
+  <title>在 VS Code 中设置插件互不干扰的技巧 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="在 Visual Studio Code (VS Code) 中，管理和配置插件非常重要，以避免它们之间的相互干扰，从而确保开发环境的高效性和稳定性。本文将介绍几种确保插件互不干扰的措施。 1. 使用工作区配置文件VS Code 允许为不同的项目创建单独的工作区配置文件，从而在不同的项目中启用不同的插件和设置。 操作步骤： 创建工作区配置：打开一个项目后，点击菜单栏的 文件 -&gt; 首选项 -">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 VS Code 中设置插件互不干扰的技巧">
+<meta property="og:url" content="http://example.com/2024/08/25/vscode%E9%85%8D%E7%BD%AE%E9%9A%94%E7%A6%BB/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在 Visual Studio Code (VS Code) 中，管理和配置插件非常重要，以避免它们之间的相互干扰，从而确保开发环境的高效性和稳定性。本文将介绍几种确保插件互不干扰的措施。 1. 使用工作区配置文件VS Code 允许为不同的项目创建单独的工作区配置文件，从而在不同的项目中启用不同的插件和设置。 操作步骤： 创建工作区配置：打开一个项目后，点击菜单栏的 文件 -&gt; 首选项 -">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-08-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-25T13:23:59.000Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="VS Code">
+<meta property="article:tag" content="插件">
+<meta property="article:tag" content="开发环境">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -67,216 +74,101 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/27/gentoo%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-27T14:33:01.000Z" itemprop="datePublished">Sep 27</time>
+        <section id="main"><article id="post-vscode配置隔离" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/08/25/vscode%E9%85%8D%E7%BD%AE%E9%9A%94%E7%A6%BB/" class="article-date">
+  <time class="dt-published" datetime="2024-08-24T16:00:00.000Z" itemprop="datePublished">2024-08-25</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/27/gentoo%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">gentoo安装指南</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      在 VS Code 中设置插件互不干扰的技巧
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/24/html5-css3%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-24T03:59:58.000Z" itemprop="datePublished">Sep 24</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/24/html5-css3%E5%AD%A6%E4%B9%A0/">html5+css3学习</a>
-    </h1>
-  
+        <p>在 Visual Studio Code (VS Code) 中，管理和配置插件非常重要，以避免它们之间的相互干扰，从而确保开发环境的高效性和稳定性。本文将介绍几种确保插件互不干扰的措施。</p>
+<h2 id="1-使用工作区配置文件"><a href="#1-使用工作区配置文件" class="headerlink" title="1. 使用工作区配置文件"></a>1. 使用工作区配置文件</h2><p>VS Code 允许为不同的项目创建单独的工作区配置文件，从而在不同的项目中启用不同的插件和设置。</p>
+<h3 id="操作步骤："><a href="#操作步骤：" class="headerlink" title="操作步骤："></a>操作步骤：</h3><ol>
+<li><strong>创建工作区配置</strong>：打开一个项目后，点击菜单栏的 <strong>文件 -&gt; 首选项 -&gt; 设置</strong>，然后点击右上角的文件图标，选择“打开工作区设置”。</li>
+<li><strong>编辑 settings.json</strong>：在 <code>.vscode</code> 文件夹中编辑 <code>settings.json</code> 文件，配置当前项目的特定设置。</li>
+<li><strong>编辑 extensions.json</strong>：在 <code>.vscode</code> 文件夹中编辑 <code>extensions.json</code> 文件，指定当前项目所需的插件。可以通过如下配置来推荐或自动安装插件：</li>
+</ol>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;recommendations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;插件 ID 1&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;插件 ID 2&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/24/ppt%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-24T03:59:45.000Z" itemprop="datePublished">Sep 24</time>
-</a>
+<h2 id="2-插件隔离（使用不同的用户数据目录）"><a href="#2-插件隔离（使用不同的用户数据目录）" class="headerlink" title="2. 插件隔离（使用不同的用户数据目录）"></a>2. 插件隔离（使用不同的用户数据目录）</h2><p>通过命令行指定不同的用户数据目录，可以在不同的环境中使用不同的插件集，避免插件互相影响。</p>
+<h3 id="操作步骤：-1"><a href="#操作步骤：-1" class="headerlink" title="操作步骤："></a>操作步骤：</h3><ol>
+<li><strong>打开终端</strong>：在你的操作系统中打开终端或命令提示符。</li>
+<li><strong>启动 VS Code 并指定用户数据目录</strong>：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code --user-data-dir <span class="string">&quot;path_to_custom_user_data_directory&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code --user-data-dir <span class="string">&quot;C:\Users\YourUsername\VSCodeProfile1&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这样，VS Code 会使用指定的目录存储用户数据和插件，形成独立的环境。</p>
+<h2 id="3-手动禁用不必要的插件"><a href="#3-手动禁用不必要的插件" class="headerlink" title="3. 手动禁用不必要的插件"></a>3. 手动禁用不必要的插件</h2><p>在不需要的项目中，可以手动禁用一些插件，确保它们不会干扰当前的工作。</p>
+<h3 id="操作步骤：-2"><a href="#操作步骤：-2" class="headerlink" title="操作步骤："></a>操作步骤：</h3><ol>
+<li><strong>打开扩展视图</strong>：使用快捷键 <code>Ctrl+Shift+X</code> 或点击侧栏的扩展图标。</li>
+<li><strong>禁用插件</strong>：找到不需要的插件，点击插件详情页的“禁用”按钮。在弹出的选项中，你可以选择“在当前工作区禁用”以避免全局禁用插件。</li>
+</ol>
+<h2 id="4-使用-Remote-Containers-功能"><a href="#4-使用-Remote-Containers-功能" class="headerlink" title="4. 使用 Remote Containers 功能"></a>4. 使用 Remote Containers 功能</h2><p>如果你需要完全隔离的开发环境，可以使用 VS Code 的 Remote Containers 功能。这种方法允许你在 Docker 容器中运行 VS Code，每个容器都有独立的插件环境。</p>
+<h3 id="操作步骤：-3"><a href="#操作步骤：-3" class="headerlink" title="操作步骤："></a>操作步骤：</h3><ol>
+<li><strong>安装 Remote Development 插件</strong>：首先安装 <code>Remote Development</code> 扩展包。</li>
+<li><strong>配置 Remote Containers</strong>：为你的项目创建 <code>.devcontainer</code> 文件夹，并配置 <code>devcontainer.json</code> 文件，定义容器环境及其插件。</li>
+</ol>
+<h2 id="5-配置插件的作用范围"><a href="#5-配置插件的作用范围" class="headerlink" title="5. 配置插件的作用范围"></a>5. 配置插件的作用范围</h2><p>有些插件允许你设置它们的作用范围，使其只在特定的文件类型或语言模式下启用。这可以通过 <code>settings.json</code> 文件来配置。</p>
+<h3 id="示例配置："><a href="#示例配置：" class="headerlink" title="示例配置："></a>示例配置：</h3><p>例如，配置 ESLint 插件只在 JavaScript 文件中启用：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;eslint.enable&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;[javascript]&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;editor.defaultFormatter&quot;</span><span class="punctuation">:</span> <span class="string">&quot;esbenp.prettier-vscode&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-使用不同的配置文件"><a href="#6-使用不同的配置文件" class="headerlink" title="6. 使用不同的配置文件"></a>6. 使用不同的配置文件</h2><p>为不同的项目使用不同的 <code>settings.json</code> 文件，可以手动配置每个项目需要加载的插件集。这通常与工作区配置一起使用，确保不同项目的配置不会互相冲突。</p>
+<hr>
+<p>通过以上这些方法，你可以有效地管理和隔离 VS Code 插件，避免它们在不同项目中的相互干扰。这不仅可以提高工作效率，还能确保开发环境的稳定性和一致性。</p>
+
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/24/ppt%E5%AD%A6%E4%B9%A0/">ppt学习</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/12/test/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-12T13:22:50.000Z" itemprop="datePublished">Sep 12</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/08/25/vscode%E9%85%8D%E7%BD%AE%E9%9A%94%E7%A6%BB/" data-id="cm2ixc42k001v7ulw4ain50l4" data-title="在 VS Code 中设置插件互不干扰的技巧" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/12/test/">test</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/10/Git-Bash-%E5%92%8C-PowerShell-%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-09T16:00:00.000Z" itemprop="datePublished">Sep 10</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/10/Git-Bash-%E5%92%8C-PowerShell-%E7%9A%84%E5%8C%BA%E5%88%AB/">Git Bash 和 PowerShell 的区别</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/10/Git-%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%B8%8E-Git-Bash-%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-09T16:00:00.000Z" itemprop="datePublished">Sep 10</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/10/Git-%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%B8%8E-Git-Bash-%E7%9A%84%E5%8C%BA%E5%88%AB/">Git 跨平台与 Git Bash 的区别</a>
-    </h1>
-  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VS-Code/" rel="tag">VS Code</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" rel="tag">开发环境</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag">插件</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/08/25/verilog%E6%9D%82%E8%B0%88/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Verilog 中的数值表示方法与运算符
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/08/12/docker/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Docker 学习</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/10/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E9%80%9F%E5%BA%A6%E5%AF%B9%E6%AF%94/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-09T16:00:00.000Z" itemprop="datePublished">Sep 10</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/10/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E9%80%9F%E5%BA%A6%E5%AF%B9%E6%AF%94/">20种常用编程语言的速度比较</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/09/java%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-09T12:23:23.000Z" itemprop="datePublished">Sep 9</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/09/java%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">java游戏开发</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/09/%E5%AD%97%E8%8A%82%E4%B8%8E%E4%BD%8D%E7%9A%84%E8%BD%AC%E6%8D%A2%E5%85%B3%E7%B3%BB/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-08T16:00:00.000Z" itemprop="datePublished">Sep 9</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/09/%E5%AD%97%E8%8A%82%E4%B8%8E%E4%BD%8D%E7%9A%84%E8%BD%AC%E6%8D%A2%E5%85%B3%E7%B3%BB/">字节与位的转换关系及存储类型</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/04/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-04T10:44:31.000Z" itemprop="datePublished">Sep 4</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/04/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%AD%A6%E4%B9%A0/">概率论学习</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         

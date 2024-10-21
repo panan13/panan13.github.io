@@ -4,14 +4,23 @@
   <meta charset="utf-8">
   
   
-  <title>Archives | Hexo</title>
+  <title>pip 和 conda 的区别及在虚拟环境中的选择 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="pip 和 conda 的区别及在虚拟环境中的选择1. pip 和 conda 的区别1.1 工具来源和目标用户 pip：  来源：pip 是 Python 官方推荐的包管理工具，默认安装在 Python 环境中，用于从 Python Package Index (PyPI) 安装 Python 包。 目标用户：适用于任何使用 Python 环境的用户，特别是那些希望安装纯 Python 包或由社">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pip 和 conda 的区别及在虚拟环境中的选择">
+<meta property="og:url" content="http://example.com/2024/08/26/pip%E4%B8%8Econda%E5%AF%B9%E6%AF%94/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="pip 和 conda 的区别及在虚拟环境中的选择1. pip 和 conda 的区别1.1 工具来源和目标用户 pip：  来源：pip 是 Python 官方推荐的包管理工具，默认安装在 Python 环境中，用于从 Python Package Index (PyPI) 安装 Python 包。 目标用户：适用于任何使用 Python 环境的用户，特别是那些希望安装纯 Python 包或由社">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-08-26T04:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T14:31:00.000Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="pip">
+<meta property="article:tag" content="conda">
+<meta property="article:tag" content="虚拟环境">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -67,216 +76,186 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/27/gentoo%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-27T14:33:01.000Z" itemprop="datePublished">Sep 27</time>
+        <section id="main"><article id="post-pip与conda对比" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/08/26/pip%E4%B8%8Econda%E5%AF%B9%E6%AF%94/" class="article-date">
+  <time class="dt-published" datetime="2024-08-26T04:00:00.000Z" itemprop="datePublished">2024-08-26</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/27/gentoo%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">gentoo安装指南</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      pip 和 conda 的区别及在虚拟环境中的选择
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/24/html5-css3%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-24T03:59:58.000Z" itemprop="datePublished">Sep 24</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/24/html5-css3%E5%AD%A6%E4%B9%A0/">html5+css3学习</a>
-    </h1>
-  
+        <h1 id="pip-和-conda-的区别及在虚拟环境中的选择"><a href="#pip-和-conda-的区别及在虚拟环境中的选择" class="headerlink" title="pip 和 conda 的区别及在虚拟环境中的选择"></a>pip 和 conda 的区别及在虚拟环境中的选择</h1><h2 id="1-pip-和-conda-的区别"><a href="#1-pip-和-conda-的区别" class="headerlink" title="1. pip 和 conda 的区别"></a>1. pip 和 conda 的区别</h2><h3 id="1-1-工具来源和目标用户"><a href="#1-1-工具来源和目标用户" class="headerlink" title="1.1 工具来源和目标用户"></a>1.1 工具来源和目标用户</h3><ul>
+<li><p><strong>pip</strong>：</p>
+<ul>
+<li><strong>来源</strong>：<code>pip</code> 是 Python 官方推荐的包管理工具，默认安装在 Python 环境中，用于从 Python Package Index (PyPI) 安装 Python 包。</li>
+<li><strong>目标用户</strong>：适用于任何使用 Python 环境的用户，特别是那些希望安装纯 Python 包或由社区维护的包的用户。</li>
+</ul>
+</li>
+<li><p><strong>conda</strong>：</p>
+<ul>
+<li><strong>来源</strong>：<code>conda</code> 是 Anaconda 发行版的一部分，由 Continuum Analytics（现为 Anaconda, Inc.）开发，除了 Python，还支持其他语言的包管理，如 R、JavaScript 等。</li>
+<li><strong>目标用户</strong>：主要面向数据科学家和研究人员，特别是那些希望管理整个环境（包括 Python 版本、依赖库以及非 Python 软件包）的用户。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-包的来源和生态系统"><a href="#1-2-包的来源和生态系统" class="headerlink" title="1.2 包的来源和生态系统"></a>1.2 包的来源和生态系统</h3><ul>
+<li><p><strong>pip</strong>：</p>
+<ul>
+<li><strong>包来源</strong>：<code>pip</code> 安装的包主要来自 Python Package Index (PyPI)。</li>
+<li><strong>生态系统</strong>：<code>pip</code> 仅能安装 Python 包，以及一些包含 C 扩展的包（但这些包的安装可能需要编译环境或预编译的二进制文件）。</li>
+</ul>
+</li>
+<li><p><strong>conda</strong>：</p>
+<ul>
+<li><strong>包来源</strong>：<code>conda</code> 包来自 Anaconda 仓库或 conda-forge 仓库，这些包可以是 Python 包，也可以是其他编程语言或工具的包。</li>
+<li><strong>生态系统</strong>：<code>conda</code> 能安装和管理包含 Python 依赖的包，以及其他系统级依赖，如编译器、库等。它特别适合安装科学计算包（如 <code>numpy</code>, <code>pandas</code>, <code>scipy</code>）和依赖于非 Python 库的软件（如 <code>OpenCV</code>, <code>TensorFlow</code> 等）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-3-依赖管理"><a href="#1-3-依赖管理" class="headerlink" title="1.3 依赖管理"></a>1.3 依赖管理</h3><ul>
+<li><p><strong>pip</strong>：</p>
+<ul>
+<li><strong>依赖管理</strong>：<code>pip</code> 通过解析 <code>requirements.txt</code> 文件或在安装时解析依赖树来管理包依赖，但不能自动管理和安装某些系统级依赖。如果有版本冲突，<code>pip</code> 可能会安装不兼容的包，导致环境问题。</li>
+</ul>
+</li>
+<li><p><strong>conda</strong>：</p>
+<ul>
+<li><strong>依赖管理</strong>：<code>conda</code> 使用 SAT 求解器来解析和解决包依赖冲突，能够确保环境中所有包的兼容性。它可以管理包括 Python 解释器在内的整个环境，这使得它在处理复杂依赖时更可靠。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-4-环境管理"><a href="#1-4-环境管理" class="headerlink" title="1.4 环境管理"></a>1.4 环境管理</h3><ul>
+<li><p><strong>pip</strong>：</p>
+<ul>
+<li><strong>环境管理</strong>：<code>pip</code> 本身不管理环境，通常与 <code>venv</code> 或 <code>virtualenv</code> 等工具一起使用来创建虚拟环境。</li>
+</ul>
+</li>
+<li><p><strong>conda</strong>：</p>
+<ul>
+<li><strong>环境管理</strong>：<code>conda</code> 集成了强大的环境管理功能，用户可以轻松创建、克隆、导出和删除独立的环境，并在这些环境中管理不同的 Python 版本和包。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-5-安装速度和大小"><a href="#1-5-安装速度和大小" class="headerlink" title="1.5 安装速度和大小"></a>1.5 安装速度和大小</h3><ul>
+<li><p><strong>pip</strong>：</p>
+<ul>
+<li><strong>安装速度</strong>：<code>pip</code> 安装速度取决于包的大小和依赖关系。对于纯 Python 包，通常较快，但对于包含编译依赖的包（如 <code>numpy</code> 或 <code>scipy</code>），可能需要更多时间。</li>
+</ul>
+</li>
+<li><p><strong>conda</strong>：</p>
+<ul>
+<li><strong>安装速度</strong>：<code>conda</code> 安装通常较快，因为大多数包都以预编译的二进制格式分发，且包含了所有依赖。特别是对于科学计算和数据分析包，<code>conda</code> 通常更快、更稳定。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-6-包的兼容性和稳定性"><a href="#1-6-包的兼容性和稳定性" class="headerlink" title="1.6 包的兼容性和稳定性"></a>1.6 包的兼容性和稳定性</h3><ul>
+<li><p><strong>pip</strong>：</p>
+<ul>
+<li><strong>兼容性</strong>：<code>pip</code> 安装的包可能不与系统上的其他软件兼容，特别是在处理 C 扩展或系统库时可能会遇到问题。</li>
+</ul>
+</li>
+<li><p><strong>conda</strong>：</p>
+<ul>
+<li><strong>兼容性</strong>：<code>conda</code> 包通常更稳定，因为它们经过严格的测试，并且在安装时会确保所有依赖关系的兼容性。这使得 <code>conda</code> 在科学计算领域更加可靠。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-7-使用场景"><a href="#1-7-使用场景" class="headerlink" title="1.7 使用场景"></a>1.7 使用场景</h3><ul>
+<li><p><strong>pip</strong>：</p>
+<ul>
+<li>适用于任何 Python 开发者，尤其是需要从 PyPI 安装包或在轻量级环境中工作的开发者。</li>
+<li>通常与虚拟环境工具（如 <code>venv</code>）一起使用。</li>
+</ul>
+</li>
+<li><p><strong>conda</strong>：</p>
+<ul>
+<li>特别适合数据科学和机器学习的用户，因为它能方便地管理复杂的依赖关系和系统包。</li>
+<li>使用 <code>conda</code> 可以轻松管理不同的 Python 版本和整个开发环境。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-8-总结"><a href="#1-8-总结" class="headerlink" title="1.8 总结"></a>1.8 总结</h3><ul>
+<li><strong>pip</strong> 是一个专注于 Python 包管理的工具，适合一般的 Python 开发工作。</li>
+<li><strong>conda</strong> 是一个通用的包管理和环境管理工具，特别适合需要管理多种依赖和环境的科学计算和数据分析工作。</li>
+</ul>
+<p>如果你主要使用 Python 且不需要管理复杂的系统依赖，<code>pip</code> 就足够了。而如果你从事数据科学、机器学习等领域的工作，<code>conda</code> 可能更适合你的需求。</p>
+<h2 id="2-在虚拟环境中选择-pip-还是-conda"><a href="#2-在虚拟环境中选择-pip-还是-conda" class="headerlink" title="2. 在虚拟环境中选择 pip 还是 conda"></a>2. 在虚拟环境中选择 pip 还是 conda</h2><p>在虚拟环境中，你可以根据你的具体需求选择使用 <code>pip</code> 或 <code>conda</code>：</p>
+<h3 id="2-1-使用-pip-和-venv-或-virtualenv-结合"><a href="#2-1-使用-pip-和-venv-或-virtualenv-结合" class="headerlink" title="2.1 使用 pip 和 venv 或 virtualenv 结合"></a>2.1 使用 <code>pip</code> 和 <code>venv</code> 或 <code>virtualenv</code> 结合</h3><ul>
+<li>如果你的项目主要依赖于纯 Python 包，或者这些包大多来自 PyPI，那么在虚拟环境中使用 <code>pip</code> 是一个很好的选择。</li>
+<li>使用 <code>venv</code> 或 <code>virtualenv</code> 创建虚拟环境后，<code>pip</code> 会自动安装在这个虚拟环境中，你可以直接使用 <code>pip install</code> 安装所需的包。</li>
+</ul>
+<p><strong>创建虚拟环境并使用 <code>pip</code>：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建虚拟环境</span></span><br><span class="line">python -m venv myenv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 激活虚拟环境</span></span><br><span class="line"><span class="comment"># Windows</span></span><br><span class="line">myenv\Scripts\activate</span><br><span class="line"><span class="comment"># macOS/Linux</span></span><br><span class="line"><span class="built_in">source</span> myenv/bin/activate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">pip install numpy pandas</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/24/ppt%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-24T03:59:45.000Z" itemprop="datePublished">Sep 24</time>
-</a>
+<h3 id="2-2-使用-conda-的虚拟环境"><a href="#2-2-使用-conda-的虚拟环境" class="headerlink" title="2.2 使用 conda 的虚拟环境"></a>2.2 使用 <code>conda</code> 的虚拟环境</h3><ul>
+<li>如果你的项目需要管理不仅限于 Python 的依赖（例如 C 库、编译器、R 语言包等），或者你需要使用一些科学计算包（如 <code>numpy</code>, <code>scipy</code>, <code>tensorflow</code>），<code>conda</code> 会是更好的选择。</li>
+<li><code>conda</code> 的虚拟环境功能强大，可以管理整个环境的依赖，并且支持跨平台的包安装。</li>
+</ul>
+<p><strong>创建和使用 <code>conda</code> 虚拟环境：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建虚拟环境</span></span><br><span class="line">conda create --name myenv python=3.8</span><br><span class="line"></span><br><span class="line"><span class="comment"># 激活虚拟环境</span></span><br><span class="line">conda activate myenv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">conda install numpy pandas</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-结合使用-conda-和-pip"><a href="#2-3-结合使用-conda-和-pip" class="headerlink" title="2.3 结合使用 conda 和 pip"></a>2.3 结合使用 <code>conda</code> 和 <code>pip</code></h3><ul>
+<li>你也可以在 <code>conda</code> 虚拟环境中使用 <code>pip</code> 安装某些特定的包。通常，你可以先用 <code>conda</code> 安装主要的包，再用 <code>pip</code> 安装 <code>conda</code> 没有的特定包。</li>
+</ul>
+<p><strong>在 <code>conda</code> 环境中使用 <code>pip</code>：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建并激活 conda 虚拟环境</span></span><br><span class="line">conda create --name myenv python=3.8</span><br><span class="line">conda activate myenv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 conda 安装主要包</span></span><br><span class="line">conda install numpy pandas</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 pip 安装其他包</span></span><br><span class="line">pip install some_package_not_in_conda</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-总结"><a href="#2-4-总结" class="headerlink" title="2.4 总结"></a>2.4 总结</h3><ul>
+<li><strong>简单项目</strong>：如果你的项目依赖简单，且主要使用纯 Python 包，可以使用 <code>pip</code> 和 <code>venv</code> 或 <code>virtualenv</code>。</li>
+<li><strong>复杂项目</strong>：如果你的项目涉及多个依赖库（特别是非 Python 的库），使用 <code>conda</code> 会更方便和稳定。</li>
+<li><strong>混合需求</strong>：你可以在 <code>conda</code> 环境中结合使用 <code>pip</code>，先用 <code>conda</code> 安装大部分包，再用 <code>pip</code> 安装一些 <code>conda</code> 没有的包。</li>
+</ul>
+<p>根据你的具体需求选择合适的工具，能让你的开发工作更顺利。</p>
+
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/24/ppt%E5%AD%A6%E4%B9%A0/">ppt学习</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/12/test/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-12T13:22:50.000Z" itemprop="datePublished">Sep 12</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/08/26/pip%E4%B8%8Econda%E5%AF%B9%E6%AF%94/" data-id="cm2ixc42g00177ulw7ria6fwj" data-title="pip 和 conda 的区别及在虚拟环境中的选择" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/12/test/">test</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/10/Git-Bash-%E5%92%8C-PowerShell-%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-09T16:00:00.000Z" itemprop="datePublished">Sep 10</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/10/Git-Bash-%E5%92%8C-PowerShell-%E7%9A%84%E5%8C%BA%E5%88%AB/">Git Bash 和 PowerShell 的区别</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/10/Git-%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%B8%8E-Git-Bash-%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-09T16:00:00.000Z" itemprop="datePublished">Sep 10</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/10/Git-%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%B8%8E-Git-Bash-%E7%9A%84%E5%8C%BA%E5%88%AB/">Git 跨平台与 Git Bash 的区别</a>
-    </h1>
-  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/conda/" rel="tag">conda</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pip/" rel="tag">pip</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" rel="tag">虚拟环境</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/08/27/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          逆向工程详解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/08/26/python%E7%BB%8F%E5%85%B8%E5%BA%93%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python Libraries Summary</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/10/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E9%80%9F%E5%BA%A6%E5%AF%B9%E6%AF%94/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-09T16:00:00.000Z" itemprop="datePublished">Sep 10</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/10/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E9%80%9F%E5%BA%A6%E5%AF%B9%E6%AF%94/">20种常用编程语言的速度比较</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/09/java%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-09T12:23:23.000Z" itemprop="datePublished">Sep 9</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/09/java%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">java游戏开发</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/09/%E5%AD%97%E8%8A%82%E4%B8%8E%E4%BD%8D%E7%9A%84%E8%BD%AC%E6%8D%A2%E5%85%B3%E7%B3%BB/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-08T16:00:00.000Z" itemprop="datePublished">Sep 9</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/09/%E5%AD%97%E8%8A%82%E4%B8%8E%E4%BD%8D%E7%9A%84%E8%BD%AC%E6%8D%A2%E5%85%B3%E7%B3%BB/">字节与位的转换关系及存储类型</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/04/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-04T10:44:31.000Z" itemprop="datePublished">Sep 4</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/04/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%AD%A6%E4%B9%A0/">概率论学习</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         

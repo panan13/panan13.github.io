@@ -4,13 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Archives | Hexo</title>
+  <title>MC实现局域网连接原理 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="Minecraft可以通过局域网加入到别人的游戏主要是由于以下几个技术机制的共同作用： 1. 局域网的共享网络环境局域网（Local Area Network, LAN）是一个共享的网络环境，所有连接到同一局域网的设备都可以互相通信。这意味着当某个设备在局域网中启动一个Minecraft游戏并开启局域网联机功能时，其他设备能够“看到”这个游戏，并有机会与其建立连接。 2. Minecraft的局域">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MC实现局域网连接原理">
+<meta property="og:url" content="http://example.com/2024/08/28/MC%E5%AE%9E%E7%8E%B0%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9E%E6%8E%A5%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Minecraft可以通过局域网加入到别人的游戏主要是由于以下几个技术机制的共同作用： 1. 局域网的共享网络环境局域网（Local Area Network, LAN）是一个共享的网络环境，所有连接到同一局域网的设备都可以互相通信。这意味着当某个设备在局域网中启动一个Minecraft游戏并开启局域网联机功能时，其他设备能够“看到”这个游戏，并有机会与其建立连接。 2. Minecraft的局域">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-08-28T10:21:29.000Z">
+<meta property="article:modified_time" content="2024-08-28T10:40:21.000Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -67,216 +71,75 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/27/gentoo%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-27T14:33:01.000Z" itemprop="datePublished">Sep 27</time>
+        <section id="main"><article id="post-MC实现局域网连接原理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/08/28/MC%E5%AE%9E%E7%8E%B0%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9E%E6%8E%A5%E5%8E%9F%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2024-08-28T10:21:29.000Z" itemprop="datePublished">2024-08-28</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/27/gentoo%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">gentoo安装指南</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      MC实现局域网连接原理
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/24/html5-css3%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-24T03:59:58.000Z" itemprop="datePublished">Sep 24</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/24/html5-css3%E5%AD%A6%E4%B9%A0/">html5+css3学习</a>
-    </h1>
-  
+        <p><strong>Minecraft</strong>可以通过局域网加入到别人的游戏主要是由于以下几个技术机制的共同作用：</p>
+<h3 id="1-局域网的共享网络环境"><a href="#1-局域网的共享网络环境" class="headerlink" title="1. 局域网的共享网络环境"></a>1. <strong>局域网的共享网络环境</strong></h3><p>局域网（Local Area Network, LAN）是一个共享的网络环境，所有连接到同一局域网的设备都可以互相通信。这意味着当某个设备在局域网中启动一个Minecraft游戏并开启局域网联机功能时，其他设备能够“看到”这个游戏，并有机会与其建立连接。</p>
+<h3 id="2-Minecraft的局域网游戏广播机制"><a href="#2-Minecraft的局域网游戏广播机制" class="headerlink" title="2. Minecraft的局域网游戏广播机制"></a>2. <strong>Minecraft的局域网游戏广播机制</strong></h3><p>当一个玩家在Minecraft中选择“打开局域网”选项时，Minecraft会在后台执行以下操作：</p>
+<ul>
+<li><p><strong>启动一个局域网服务器</strong>: 该玩家的设备开始充当一个本地服务器，管理其他玩家的连接和游戏世界的状态。</p>
+</li>
+<li><p><strong>发送UDP广播</strong>: Minecraft通过UDP协议向局域网中所有设备广播这个服务器的可用性。这个广播消息中包含了服务器的IP地址、端口号和一些关于游戏世界的基本信息（例如游戏模式、允许的玩家数量等）。</p>
+</li>
+</ul>
+<h3 id="3-自动发现与连接机制"><a href="#3-自动发现与连接机制" class="headerlink" title="3. 自动发现与连接机制"></a>3. <strong>自动发现与连接机制</strong></h3><p>局域网内的其他设备在接收到广播消息后，Minecraft会自动在游戏界面中显示这个局域网服务器。如果玩家想加入这个游戏，他们只需点击显示的局域网游戏列表中的世界，客户端会自动使用提供的IP地址和端口号尝试连接到该局域网服务器。</p>
+<h3 id="4-TCP-IP协议进行游戏数据的同步"><a href="#4-TCP-IP协议进行游戏数据的同步" class="headerlink" title="4. TCP&#x2F;IP协议进行游戏数据的同步"></a>4. <strong>TCP&#x2F;IP协议进行游戏数据的同步</strong></h3><p>一旦客户端成功连接到服务器，Minecraft使用TCP&#x2F;IP协议在客户端和服务器之间同步游戏数据。这包括玩家的位置、动作、世界状态等信息。局域网内的低延迟和高带宽使得这些数据同步非常快速，确保了游戏的流畅体验。</p>
+<h3 id="5-无复杂配置要求"><a href="#5-无复杂配置要求" class="headerlink" title="5. 无复杂配置要求"></a>5. <strong>无复杂配置要求</strong></h3><p>与互联网联机不同，局域网联机通常不需要配置路由器的端口转发，也不涉及防火墙设置的问题。这是因为局域网内的设备通常被视为在同一信任域内，可以直接通信。这种简化的配置进一步降低了玩家通过局域网加入游戏的门槛。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Minecraft能够通过局域网加入别人的游戏，归因于局域网的共享网络环境、游戏的广播发现机制，以及简化的连接流程。玩家在局域网中可以通过自动发现和直接连接功能，轻松加入由他人主机创建的游戏世界。</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/24/ppt%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-24T03:59:45.000Z" itemprop="datePublished">Sep 24</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/24/ppt%E5%AD%A6%E4%B9%A0/">ppt学习</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/12/test/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-12T13:22:50.000Z" itemprop="datePublished">Sep 12</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/08/28/MC%E5%AE%9E%E7%8E%B0%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9E%E6%8E%A5%E5%8E%9F%E7%90%86/" data-id="cm2ixc42700077ulw8e5cfkf5" data-title="MC实现局域网连接原理" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/12/test/">test</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/10/Git-Bash-%E5%92%8C-PowerShell-%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-09T16:00:00.000Z" itemprop="datePublished">Sep 10</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/10/Git-Bash-%E5%92%8C-PowerShell-%E7%9A%84%E5%8C%BA%E5%88%AB/">Git Bash 和 PowerShell 的区别</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/10/Git-%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%B8%8E-Git-Bash-%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-09T16:00:00.000Z" itemprop="datePublished">Sep 10</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/10/Git-%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%B8%8E-Git-Bash-%E7%9A%84%E5%8C%BA%E5%88%AB/">Git 跨平台与 Git Bash 的区别</a>
-    </h1>
-  
-
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/08/31/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          开源协议介绍
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/08/28/android%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">使用Flutter开发Android应用的完整指南</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/10/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E9%80%9F%E5%BA%A6%E5%AF%B9%E6%AF%94/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-09T16:00:00.000Z" itemprop="datePublished">Sep 10</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/10/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E9%80%9F%E5%BA%A6%E5%AF%B9%E6%AF%94/">20种常用编程语言的速度比较</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/09/java%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-09T12:23:23.000Z" itemprop="datePublished">Sep 9</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/09/java%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">java游戏开发</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/09/%E5%AD%97%E8%8A%82%E4%B8%8E%E4%BD%8D%E7%9A%84%E8%BD%AC%E6%8D%A2%E5%85%B3%E7%B3%BB/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-08T16:00:00.000Z" itemprop="datePublished">Sep 9</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/09/%E5%AD%97%E8%8A%82%E4%B8%8E%E4%BD%8D%E7%9A%84%E8%BD%AC%E6%8D%A2%E5%85%B3%E7%B3%BB/">字节与位的转换关系及存储类型</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/04/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-09-04T10:44:31.000Z" itemprop="datePublished">Sep 4</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/04/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%AD%A6%E4%B9%A0/">概率论学习</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         
