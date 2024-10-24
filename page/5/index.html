@@ -1,964 +1,174 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>My Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>My Blog</title><meta name="author" content="Panan13"><meta name="copyright" content="Panan13"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="My Blog">
 <meta property="og:url" content="https://panan13.github.io/page/5/index.html">
 <meta property="og:site_name" content="My Blog">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://panan13.github.io/img/butterfly-icon.png">
 <meta property="article:author" content="Panan13">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="My Blog" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="https://panan13.github.io/img/butterfly-icon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://panan13.github.io/page/5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
 
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
   
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
   
-  
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">My Blog</a>
-      </h1>
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'My Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-10-24 23:14:38'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">My Blog</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">My Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/25/vscode%E9%85%8D%E7%BD%AE%E9%9A%94%E7%A6%BB/" title="在 VS Code 中设置插件互不干扰的技巧">在 VS Code 中设置插件互不干扰的技巧</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-24T16:00:00.000Z" title="发表于 2024-08-25 00:00:00">2024-08-25</time></span></div><div class="content">在 Visual Studio Code (VS Code) 中，管理和配置插件非常重要，以避免它们之间的相互干扰，从而确保开发环境的高效性和稳定性。本文将介绍几种确保插件互不干扰的措施。 1. 使用工作区配置文件VS Code 允许为不同的项目创建单独的工作区配置文件，从而在不同的项目中启用不同的插件和设置。 操作步骤： 创建工作区配置：打开一个项目后，点击菜单栏的 文件 -&gt; 首选项 -&gt; 设置，然后点击右上角的文件图标，选择“打开工作区设置”。 编辑 settings.json：在 .vscode 文件夹中编辑 settings.json 文件，配置当前项目的特定设置。 编辑 extensions.json：在 .vscode 文件夹中编辑 extensions.json 文件，指定当前项目所需的插件。可以通过如下配置来推荐或自动安装插件：  123456&#123;    &quot;recommendations&quot;: [        &quot;插件 ID 1&quot;,        &quot;插件 ID 2&quot;   ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/12/docker/" title="Docker 学习">Docker 学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-12T04:00:00.000Z" title="发表于 2024-08-12 12:00:00">2024-08-12</time></span></div><div class="content">Docker 简介Docker 是一个开源的容器化平台，它使得开发者能够将应用及其依赖打包到一个轻量级、便携的容器中，从而在不同的环境中高效且一致地运行。 基本概念 镜像（Image）：Docker 镜像是一个包含应用程序及其所有依赖项的只读模板。 容器（Container）：容器是镜像的运行实例，可以启动、停止、移动，并复制。 Dockerfile：用于定义镜像内容的脚本，包含了构建镜像的步骤。  常用命令拉取镜像1docker pull &lt;镜像名&gt;  运行容器1docker run -d -p 8080:80 &lt;镜像名&gt;  查看运行中的容器1docker ps  停止容器1docker stop &lt;容器ID&gt;  构建镜像1docker build -t &lt;镜像名&gt; .  学习资源 Docker 官方文档 Docker Hub 镜像仓库  </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/12/git/" title="Git 学习">Git 学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-12T04:00:00.000Z" title="发表于 2024-08-12 12:00:00">2024-08-12</time></span></div><div class="content">Git 简介Git 是一种分布式版本控制系统，用于跟踪代码的变化。它由 Linus Torvalds 开发，并成为了现代软件开发中不可或缺的工具。 常用命令初始化仓库1git init  克隆仓库1git clone &lt;仓库地址&gt;  提交更改12git add .git commit -m &quot;提交信息&quot;  推送到远程仓库1git push origin main  分支管理创建新分支1git branch &lt;分支名&gt;  切换分支1git checkout &lt;分支名&gt;  学习资源 Pro Git 书籍 GitHub 文档  </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/12/hexo/" title="Hexo 学习">Hexo 学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-12T04:00:00.000Z" title="发表于 2024-08-12 12:00:00">2024-08-12</time></span></div><div class="content">Hexo 简介Hexo 是一个快速、简洁且功能强大的博客框架。通过 Markdown 文件生成静态网页，适合用于个人博客的搭建。 常用命令初始化博客1hexo init &lt;文件夹名&gt;  生成静态文件1hexo generate  部署到 GitHub Pages1hexo deploy  自定义主题Hexo 允许用户自定义主题来个性化博客外观。你可以下载、修改主题，并应用到你的博客中。 学习资源 Hexo 官方文档 Hexo GitHub 仓库  </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/12/latex/" title="LaTeX 学习">LaTeX 学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-12T04:00:00.000Z" title="发表于 2024-08-12 12:00:00">2024-08-12</time></span></div><div class="content">LaTeX 简介LaTeX 是一种基于 TeX 的排版系统，广泛用于学术论文、书籍等的撰写。相比于 Word 等所见即所得的工具，LaTeX 采用标记语言，允许用户通过代码控制排版。 基本语法文档结构123456789101112\documentclass&#123;article&#125;\begin&#123;document&#125;\title&#123;LaTeX 学习&#125;\author&#123;作者姓名&#125;\date&#123;\today&#125;\maketitle\section&#123;引言&#125;这是引言部分。\end&#123;document&#125;  数学公式LaTeX 强大的地方在于其数学公式的支持： 123\begin&#123;equation&#125;E = mc^2\end&#123;equation&#125;  常用包 amsmath ：扩展数学功能 graphicx ：插入图片 hyperref ：生成超链接  学习资源 LaTeX 官方文档 Overleaf 在线 LaTeX 编辑器  </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/12/markdown/" title="Markdown 学习">Markdown 学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-12T04:00:00.000Z" title="发表于 2024-08-12 12:00:00">2024-08-12</time></span></div><div class="content">Markdown 简介Markdown 是一种轻量级标记语言，用于格式化纯文本，尤其适合写作文档、笔记、博客等。 基本语法标题使用 # 来表示标题： 123# 一级标题## 二级标题### 三级标题  列表无序列表使用 - 或 *，有序列表使用数字加点： 12345- 项目 1- 项目 21. 第一点2. 第二点  链接和图片使用 [描述](链接) 来创建链接，使用 ![描述](图片链接) 来插入图片： 12[GitHub](https://github.com)![Logo](https://www.yuanning0818.tk/logo.png)  学习资源 Markdown 官方文档 Markdown Guide  </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/12/rust/" title="Rust 学习指南">Rust 学习指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-12T04:00:00.000Z" title="发表于 2024-08-12 12:00:00">2024-08-12</time></span></div><div class="content">Rust 学习指南目录 Rust 学习指南 目录 前言 Rust 简介 环境搭建 安装 Rust 配置开发工具   Rust 基础语法 变量与常量 数据类型 函数 控制流   所有权与借用 所有权 借用   结构体与枚举 结构体 枚举   模块与包管理 模块 包管理   错误处理 Option 与 Result Panic 与防御性编程   集合类型 向量（Vec） 哈希映射（HashMap）   并发编程 线程 消息传递 共享状态   Rust 实践 命令行工具 Web 开发 嵌入式开发   参考资料    前言欢迎来到 Rust 学习指南！本指南旨在帮助初学者逐步掌握 Rust 编程语言的基础知识及实用技巧。 Rust 简介Rust 是一种专注于性能和安全的系统编程语言，特别强调内存安全。Rust 可以被用来开发命令行工具、Web 服务器、嵌入式系统等各种应用。 环境搭建安装 Rust您可以通过以下命令安装 Rust： 1curl --proto &#x27;=https&#x27; --tlsv1.2 -sSf https://sh.rustup.rs |...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/12/modelsim/" title="ModelSim 学习指南">ModelSim 学习指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-11T16:00:00.000Z" title="发表于 2024-08-12 00:00:00">2024-08-12</time></span></div><div class="content">ModelSim 学习指南使用体验ModelSim 是一个功能强大的仿真工具，然而由于其功能复杂，缺乏好的中文教程，入门时会遇到一些困难，特别是对于初学者来说，摸索的难度较大。 入门思路1. 安装与配置 下载和安装: 从 Mentor Graphics 官网下载 ModelSim 安装包并进行安装。根据系统的不同，选择合适的版本（Windows&#x2F;Linux）。 许可证配置: 如果需要许可证，按照提供的说明进行许可证配置。 环境变量: 在命令行中配置 PATH 变量，将 ModelSim 的安装路径加入到环境变量中。  2. 创建新工程 启动 ModelSim: 打开 ModelSim 软件。 创建新工程: 在菜单栏选择 File -&gt; New -&gt; Project，输入项目名称和保存路径。 在 Project Type 选择 Empty Project，然后点击 OK。   添加源文件: 在新建项目的对话框中点击 Add Existing File 或 Create New File。 如果是创建新文件，选择 HDL 文件类型（如...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/12/xml-json-yml/" title="配置与数据格式学习笔记">配置与数据格式学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-11T16:00:00.000Z" title="发表于 2024-08-12 00:00:00">2024-08-12</time></span></div><div class="content">配置与数据格式学习笔记YAML 基本语法入门指南YAML 是一种简洁且人类可读的数据序列化格式，常用于配置文件和数据交换。在这篇文章中，我们将一步一步地介绍 YAML 的基本语法。 1. 什么是 YAML？YAML 是一种直观的、基于缩进的语言，用来表示数据结构，类似于 JSON 和 XML。它广泛用于配置文件（如 Docker、Kubernetes、Ansible 等工具），因为它更易读和易写。 2. YAML 基本结构键值对 YAML 的基础是键值对，每一对键值之间用冒号 : 隔开： 12name: John Doeage: 30  缩进和层级结构 YAML 使用缩进来表示层级关系。通常使用两个空格进行缩进（Tab 缩进不是标准的做法）： 123456person:  name: John Doe  age: 30  contact:    email: john.doe@example.com    phone: 123-456-7890  列表 使用破折号 - 来表示列表项： 1234fruits:  - Apple  - Orange  -...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="page-number current">5</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Panan13</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">49</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/gentoo%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" title="gentoo安装指南">gentoo安装指南</a><time datetime="2024-09-27T14:33:01.000Z" title="发表于 2024-09-27 22:33:01">2024-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/html5-css3%E5%AD%A6%E4%B9%A0/" title="html5+css3学习">html5+css3学习</a><time datetime="2024-09-24T03:59:58.000Z" title="发表于 2024-09-24 11:59:58">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/ppt%E5%AD%A6%E4%B9%A0/" title="ppt学习">ppt学习</a><time datetime="2024-09-24T03:59:45.000Z" title="发表于 2024-09-24 11:59:45">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/12/test/" title="test">test</a><time datetime="2024-09-12T13:22:50.000Z" title="发表于 2024-09-12 21:22:50">2024-09-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/10/Git-Bash-%E5%92%8C-PowerShell-%E7%9A%84%E5%8C%BA%E5%88%AB/" title="Git Bash 和 PowerShell 的区别">Git Bash 和 PowerShell 的区别</a><time datetime="2024-09-09T16:00:00.000Z" title="发表于 2024-09-10 00:00:00">2024-09-10</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">开发工具</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">技术</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"><span class="card-category-list-name">技术分享</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%A7%A3%E6%9E%90/"><span class="card-category-list-name">技术解析</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"><span class="card-category-list-name">目标检测</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">编程</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/MATLAB/"><span class="card-category-list-name">MATLAB</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/Python/"><span class="card-category-list-name">Python</span><span class="card-category-list-count">1</span></a></li></ul></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Apache/" style="font-size: 1.1em; color: #999">Apache</a> <a href="/tags/ModelSim/" style="font-size: 1.1em; color: #999">ModelSim</a> <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" style="font-size: 1.1em; color: #999">版本控制</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 1.1em; color: #999">开源</a> <a href="/tags/Intel/" style="font-size: 1.1em; color: #999">Intel</a> <a href="/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" style="font-size: 1.1em; color: #999">开发环境</a> <a href="/tags/Testbench/" style="font-size: 1.1em; color: #999">Testbench</a> <a href="/tags/Kubernetes/" style="font-size: 1.1em; color: #999">Kubernetes</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">移动开发</a> <a href="/tags/%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92/" style="font-size: 1.1em; color: #999">容器编排</a> <a href="/tags/YOLO/" style="font-size: 1.1em; color: #999">YOLO</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" style="font-size: 1.1em; color: #999">计算机视觉</a> <a href="/tags/MPL/" style="font-size: 1.1em; color: #999">MPL</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 1.1em; color: #999">云计算</a> <a href="/tags/YAML/" style="font-size: 1.1em; color: #999">YAML</a> <a href="/tags/Bash/" style="font-size: 1.3em; color: #99a1ac">Bash</a> <a href="/tags/Libraries/" style="font-size: 1.1em; color: #999">Libraries</a> <a href="/tags/PowerShell/" style="font-size: 1.1em; color: #999">PowerShell</a> <a href="/tags/MATLAB/" style="font-size: 1.1em; color: #999">MATLAB</a> <a href="/tags/NVIDIA/" style="font-size: 1.1em; color: #999">NVIDIA</a> <a href="/tags/Hexo/" style="font-size: 1.3em; color: #99a1ac">Hexo</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" style="font-size: 1.1em; color: #999">虚拟环境</a> <a href="/tags/Docker/" style="font-size: 1.1em; color: #999">Docker</a> <a href="/tags/BSD/" style="font-size: 1.1em; color: #999">BSD</a> <a href="/tags/%E5%AE%B9%E5%99%A8/" style="font-size: 1.1em; color: #999">容器</a> <a href="/tags/LaTeX/" style="font-size: 1.1em; color: #999">LaTeX</a> <a href="/tags/%E4%BB%BF%E7%9C%9F/" style="font-size: 1.3em; color: #99a1ac">仿真</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 1.1em; color: #999">编码</a> <a href="/tags/Rust/" style="font-size: 1.1em; color: #999">Rust</a> <a href="/tags/linux-gentoo-kde-grub-fstab-openrc/" style="font-size: 1.1em; color: #999">linux gentoo kde grub fstab openrc</a> <a href="/tags/JSON/" style="font-size: 1.1em; color: #999">JSON</a> <a href="/tags/%E8%BD%AC%E6%8D%A2%E5%85%B3%E7%B3%BB/" style="font-size: 1.1em; color: #999">转换关系</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 1.1em; color: #999">性能</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.1em; color: #999">深度学习</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.1em; color: #999">编程语言</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 1.1em; color: #999">跨平台</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 1.1em; color: #999">插件</a> <a href="/tags/VS-Code/" style="font-size: 1.1em; color: #999">VS Code</a> <a href="/tags/%E4%BD%8D/" style="font-size: 1.1em; color: #999">位</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 1.5em; color: #99a9bf">学习</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
       
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://panan13.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
+    <ul class="card-archive-list">
   
-    <article id="post-vscode配置隔离" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/25/vscode%E9%85%8D%E7%BD%AE%E9%9A%94%E7%A6%BB/" class="article-date">
-  <time class="dt-published" datetime="2024-08-24T16:00:00.000Z" itemprop="datePublished">2024-08-25</time>
-</a>
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/09/">
+          <span class="card-archive-list-date">九月 2024</span>
+          <span class="card-archive-list-count">11</span>
+        </a>
+      </li>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/25/vscode%E9%85%8D%E7%BD%AE%E9%9A%94%E7%A6%BB/">在 VS Code 中设置插件互不干扰的技巧</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>在 Visual Studio Code (VS Code) 中，管理和配置插件非常重要，以避免它们之间的相互干扰，从而确保开发环境的高效性和稳定性。本文将介绍几种确保插件互不干扰的措施。</p>
-<h2 id="1-使用工作区配置文件"><a href="#1-使用工作区配置文件" class="headerlink" title="1. 使用工作区配置文件"></a>1. 使用工作区配置文件</h2><p>VS Code 允许为不同的项目创建单独的工作区配置文件，从而在不同的项目中启用不同的插件和设置。</p>
-<h3 id="操作步骤："><a href="#操作步骤：" class="headerlink" title="操作步骤："></a>操作步骤：</h3><ol>
-<li><strong>创建工作区配置</strong>：打开一个项目后，点击菜单栏的 <strong>文件 -&gt; 首选项 -&gt; 设置</strong>，然后点击右上角的文件图标，选择“打开工作区设置”。</li>
-<li><strong>编辑 settings.json</strong>：在 <code>.vscode</code> 文件夹中编辑 <code>settings.json</code> 文件，配置当前项目的特定设置。</li>
-<li><strong>编辑 extensions.json</strong>：在 <code>.vscode</code> 文件夹中编辑 <code>extensions.json</code> 文件，指定当前项目所需的插件。可以通过如下配置来推荐或自动安装插件：</li>
-</ol>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;recommendations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;插件 ID 1&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;插件 ID 2&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-插件隔离（使用不同的用户数据目录）"><a href="#2-插件隔离（使用不同的用户数据目录）" class="headerlink" title="2. 插件隔离（使用不同的用户数据目录）"></a>2. 插件隔离（使用不同的用户数据目录）</h2><p>通过命令行指定不同的用户数据目录，可以在不同的环境中使用不同的插件集，避免插件互相影响。</p>
-<h3 id="操作步骤：-1"><a href="#操作步骤：-1" class="headerlink" title="操作步骤："></a>操作步骤：</h3><ol>
-<li><strong>打开终端</strong>：在你的操作系统中打开终端或命令提示符。</li>
-<li><strong>启动 VS Code 并指定用户数据目录</strong>：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code --user-data-dir <span class="string">&quot;path_to_custom_user_data_directory&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>例如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code --user-data-dir <span class="string">&quot;C:\Users\YourUsername\VSCodeProfile1&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>这样，VS Code 会使用指定的目录存储用户数据和插件，形成独立的环境。</p>
-<h2 id="3-手动禁用不必要的插件"><a href="#3-手动禁用不必要的插件" class="headerlink" title="3. 手动禁用不必要的插件"></a>3. 手动禁用不必要的插件</h2><p>在不需要的项目中，可以手动禁用一些插件，确保它们不会干扰当前的工作。</p>
-<h3 id="操作步骤：-2"><a href="#操作步骤：-2" class="headerlink" title="操作步骤："></a>操作步骤：</h3><ol>
-<li><strong>打开扩展视图</strong>：使用快捷键 <code>Ctrl+Shift+X</code> 或点击侧栏的扩展图标。</li>
-<li><strong>禁用插件</strong>：找到不需要的插件，点击插件详情页的“禁用”按钮。在弹出的选项中，你可以选择“在当前工作区禁用”以避免全局禁用插件。</li>
-</ol>
-<h2 id="4-使用-Remote-Containers-功能"><a href="#4-使用-Remote-Containers-功能" class="headerlink" title="4. 使用 Remote Containers 功能"></a>4. 使用 Remote Containers 功能</h2><p>如果你需要完全隔离的开发环境，可以使用 VS Code 的 Remote Containers 功能。这种方法允许你在 Docker 容器中运行 VS Code，每个容器都有独立的插件环境。</p>
-<h3 id="操作步骤：-3"><a href="#操作步骤：-3" class="headerlink" title="操作步骤："></a>操作步骤：</h3><ol>
-<li><strong>安装 Remote Development 插件</strong>：首先安装 <code>Remote Development</code> 扩展包。</li>
-<li><strong>配置 Remote Containers</strong>：为你的项目创建 <code>.devcontainer</code> 文件夹，并配置 <code>devcontainer.json</code> 文件，定义容器环境及其插件。</li>
-</ol>
-<h2 id="5-配置插件的作用范围"><a href="#5-配置插件的作用范围" class="headerlink" title="5. 配置插件的作用范围"></a>5. 配置插件的作用范围</h2><p>有些插件允许你设置它们的作用范围，使其只在特定的文件类型或语言模式下启用。这可以通过 <code>settings.json</code> 文件来配置。</p>
-<h3 id="示例配置："><a href="#示例配置：" class="headerlink" title="示例配置："></a>示例配置：</h3><p>例如，配置 ESLint 插件只在 JavaScript 文件中启用：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;eslint.enable&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;[javascript]&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;editor.defaultFormatter&quot;</span><span class="punctuation">:</span> <span class="string">&quot;esbenp.prettier-vscode&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="6-使用不同的配置文件"><a href="#6-使用不同的配置文件" class="headerlink" title="6. 使用不同的配置文件"></a>6. 使用不同的配置文件</h2><p>为不同的项目使用不同的 <code>settings.json</code> 文件，可以手动配置每个项目需要加载的插件集。这通常与工作区配置一起使用，确保不同项目的配置不会互相冲突。</p>
-<hr>
-<p>通过以上这些方法，你可以有效地管理和隔离 VS Code 插件，避免它们在不同项目中的相互干扰。这不仅可以提高工作效率，还能确保开发环境的稳定性和一致性。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/25/vscode%E9%85%8D%E7%BD%AE%E9%9A%94%E7%A6%BB/" data-id="cm2ixhdco001w2elw1sf6b8xr" data-title="在 VS Code 中设置插件互不干扰的技巧" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VS-Code/" rel="tag">VS Code</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" rel="tag">开发环境</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag">插件</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-docker" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/12/docker/" class="article-date">
-  <time class="dt-published" datetime="2024-08-12T04:00:00.000Z" itemprop="datePublished">2024-08-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/12/docker/">Docker 学习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Docker-简介"><a href="#Docker-简介" class="headerlink" title="Docker 简介"></a>Docker 简介</h2><p>Docker 是一个开源的容器化平台，它使得开发者能够将应用及其依赖打包到一个轻量级、便携的容器中，从而在不同的环境中高效且一致地运行。</p>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
-<li><strong>镜像（Image）</strong>：Docker 镜像是一个包含应用程序及其所有依赖项的只读模板。</li>
-<li><strong>容器（Container）</strong>：容器是镜像的运行实例，可以启动、停止、移动，并复制。</li>
-<li><strong>Dockerfile</strong>：用于定义镜像内容的脚本，包含了构建镜像的步骤。</li>
-</ul>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull &lt;镜像名&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8080:80 &lt;镜像名&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看运行中的容器"><a href="#查看运行中的容器" class="headerlink" title="查看运行中的容器"></a>查看运行中的容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
-
-<h3 id="停止容器"><a href="#停止容器" class="headerlink" title="停止容器"></a>停止容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop &lt;容器ID&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t &lt;镜像名&gt; .</span><br></pre></td></tr></table></figure>
-
-<h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://docs.docker.com/">Docker 官方文档</a></li>
-<li><a target="_blank" rel="noopener" href="https://hub.docker.com/">Docker Hub 镜像仓库</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/12/docker/" data-id="cm2ixhdcb00092elwa0e16fhd" data-title="Docker 学习" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-git" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/12/git/" class="article-date">
-  <time class="dt-published" datetime="2024-08-12T04:00:00.000Z" itemprop="datePublished">2024-08-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/12/git/">Git 学习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Git-简介"><a href="#Git-简介" class="headerlink" title="Git 简介"></a>Git 简介</h2><p>Git 是一种分布式版本控制系统，用于跟踪代码的变化。它由 Linus Torvalds 开发，并成为了现代软件开发中不可或缺的工具。</p>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-
-<h3 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;仓库地址&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="提交更改"><a href="#提交更改" class="headerlink" title="提交更改"></a>提交更改</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;提交信息&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin main</span><br></pre></td></tr></table></figure>
-
-<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><h3 id="创建新分支"><a href="#创建新分支" class="headerlink" title="创建新分支"></a>创建新分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch &lt;分支名&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout &lt;分支名&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2">Pro Git 书籍</a></li>
-<li><a target="_blank" rel="noopener" href="https://docs.github.com/cn">GitHub 文档</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/12/git/" data-id="cm2ixhdce000h2elwbybj9m4d" data-title="Git 学习" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" rel="tag">版本控制</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hexo" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/12/hexo/" class="article-date">
-  <time class="dt-published" datetime="2024-08-12T04:00:00.000Z" itemprop="datePublished">2024-08-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/12/hexo/">Hexo 学习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Hexo-简介"><a href="#Hexo-简介" class="headerlink" title="Hexo 简介"></a>Hexo 简介</h2><p>Hexo 是一个快速、简洁且功能强大的博客框架。通过 Markdown 文件生成静态网页，适合用于个人博客的搭建。</p>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;文件夹名&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
-
-<h3 id="部署到-GitHub-Pages"><a href="#部署到-GitHub-Pages" class="headerlink" title="部署到 GitHub Pages"></a>部署到 GitHub Pages</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-
-<h2 id="自定义主题"><a href="#自定义主题" class="headerlink" title="自定义主题"></a>自定义主题</h2><p>Hexo 允许用户自定义主题来个性化博客外观。你可以下载、修改主题，并应用到你的博客中。</p>
-<h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://hexo.io/docs/">Hexo 官方文档</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo">Hexo GitHub 仓库</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/12/hexo/" data-id="cm2ixhdce000i2elwg109ao2e" data-title="Hexo 学习" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-latex" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/12/latex/" class="article-date">
-  <time class="dt-published" datetime="2024-08-12T04:00:00.000Z" itemprop="datePublished">2024-08-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/12/latex/">LaTeX 学习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="LaTeX-简介"><a href="#LaTeX-简介" class="headerlink" title="LaTeX 简介"></a>LaTeX 简介</h2><p>LaTeX 是一种基于 TeX 的排版系统，广泛用于学术论文、书籍等的撰写。相比于 Word 等所见即所得的工具，LaTeX 采用标记语言，允许用户通过代码控制排版。</p>
-<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="文档结构"><a href="#文档结构" class="headerlink" title="文档结构"></a>文档结构</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\title</span>&#123;LaTeX 学习&#125;</span><br><span class="line"><span class="keyword">\author</span>&#123;作者姓名&#125;</span><br><span class="line"><span class="keyword">\date</span>&#123;<span class="keyword">\today</span>&#125;</span><br><span class="line"><span class="keyword">\maketitle</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>&#123;引言&#125;</span><br><span class="line">这是引言部分。</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h3><p>LaTeX 强大的地方在于其数学公式的支持：</p>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;</span><br><span class="line">E = mc<span class="built_in">^</span>2</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="常用包"><a href="#常用包" class="headerlink" title="常用包"></a>常用包</h3><ul>
-<li><code>amsmath</code> ：扩展数学功能</li>
-<li><code>graphicx</code> ：插入图片</li>
-<li><code>hyperref</code> ：生成超链接</li>
-</ul>
-<h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.latex-project.org/help/documentation/">LaTeX 官方文档</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.overleaf.com/">Overleaf 在线 LaTeX 编辑器</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/12/latex/" data-id="cm2ixhdch000v2elw5wjv71uz" data-title="LaTeX 学习" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LaTeX/" rel="tag">LaTeX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-markdown" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/12/markdown/" class="article-date">
-  <time class="dt-published" datetime="2024-08-12T04:00:00.000Z" itemprop="datePublished">2024-08-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/12/markdown/">Markdown 学习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Markdown-简介"><a href="#Markdown-简介" class="headerlink" title="Markdown 简介"></a>Markdown 简介</h2><p>Markdown 是一种轻量级标记语言，用于格式化纯文本，尤其适合写作文档、笔记、博客等。</p>
-<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>使用 <code>#</code> 来表示标题：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>无序列表使用 <code>-</code> 或 <code>*</code>，有序列表使用数字加点：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> 项目 1</span><br><span class="line"><span class="bullet">-</span> 项目 2</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 第一点</span><br><span class="line"><span class="bullet">2.</span> 第二点</span><br></pre></td></tr></table></figure>
-
-<h3 id="链接和图片"><a href="#链接和图片" class="headerlink" title="链接和图片"></a>链接和图片</h3><p>使用 <code>[描述](链接)</code> 来创建链接，使用 <code>![描述](图片链接)</code> 来插入图片：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">GitHub</span>](<span class="link">https://github.com</span>)</span><br><span class="line">![<span class="string">Logo</span>](<span class="link">https://www.yuanning0818.tk/logo.png</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://daringfireball.net/projects/markdown/">Markdown 官方文档</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.markdownguide.org/">Markdown Guide</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/12/markdown/" data-id="cm2ixhdci00132elw96m69xhl" data-title="Markdown 学习" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-rust" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/12/rust/" class="article-date">
-  <time class="dt-published" datetime="2024-08-12T04:00:00.000Z" itemprop="datePublished">2024-08-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/12/rust/">Rust 学习指南</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Rust-学习指南"><a href="#Rust-学习指南" class="headerlink" title="Rust 学习指南"></a>Rust 学习指南</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li><a href="#rust-%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97">Rust 学习指南</a><ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
-<li><a href="#rust-%E7%AE%80%E4%BB%8B">Rust 简介</a></li>
-<li><a href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">环境搭建</a><ul>
-<li><a href="#%E5%AE%89%E8%A3%85-rust">安装 Rust</a></li>
-<li><a href="#%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7">配置开发工具</a></li>
-</ul>
-</li>
-<li><a href="#rust-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95">Rust 基础语法</a><ul>
-<li><a href="#%E5%8F%98%E9%87%8F%E4%B8%8E%E5%B8%B8%E9%87%8F">变量与常量</a></li>
-<li><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a></li>
-<li><a href="#%E5%87%BD%E6%95%B0">函数</a></li>
-<li><a href="#%E6%8E%A7%E5%88%B6%E6%B5%81">控制流</a></li>
-</ul>
-</li>
-<li><a href="#%E6%89%80%E6%9C%89%E6%9D%83%E4%B8%8E%E5%80%9F%E7%94%A8">所有权与借用</a><ul>
-<li><a href="#%E6%89%80%E6%9C%89%E6%9D%83">所有权</a></li>
-<li><a href="#%E5%80%9F%E7%94%A8">借用</a></li>
-</ul>
-</li>
-<li><a href="#%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%8E%E6%9E%9A%E4%B8%BE">结构体与枚举</a><ul>
-<li><a href="#%E7%BB%93%E6%9E%84%E4%BD%93">结构体</a></li>
-<li><a href="#%E6%9E%9A%E4%B8%BE">枚举</a></li>
-</ul>
-</li>
-<li><a href="#%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85%E7%AE%A1%E7%90%86">模块与包管理</a><ul>
-<li><a href="#%E6%A8%A1%E5%9D%97">模块</a></li>
-<li><a href="#%E5%8C%85%E7%AE%A1%E7%90%86">包管理</a></li>
-</ul>
-</li>
-<li><a href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86">错误处理</a><ul>
-<li><a href="#option-%E4%B8%8E-result">Option 与 Result</a></li>
-<li><a href="#panic-%E4%B8%8E%E9%98%B2%E5%BE%A1%E6%80%A7%E7%BC%96%E7%A8%8B">Panic 与防御性编程</a></li>
-</ul>
-</li>
-<li><a href="#%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8B">集合类型</a><ul>
-<li><a href="#%E5%90%91%E9%87%8Fvec">向量（Vec）</a></li>
-<li><a href="#%E5%93%88%E5%B8%8C%E6%98%A0%E5%B0%84hashmap">哈希映射（HashMap）</a></li>
-</ul>
-</li>
-<li><a href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B">并发编程</a><ul>
-<li><a href="#%E7%BA%BF%E7%A8%8B">线程</a></li>
-<li><a href="#%E6%B6%88%E6%81%AF%E4%BC%A0%E9%80%92">消息传递</a></li>
-<li><a href="#%E5%85%B1%E4%BA%AB%E7%8A%B6%E6%80%81">共享状态</a></li>
-</ul>
-</li>
-<li><a href="#rust-%E5%AE%9E%E8%B7%B5">Rust 实践</a><ul>
-<li><a href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7">命令行工具</a></li>
-<li><a href="#web-%E5%BC%80%E5%8F%91">Web 开发</a></li>
-<li><a href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91">嵌入式开发</a></li>
-</ul>
-</li>
-<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>欢迎来到 Rust 学习指南！本指南旨在帮助初学者逐步掌握 Rust 编程语言的基础知识及实用技巧。</p>
-<h2 id="Rust-简介"><a href="#Rust-简介" class="headerlink" title="Rust 简介"></a>Rust 简介</h2><p>Rust 是一种专注于性能和安全的系统编程语言，特别强调内存安全。Rust 可以被用来开发命令行工具、Web 服务器、嵌入式系统等各种应用。</p>
-<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="安装-Rust"><a href="#安装-Rust" class="headerlink" title="安装 Rust"></a>安装 Rust</h3><p>您可以通过以下命令安装 Rust：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --proto <span class="string">&#x27;=https&#x27;</span> --tlsv1.2 -sSf https://sh.rustup.rs | sh</span><br></pre></td></tr></table></figure>
-
-<h3 id="配置开发工具"><a href="#配置开发工具" class="headerlink" title="配置开发工具"></a>配置开发工具</h3><p>推荐使用 VS Code 或者 JetBrains CLion 作为开发环境，并安装 Rust 扩展插件以获得更好的编码体验。</p>
-<h2 id="Rust-基础语法"><a href="#Rust-基础语法" class="headerlink" title="Rust 基础语法"></a>Rust 基础语法</h2><h3 id="变量与常量"><a href="#变量与常量" class="headerlink" title="变量与常量"></a>变量与常量</h3><p>Rust 中的变量默认是不可变的，使用 <code>let</code> 关键字声明：</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">x</span> = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
-<p>使用 <code>mut</code> 关键字声明可变变量：</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">y</span> = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>Rust 是静态类型语言，常见的数据类型有整型、浮点型、布尔型和字符型。</p>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>函数使用 <code>fn</code> 关键字定义，支持参数和返回值：</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">add</span>(a: <span class="type">i32</span>, b: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">    a + b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h3><p>Rust 提供了常见的控制流结构，如 <code>if</code>、<code>loop</code>、<code>while</code> 和 <code>for</code> 循环。</p>
-<h2 id="所有权与借用"><a href="#所有权与借用" class="headerlink" title="所有权与借用"></a>所有权与借用</h2><h3 id="所有权"><a href="#所有权" class="headerlink" title="所有权"></a>所有权</h3><p>Rust 中的所有权是一个独特的功能，用于管理内存，防止内存泄漏。</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">s1</span> = <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> <span class="variable">s2</span> = s1; <span class="comment">// s1 的所有权转移到 s2</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="借用"><a href="#借用" class="headerlink" title="借用"></a>借用</h3><p>借用允许您在不转移所有权的情况下访问数据：</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">s1</span> = <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> <span class="variable">len</span> = <span class="title function_ invoke__">calculate_length</span>(&amp;s1); <span class="comment">// 借用 s1</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="结构体与枚举"><a href="#结构体与枚举" class="headerlink" title="结构体与枚举"></a>结构体与枚举</h2><h3 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h3><p>结构体用于创建自定义的数据类型：</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    username: <span class="type">String</span>,</span><br><span class="line">    email: <span class="type">String</span>,</span><br><span class="line">    sign_in_count: <span class="type">u64</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h3><p>枚举可以定义一个类型的多种可能值：</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">Message</span> &#123;</span><br><span class="line">    Quit,</span><br><span class="line">    Move &#123; x: <span class="type">i32</span>, y: <span class="type">i32</span> &#125;,</span><br><span class="line">    <span class="title function_ invoke__">Write</span>(<span class="type">String</span>),</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="模块与包管理"><a href="#模块与包管理" class="headerlink" title="模块与包管理"></a>模块与包管理</h2><h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><p>模块用于组织代码，可以将相关功能放在一起：</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mod</span> front_of_house &#123;</span><br><span class="line">    <span class="keyword">mod</span> hosting &#123;</span><br><span class="line">        <span class="keyword">fn</span> <span class="title function_">add_to_waitlist</span>() &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h3><p>使用 Cargo 管理 Rust 项目及其依赖项，通过 <code>Cargo.toml</code> 文件来定义项目配置。</p>
-<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><h3 id="Option-与-Result"><a href="#Option-与-Result" class="headerlink" title="Option 与 Result"></a>Option 与 Result</h3><p>Rust 使用 <code>Option</code> 和 <code>Result</code> 来处理可能的错误情况：</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">divide</span>(dividend: <span class="type">f64</span>, divisor: <span class="type">f64</span>) <span class="punctuation">-&gt;</span> <span class="type">Option</span>&lt;<span class="type">f64</span>&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> divisor == <span class="number">0.0</span> &#123;</span><br><span class="line">        <span class="literal">None</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="title function_ invoke__">Some</span>(dividend / divisor)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Panic-与防御性编程"><a href="#Panic-与防御性编程" class="headerlink" title="Panic 与防御性编程"></a>Panic 与防御性编程</h3><p>Rust 的 <code>panic!</code> 宏用于在程序遇到不可恢复的错误时立即中止执行。</p>
-<h2 id="集合类型"><a href="#集合类型" class="headerlink" title="集合类型"></a>集合类型</h2><h3 id="向量（Vec）"><a href="#向量（Vec）" class="headerlink" title="向量（Vec）"></a>向量（Vec）</h3><p>向量是一个动态数组，可以存储多个相同类型的元素：</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">v</span>: <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt; = <span class="type">Vec</span>::<span class="title function_ invoke__">new</span>();</span><br></pre></td></tr></table></figure>
-
-<h3 id="哈希映射（HashMap）"><a href="#哈希映射（HashMap）" class="headerlink" title="哈希映射（HashMap）"></a>哈希映射（HashMap）</h3><p>哈希映射是一个键值对集合，类似于字典：</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> std::collections::HashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">scores</span> = HashMap::<span class="title function_ invoke__">new</span>();</span><br><span class="line">scores.<span class="title function_ invoke__">insert</span>(<span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;Blue&quot;</span>), <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="并发编程"><a href="#并发编程" class="headerlink" title="并发编程"></a>并发编程</h2><h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>Rust 支持多线程编程，可以使用 <code>std::thread</code> 模块创建新线程：</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> std::thread;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="variable">handle</span> = thread::<span class="title function_ invoke__">spawn</span>(|| &#123;</span><br><span class="line">    <span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="number">1</span>..<span class="number">10</span> &#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;hi number &#123;&#125; from the spawned thread!&quot;</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">handle.<span class="title function_ invoke__">join</span>().<span class="title function_ invoke__">unwrap</span>();</span><br></pre></td></tr></table></figure>
-
-<h3 id="消息传递"><a href="#消息传递" class="headerlink" title="消息传递"></a>消息传递</h3><p>Rust 提供了通道（Channel）机制，用于在线程间传递消息：</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> std::sync::mpsc;</span><br><span class="line"><span class="keyword">use</span> std::thread;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> (tx, rx) = mpsc::<span class="title function_ invoke__">channel</span>();</span><br><span class="line"></span><br><span class="line">thread::<span class="title function_ invoke__">spawn</span>(<span class="keyword">move</span> || &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">val</span> = <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;hi&quot;</span>);</span><br><span class="line">    tx.<span class="title function_ invoke__">send</span>(val).<span class="title function_ invoke__">unwrap</span>();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="variable">received</span> = rx.<span class="title function_ invoke__">recv</span>().<span class="title function_ invoke__">unwrap</span>();</span><br><span class="line"><span class="built_in">println!</span>(<span class="string">&quot;Got: &#123;&#125;&quot;</span>, received);</span><br></pre></td></tr></table></figure>
-
-<h3 id="共享状态"><a href="#共享状态" class="headerlink" title="共享状态"></a>共享状态</h3><p>Rust 中的共享状态通过 <code>Mutex</code> 和 <code>Arc</code> 来管理多线程间的共享数据。</p>
-<h2 id="Rust-实践"><a href="#Rust-实践" class="headerlink" title="Rust 实践"></a>Rust 实践</h2><h3 id="命令行工具"><a href="#命令行工具" class="headerlink" title="命令行工具"></a>命令行工具</h3><p>Rust 非常适合构建高效的命令行工具，推荐学习 <code>structopt</code> 和 <code>clap</code> 等库。</p>
-<h3 id="Web-开发"><a href="#Web-开发" class="headerlink" title="Web 开发"></a>Web 开发</h3><p>可以使用 Rocket 或 Actix-web 等框架进行 Web 开发。</p>
-<h3 id="嵌入式开发"><a href="#嵌入式开发" class="headerlink" title="嵌入式开发"></a>嵌入式开发</h3><p>Rust 也支持嵌入式系统开发，可以通过 <code>embedded-hal</code> 和 <code>cortex-m</code> 等库进行项目开发。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.rust-lang.org/learn">Rust 官方文档</a></li>
-<li><a target="_blank" rel="noopener" href="https://doc.rust-lang.org/book/">The Rust Programming Language（Rust 编程语言）</a></li>
-<li><a target="_blank" rel="noopener" href="https://doc.rust-lang.org/rust-by-example/">Rust by Example</a></li>
-</ul>
-<hr>
-<p>这个学习指南涵盖了 Rust 的基本概念和实践，您可以根据自己的需求和进度进行深入学习和扩展。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/12/rust/" data-id="cm2ixhdcl001j2elw682i3h6a" data-title="Rust 学习指南" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Rust/" rel="tag">Rust</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-modelsim" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/12/modelsim/" class="article-date">
-  <time class="dt-published" datetime="2024-08-11T16:00:00.000Z" itemprop="datePublished">2024-08-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/12/modelsim/">ModelSim 学习指南</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="ModelSim-学习指南"><a href="#ModelSim-学习指南" class="headerlink" title="ModelSim 学习指南"></a>ModelSim 学习指南</h2><h3 id="使用体验"><a href="#使用体验" class="headerlink" title="使用体验"></a>使用体验</h3><p>ModelSim 是一个功能强大的仿真工具，然而由于其功能复杂，缺乏好的中文教程，入门时会遇到一些困难，特别是对于初学者来说，摸索的难度较大。</p>
-<h3 id="入门思路"><a href="#入门思路" class="headerlink" title="入门思路"></a>入门思路</h3><h4 id="1-安装与配置"><a href="#1-安装与配置" class="headerlink" title="1. 安装与配置"></a>1. 安装与配置</h4><ul>
-<li><strong>下载和安装</strong>: 从 Mentor Graphics 官网下载 ModelSim 安装包并进行安装。根据系统的不同，选择合适的版本（Windows&#x2F;Linux）。</li>
-<li><strong>许可证配置</strong>: 如果需要许可证，按照提供的说明进行许可证配置。</li>
-<li><strong>环境变量</strong>: 在命令行中配置 <code>PATH</code> 变量，将 ModelSim 的安装路径加入到环境变量中。</li>
-</ul>
-<h4 id="2-创建新工程"><a href="#2-创建新工程" class="headerlink" title="2. 创建新工程"></a>2. 创建新工程</h4><ul>
-<li><strong>启动 ModelSim</strong>: 打开 ModelSim 软件。</li>
-<li><strong>创建新工程</strong>:<ul>
-<li>在菜单栏选择 <code>File -&gt; New -&gt; Project</code>，输入项目名称和保存路径。</li>
-<li>在 <code>Project Type</code> 选择 <code>Empty Project</code>，然后点击 <code>OK</code>。</li>
-</ul>
-</li>
-<li><strong>添加源文件</strong>:<ul>
-<li>在新建项目的对话框中点击 <code>Add Existing File</code> 或 <code>Create New File</code>。</li>
-<li>如果是创建新文件，选择 HDL 文件类型（如 Verilog&#x2F;VHDL），输入文件名并开始编写代码。</li>
-</ul>
-</li>
-</ul>
-<h4 id="3-编写-HDL-代码"><a href="#3-编写-HDL-代码" class="headerlink" title="3. 编写 HDL 代码"></a>3. 编写 HDL 代码</h4><p>在新建的文件中编写 Verilog 或 VHDL 代码。以下是一个简单的 Verilog 代码示例：</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> and_gate (</span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">wire</span> a,</span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">wire</span> b,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">wire</span> y</span><br><span class="line">);</span><br><span class="line">    <span class="keyword">assign</span> y = a &amp; b;</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-<p>编写完成后保存文件。</p>
-<h4 id="4-编译"><a href="#4-编译" class="headerlink" title="4. 编译"></a>4. 编译</h4><ul>
-<li><strong>添加编译库</strong>: 在项目中右键点击 <code>Library</code>，选择 <code>Add New</code> 创建一个新的编译库（如 <code>work</code>）。</li>
-<li><strong>编译设计</strong>: 在菜单栏选择 <code>Compile -&gt; Compile All</code>，或者右键点击源文件选择 <code>Compile</code>，确保代码无误并成功编译。</li>
-</ul>
-<h4 id="5-创建仿真文件"><a href="#5-创建仿真文件" class="headerlink" title="5. 创建仿真文件"></a>5. 创建仿真文件</h4><ul>
-<li><strong>创建测试平台</strong>: 在同一个工程中，创建一个新的文件用于仿真测试，通常命名为 <code>*_tb</code>。</li>
-<li><strong>编写测试平台</strong>: 在测试平台中实例化待测模块，并编写激励信号。</li>
-</ul>
-<p>以下是一个简单的 Verilog 测试平台代码示例：</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> and_gate_tb;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">reg</span> a;</span><br><span class="line">    <span class="keyword">reg</span> b;</span><br><span class="line">    <span class="keyword">wire</span> y;</span><br><span class="line"></span><br><span class="line">    and_gate uut (</span><br><span class="line">        <span class="variable">.a</span>(a),</span><br><span class="line">        <span class="variable">.b</span>(b),</span><br><span class="line">        <span class="variable">.y</span>(y)</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">initial</span> <span class="keyword">begin</span></span><br><span class="line">        a = <span class="number">0</span>; b = <span class="number">0</span>;</span><br><span class="line">        #<span class="number">10</span>; a = <span class="number">0</span>; b = <span class="number">1</span>;</span><br><span class="line">        #<span class="number">10</span>; a = <span class="number">1</span>; b = <span class="number">0</span>;</span><br><span class="line">        #<span class="number">10</span>; a = <span class="number">1</span>; b = <span class="number">1</span>;</span><br><span class="line">        #<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="6-运行仿真"><a href="#6-运行仿真" class="headerlink" title="6. 运行仿真"></a>6. 运行仿真</h4><ul>
-<li><strong>加载设计</strong>: 在 ModelSim 中选择 <code>Simulate -&gt; Start Simulation</code>，在弹出的对话框中选择你的测试平台。</li>
-<li><strong>添加波形窗口</strong>: 在仿真界面选择 <code>View -&gt; Signals</code>，并将信号拖入波形窗口。</li>
-<li><strong>运行仿真</strong>: 点击仿真控制栏中的 <code>Run</code> 或者在命令行中输入 <code>run 100ns</code> 来运行仿真。</li>
-<li><strong>查看波形</strong>: 仿真结束后，可以在波形窗口中查看信号的变化，验证设计是否正确。</li>
-</ul>
-<h3 id="调试与优化"><a href="#调试与优化" class="headerlink" title="调试与优化"></a>调试与优化</h3><ul>
-<li><strong>设置断点</strong>: 可以在代码中设置断点，在仿真过程中暂停并检查特定时间点的信号状态。</li>
-<li><strong>查看信号</strong>: 在波形窗口中，可以放大&#x2F;缩小时间轴，查看信号在不同时间点的状态。</li>
-<li><strong>调试脚本</strong>: 使用 <code>do</code> 脚本可以自动化仿真过程，将重复的命令记录到脚本中，方便以后的调试工作。</li>
-</ul>
-<h3 id="导出结果"><a href="#导出结果" class="headerlink" title="导出结果"></a>导出结果</h3><ul>
-<li><strong>保存波形</strong>: 可以将仿真的波形数据保存为 <code>.wlf</code> 文件，以便以后再次查看。</li>
-<li><strong>生成报告</strong>: 仿真结束后，可以生成日志文件，记录仿真过程中的所有输出信息。</li>
-</ul>
-<h3 id="常见问题与解决"><a href="#常见问题与解决" class="headerlink" title="常见问题与解决"></a>常见问题与解决</h3><ul>
-<li><strong>仿真速度慢</strong>: 可以使用 <code>vsim</code> 命令行参数，如 <code>-c</code>（控制台模式）加快仿真速度。</li>
-<li><strong>编译错误</strong>: 检查代码语法，确保正确地声明了所有信号，并将所有源文件添加到项目中。</li>
-<li><strong>中文乱码问题</strong>: 在 <code>tools\preference\source\encoding</code> 中将编码改为 <code>gb2312</code>。</li>
-<li><strong>Linux下注意事项</strong>: 终端一定要打开。</li>
-</ul>
-<h3 id="ModelSim-使用总结"><a href="#ModelSim-使用总结" class="headerlink" title="ModelSim 使用总结"></a>ModelSim 使用总结</h3><ol>
-<li><strong>新建 Project</strong>: 打开 ModelSim，选择 <code>File &gt; New &gt; Project</code>，创建一个新的项目。为项目命名并选择存储路径，点击 <code>OK</code> 进入下一步。</li>
-<li><strong>设置 Workspace</strong>: 创建项目后，可以选择添加已有的设计文件或新建文件。</li>
-<li><strong>新建 File</strong>: 如果选择新建文件，可以从 Verilog 文件（<code>.v</code>）、VHDL 文件（<code>.vhd</code>）、Testbench 文件等选项中进行选择。</li>
-<li><strong>编译设计文件</strong>: 文件添加到项目后，右键点击文件名并选择 <code>Compile</code>。或者，点击 <code>Compile &gt; Compile All</code> 以编译整个项目。</li>
-<li><strong>添加库路径</strong>: 在 <code>Library</code> 选项卡中添加正确的库路径，确保模拟器能够正确找到设计文件的库路径。</li>
-<li><strong>仿真</strong>: 选择需要仿真的顶层模块，右键点击并选择 <code>Simulate</code>，设置仿真时间，点击 <code>Run</code> 开始仿真，通过波形窗口查看仿真结果。</li>
-</ol>
-<hr>
-<p><strong>注意</strong>: ModelSim 软件功能强大，但也存在一些使用上的不便，时而好用时而难用，因此在使用过程中可能会遇到一些挫折。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/12/modelsim/" data-id="cm2ixhdcj00162elwg6flb7ip" data-title="ModelSim 学习指南" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ModelSim/" rel="tag">ModelSim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%BF%E7%9C%9F/" rel="tag">仿真</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-xml-json-yml" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/12/xml-json-yml/" class="article-date">
-  <time class="dt-published" datetime="2024-08-11T16:00:00.000Z" itemprop="datePublished">2024-08-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/12/xml-json-yml/">配置与数据格式学习笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="配置与数据格式学习笔记"><a href="#配置与数据格式学习笔记" class="headerlink" title="配置与数据格式学习笔记"></a>配置与数据格式学习笔记</h2><h3 id="YAML-基本语法入门指南"><a href="#YAML-基本语法入门指南" class="headerlink" title="YAML 基本语法入门指南"></a>YAML 基本语法入门指南</h3><p>YAML 是一种简洁且人类可读的数据序列化格式，常用于配置文件和数据交换。在这篇文章中，我们将一步一步地介绍 YAML 的基本语法。</p>
-<h4 id="1-什么是-YAML？"><a href="#1-什么是-YAML？" class="headerlink" title="1. 什么是 YAML？"></a>1. 什么是 YAML？</h4><p>YAML 是一种直观的、基于缩进的语言，用来表示数据结构，类似于 JSON 和 XML。它广泛用于配置文件（如 Docker、Kubernetes、Ansible 等工具），因为它更易读和易写。</p>
-<h4 id="2-YAML-基本结构"><a href="#2-YAML-基本结构" class="headerlink" title="2. YAML 基本结构"></a>2. YAML 基本结构</h4><p><strong>键值对</strong></p>
-<p>YAML 的基础是键值对，每一对键值之间用冒号 <code>:</code> 隔开：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">John</span> <span class="string">Doe</span></span><br><span class="line"><span class="attr">age:</span> <span class="number">30</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>缩进和层级结构</strong></p>
-<p>YAML 使用缩进来表示层级关系。通常使用两个空格进行缩进（Tab 缩进不是标准的做法）：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">person:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">John</span> <span class="string">Doe</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">30</span></span><br><span class="line">  <span class="attr">contact:</span></span><br><span class="line">    <span class="attr">email:</span> <span class="string">john.doe@example.com</span></span><br><span class="line">    <span class="attr">phone:</span> <span class="number">123</span><span class="number">-456</span><span class="number">-7890</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>列表</strong></p>
-<p>使用破折号 <code>-</code> 来表示列表项：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">fruits:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Apple</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Orange</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Banana</span></span><br></pre></td></tr></table></figure>
-
-<p>等同于：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">fruits:</span> [<span class="string">Apple</span>, <span class="string">Orange</span>, <span class="string">Banana</span>]</span><br></pre></td></tr></table></figure>
-
-<p><strong>字典（Map）</strong></p>
-<p>字典是一组键值对，表示为嵌套的层级结构：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">person:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">John</span> <span class="string">Doe</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">30</span></span><br><span class="line">  <span class="attr">address:</span></span><br><span class="line">    <span class="attr">street:</span> <span class="number">123</span> <span class="string">Main</span> <span class="string">St</span></span><br><span class="line">    <span class="attr">city:</span> <span class="string">Anytown</span></span><br><span class="line">    <span class="attr">zip:</span> <span class="number">12345</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3-注释"><a href="#3-注释" class="headerlink" title="3. 注释"></a>3. 注释</h4><p>在 YAML 文件中，使用 <code>#</code> 来添加注释：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这是一个注释</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">John</span> <span class="string">Doe</span>  <span class="comment"># 键值对旁边的注释</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="4-数据类型"><a href="#4-数据类型" class="headerlink" title="4. 数据类型"></a>4. 数据类型</h4><p><strong>字符串</strong></p>
-<p>字符串可以用引号包裹，也可以不使用引号：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">single:</span> <span class="string">&#x27;这是一个单引号字符串&#x27;</span></span><br><span class="line"><span class="attr">double:</span> <span class="string">&quot;这是一个双引号字符串&quot;</span></span><br><span class="line"><span class="attr">no_quotes:</span> <span class="string">无引号字符串</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>数值</strong></p>
-<p>数值可以是整数或浮点数：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">integer:</span> <span class="number">42</span></span><br><span class="line"><span class="attr">float:</span> <span class="number">3.14</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>布尔值</strong></p>
-<p>布尔值可以用 <code>true</code>&#x2F;<code>false</code> 或 <code>yes</code>&#x2F;<code>no</code> 表示：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">is_active:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">is_admin:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">is_verified:</span> <span class="literal">yes</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>日期</strong></p>
-<p>日期可以直接写在 YAML 文件中：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">birthday:</span> <span class="number">2024-08-12</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="JSON-入门教程"><a href="#JSON-入门教程" class="headerlink" title="JSON 入门教程"></a>JSON 入门教程</h3><p>JSON（JavaScript Object Notation） 是一种轻量级的数据交换格式。它易于人阅读和编写，同时也易于机器解析和生成。JSON 是独立于语言的，意味着不仅限于 JavaScript，它在很多编程语言中都有支持。</p>
-<h4 id="1-JSON-的基本语法"><a href="#1-JSON-的基本语法" class="headerlink" title="1. JSON 的基本语法"></a>1. JSON 的基本语法</h4><p>JSON 数据是由键值对组成的。它有以下几个基本的语法元素：</p>
-<ul>
-<li><strong>对象（Object）</strong> : 使用大括号 <code>&#123;&#125;</code> 包含，内部包含一个或多个键值对（键和值之间使用冒号 <code>:</code> 分隔，键值对之间用逗号 <code>,</code> 分隔）。</li>
-<li><strong>数组（Array）</strong> : 使用方括号 <code>[]</code> 包含，内部包含一个或多个值，值之间使用逗号 <code>,</code> 分隔。</li>
-<li><strong>值（Value）</strong> : 可以是字符串、数值、布尔值、对象、数组或 <code>null</code>。</li>
-</ul>
-<p>示例：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Alice&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;age&quot;</span><span class="punctuation">:</span> <span class="number">25</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;isStudent&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;courses&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;Mathematics&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Physics&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Computer Science&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;city&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Beijing&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;postalCode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;100000&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;phoneNumbers&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">null</span></span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-JSON-与-JavaScript-的关系"><a href="#2-JSON-与-JavaScript-的关系" class="headerlink" title="2. JSON 与 JavaScript 的关系"></a>2. JSON 与 JavaScript 的关系</h4><ul>
-<li>JSON 中的键必须使用双引号 <code>&quot;&quot;</code> 括起来，而 JavaScript 对象中不要求键必须使用引号。</li>
-<li>JSON 不支持函数、日期对象等 JavaScript 特有的数据类型。</li>
-</ul>
-<h4 id="3-在-JavaScript-中使用-JSON"><a href="#3-在-JavaScript-中使用-JSON" class="headerlink" title="3. 在 JavaScript 中使用 JSON"></a>3. 在 JavaScript 中使用 JSON</h4><p>JavaScript 提供了两个方法来处理 JSON 数据：</p>
-<ul>
-<li><code>JSON.stringify()</code> ：将 JavaScript 对象转换为 JSON 字符串。</li>
-<li><code>JSON.parse()</code> ：将 JSON 字符串解析为 JavaScript 对象。</li>
-</ul>
-<p>示例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> student = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;Alice&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">25</span>,</span><br><span class="line">  <span class="attr">isStudent</span>: <span class="literal">true</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> jsonString = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(student);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jsonString); </span><br><span class="line"><span class="comment">// 输出: &#123;&quot;name&quot;:&quot;Alice&quot;,&quot;age&quot;:25,&quot;isStudent&quot;:true&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> jsonObject = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(jsonString);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jsonObject.<span class="property">name</span>); </span><br><span class="line"><span class="comment">// 输出: Alice</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="XML-语法介绍"><a href="#XML-语法介绍" class="headerlink" title="XML 语法介绍"></a>XML 语法介绍</h3><p>XML 是一种广泛用于数据传输和存储的标记语言。它的结构严谨且易于解析，常用于配置文件、文档和数据交换格式。</p>
-<h4 id="1-XML-文档结构"><a href="#1-XML-文档结构" class="headerlink" title="1. XML 文档结构"></a>1. XML 文档结构</h4><p>一个标准的 XML 文档由两部分组成：声明部分和元素部分。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- XML 内容 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>XML 声明</strong>：是 XML 的声明部分，用于指定 XML 版本和字符编码。</li>
-<li><strong>根元素</strong>：每个 XML 文档必须包含一个根元素，所有其他元素都是这个根元素的子元素。</li>
-</ul>
-<h4 id="2-元素（Element）"><a href="#2-元素（Element）" class="headerlink" title="2. 元素（Element）"></a>2. 元素（Element）</h4><p>元素是 XML 的基本构成单元。每个元素使用一对标签（开始标签和结束标签）包围内容。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>Alice<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3-属性（Attribute）"><a href="#3-属性（Attribute）" class="headerlink" title="3. 属性（Attribute）"></a>3. 属性（Attribute）</h4><p>XML 元素可以包含属性，用于提供附加信息。属性以键值对的形式出现在开始标签内。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">student</span> <span class="attr">name</span>=<span class="string">&quot;Alice&quot;</span> <span class="attr">age</span>=<span class="string">&quot;25&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">student</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="4-嵌套元素（Nested-Elements）"><a href="#4-嵌套元素（Nested-Elements）" class="headerlink" title="4. 嵌套元素（Nested Elements）"></a>4. 嵌套元素（Nested Elements）</h4><p>XML 元素可以包含其他元素，构成了 XML 文档的层次结构。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">address</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">street</span>&gt;</span>123 Main St<span class="tag">&lt;/<span class="name">street</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">city</span>&gt;</span>Beijing<span class="tag">&lt;/<span class="name">city</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">postalCode</span>&gt;</span>100000<span class="tag">&lt;/<span class="name">postalCode</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">address</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="5-空元素（Empty-Element）"><a href="#5-空元素（Empty-Element）" class="headerlink" title="5. 空元素（Empty Element）"></a>5. 空元素（Empty Element）</h4><p>有些元素不包含内容，可以使用自闭合标签。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">lineBreak</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="6-注释（Comments）"><a href="#6-注释（Comments）" class="headerlink" title="6. 注释（Comments）"></a>6. 注释（Comments）</h4><p>XML 中的注释使用 <code>&lt;!-- --&gt;</code> 包围。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 这是一个注释 --&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="7-CDATA-区域"><a href="#7-CDATA-区域" class="headerlink" title="7. CDATA 区域"></a>7. CDATA 区域</h4><p>CDATA（Character Data，字符数据）用于包含不被 XML 解析器解析的文本数据。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">message</span>&gt;</span>&lt;![CDATA[This is a &lt;CDATA&gt; section.]]&gt;<span class="tag">&lt;/<span class="name">message</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="部署和使用"><a href="#部署和使用" class="headerlink" title="部署和使用"></a>部署和使用</h3><ol>
-<li><p><strong>将 Markdown 文件保存到 Hexo 博客</strong>：</p>
-<ul>
-<li>将上述内容复制到一个新的 Markdown 文件中，比如 <code>source/_posts/data-format-study.md</code>。</li>
-</ul>
-</li>
-<li><p><strong>生成和部署博客</strong>：</p>
-<ul>
-<li>在你的 Hexo 项目根目录中，运行以下命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p><strong>查看博客</strong>：</p>
-<ul>
-<li>部署完成后，在浏览器中查看你的网站，应该能够看到新添加的 YAML、JSON、XML 学习笔记。</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://yaml.org/">YAML 官方文档</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.json.org/">JSON 官方文档</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.w3.org/XML/">XML 官方文档</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/12/xml-json-yml/" data-id="cm2ixhdco001y2elw0916ej4m" data-title="配置与数据格式学习笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSON/" rel="tag">JSON</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YAML/" rel="tag">YAML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%A7%A3%E6%9E%90/">技术解析</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/">目标检测</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/MATLAB/">MATLAB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/Python/">Python</a></li></ul></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AMD/" rel="tag">AMD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BSD/" rel="tag">BSD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/" rel="tag">Bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dart/" rel="tag">Dart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPL/" rel="tag">GPL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intel/" rel="tag">Intel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/" rel="tag">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/" rel="tag">Java, 项目结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaTeX/" rel="tag">LaTeX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Libraries/" rel="tag">Libraries</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MATLAB/" rel="tag">MATLAB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MIT/" rel="tag">MIT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MPL/" rel="tag">MPL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ModelSim/" rel="tag">ModelSim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NVIDIA/" rel="tag">NVIDIA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rust/" rel="tag">Rust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Testbench/" rel="tag">Testbench</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Code/" rel="tag">VS Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Verilog/" rel="tag">Verilog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/YAML/" rel="tag">YAML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/YOLO/" rel="tag">YOLO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/conda/" rel="tag">conda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-gentoo-kde-grub-fstab-openrc/" rel="tag">linux gentoo kde grub fstab openrc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pip/" rel="tag">pip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" rel="tag">云计算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%BF%E7%9C%9F/" rel="tag">仿真</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%8D/" rel="tag">位</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%8F%E8%AE%AE/" rel="tag">协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E8%8A%82/" rel="tag">字节</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%98%E5%82%A8%E7%B1%BB%E5%9E%8B/" rel="tag">存储类型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92/" rel="tag">容器编排</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" rel="tag">开发指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" rel="tag">开发环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90/" rel="tag">开源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD/" rel="tag">性能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%98%BE%E5%8D%A1/" rel="tag">显卡</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" rel="tag">版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E4%BB%B6%E5%88%86%E6%9E%90/" rel="tag">硬件分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" rel="tag">移动开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A0%81/" rel="tag">编码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="tag">编程语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" rel="tag">虚拟环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" rel="tag">计算机视觉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" rel="tag">跨平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91/" rel="tag">跨平台开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E6%8D%A2%E5%85%B3%E7%B3%BB/" rel="tag">转换关系</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90/" rel="tag">软件分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" rel="tag">逆向工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%9F%E5%BA%A6%E6%AF%94%E8%BE%83/" rel="tag">速度比较</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/BSD/" style="font-size: 10px;">BSD</a> <a href="/tags/Bash/" style="font-size: 13.33px;">Bash</a> <a href="/tags/Dart/" style="font-size: 10px;">Dart</a> <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/Flutter/" style="font-size: 13.33px;">Flutter</a> <a href="/tags/GPL/" style="font-size: 10px;">GPL</a> <a href="/tags/Git/" style="font-size: 16.67px;">Git</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/Intel/" style="font-size: 10px;">Intel</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/Java-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">Java, 项目结构</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a> <a href="/tags/Libraries/" style="font-size: 10px;">Libraries</a> <a href="/tags/MATLAB/" style="font-size: 10px;">MATLAB</a> <a href="/tags/MIT/" style="font-size: 10px;">MIT</a> <a href="/tags/MPL/" style="font-size: 10px;">MPL</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/ModelSim/" style="font-size: 10px;">ModelSim</a> <a href="/tags/NVIDIA/" style="font-size: 10px;">NVIDIA</a> <a href="/tags/PowerShell/" style="font-size: 10px;">PowerShell</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/Testbench/" style="font-size: 10px;">Testbench</a> <a href="/tags/VS-Code/" style="font-size: 10px;">VS Code</a> <a href="/tags/Verilog/" style="font-size: 10px;">Verilog</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/YAML/" style="font-size: 10px;">YAML</a> <a href="/tags/YOLO/" style="font-size: 10px;">YOLO</a> <a href="/tags/conda/" style="font-size: 10px;">conda</a> <a href="/tags/linux-gentoo-kde-grub-fstab-openrc/" style="font-size: 10px;">linux gentoo kde grub fstab openrc</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">云计算</a> <a href="/tags/%E4%BB%BF%E7%9C%9F/" style="font-size: 13.33px;">仿真</a> <a href="/tags/%E4%BD%8D/" style="font-size: 10px;">位</a> <a href="/tags/%E5%8D%8F%E8%AE%AE/" style="font-size: 10px;">协议</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%AD%97%E8%8A%82/" style="font-size: 10px;">字节</a> <a href="/tags/%E5%AD%98%E5%82%A8%E7%B1%BB%E5%9E%8B/" style="font-size: 10px;">存储类型</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 20px;">学习</a> <a href="/tags/%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">容器</a> <a href="/tags/%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92/" style="font-size: 10px;">容器编排</a> <a href="/tags/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" style="font-size: 10px;">开发指南</a> <a href="/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" style="font-size: 10px;">开发环境</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 10px;">开源</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 10px;">性能</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">插件</a> <a href="/tags/%E6%98%BE%E5%8D%A1/" style="font-size: 10px;">显卡</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" style="font-size: 10px;">版本控制</a> <a href="/tags/%E7%A1%AC%E4%BB%B6%E5%88%86%E6%9E%90/" style="font-size: 10px;">硬件分析</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" style="font-size: 10px;">移动开发</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 10px;">编码</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 16.67px;">编程</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">编程语言</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" style="font-size: 10px;">虚拟环境</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" style="font-size: 10px;">计算机视觉</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">跨平台</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91/" style="font-size: 10px;">跨平台开发</a> <a href="/tags/%E8%BD%AC%E6%8D%A2%E5%85%B3%E7%B3%BB/" style="font-size: 10px;">转换关系</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90/" style="font-size: 10px;">软件分析</a> <a href="/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">逆向工程</a> <a href="/tags/%E9%80%9F%E5%BA%A6%E6%AF%94%E8%BE%83/" style="font-size: 10px;">速度比较</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/09/27/gentoo%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">gentoo安装指南</a>
-          </li>
-        
-          <li>
-            <a href="/2024/09/24/html5-css3%E5%AD%A6%E4%B9%A0/">html5+css3学习</a>
-          </li>
-        
-          <li>
-            <a href="/2024/09/24/ppt%E5%AD%A6%E4%B9%A0/">ppt学习</a>
-          </li>
-        
-          <li>
-            <a href="/2024/09/12/test/">test</a>
-          </li>
-        
-          <li>
-            <a href="/2024/09/10/Git-Bash-%E5%92%8C-PowerShell-%E7%9A%84%E5%8C%BA%E5%88%AB/">Git Bash 和 PowerShell 的区别</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2024 Panan13<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/08/">
+          <span class="card-archive-list-date">八月 2024</span>
+          <span class="card-archive-list-count">38</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">49</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-10-24T15:14:38.889Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By Panan13</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

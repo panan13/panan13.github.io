@@ -1,1259 +1,174 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>My Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>My Blog</title><meta name="author" content="Panan13"><meta name="copyright" content="Panan13"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="My Blog">
 <meta property="og:url" content="https://panan13.github.io/page/4/index.html">
 <meta property="og:site_name" content="My Blog">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://panan13.github.io/img/butterfly-icon.png">
 <meta property="article:author" content="Panan13">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="My Blog" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="https://panan13.github.io/img/butterfly-icon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://panan13.github.io/page/4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
 
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
   
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
   
-  
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">My Blog</a>
-      </h1>
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'My Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-10-24 23:14:38'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">My Blog</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">My Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/25/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" title="通信原理">通信原理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-25T14:47:04.000Z" title="发表于 2024-08-25 22:47:04">2024-08-25</time></span></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/25/%E9%9A%8F%E6%9C%BA%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/" title="随机信号分析">随机信号分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-25T14:46:52.000Z" title="发表于 2024-08-25 22:46:52">2024-08-25</time></span></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/25/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" title="数字信号处理">数字信号处理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-25T14:46:41.000Z" title="发表于 2024-08-25 22:46:41">2024-08-25</time></span></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/25/kali-linux%E5%90%8D%E8%A8%80/" title="kali linux名言">kali linux名言</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-25T13:57:20.000Z" title="发表于 2024-08-25 21:57:20">2024-08-25</time></span></div><div class="content">Kali Linux 的名言之一是：“The quieter you become, the more you are able to hear.“翻译成中文为：“你越安静，你就越能够听见。“这句话不仅适用于网络安全和渗透测试的领域，也反映了黑客文化中强调谨慎、观察和学习的精神。这种态度在渗透测试和安全研究中尤为重要，提醒人们要保持低调和专注，才能更深入地了解系统和环境。</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" title="数学建模">数学建模</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-25T13:21:49.000Z" title="发表于 2024-08-25 21:21:49">2024-08-25</time></span></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/25/linux%E4%B8%8B%E7%9A%84%E8%A7%A3%E5%8E%8B%E5%91%BD%E4%BB%A4/" title="linux下的解压命令">linux下的解压命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-25T13:01:46.000Z" title="发表于 2024-08-25 21:01:46">2024-08-25</time></span></div><div class="content">tar 文件解压 .tar 文件到指定目录1tar -xvf filename.tar -C /path/to/destination/  解压 .tar.gz 文件到指定目录1tar -xzvf filename.tar.gz -C /path/to/destination/  解压 .tar.bz2 文件到指定目录1tar -xjvf filename.tar.bz2 -C /path/to/destination/  解压 .tar.xz 文件到指定目录1tar -xJvf filename.tar.xz -C /path/to/destination/  zip 文件解压 .zip 文件到指定目录1unzip filename.zip -d /path/to/destination/  rar 文件解压 .rar 文件到指定目录1unrar x filename.rar /path/to/destination/  gz 文件解压 .gz 文件到指定目录对于 .gz...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/25/FPGA%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/" title="FPGA 相关总结">FPGA 相关总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-24T16:00:00.000Z" title="发表于 2024-08-25 00:00:00">2024-08-25</time></span></div><div class="content">1. Zynq 7000 SoC (字数: 300)Zynq 7000 SoC 是由 Xilinx 推出的一种高度集成的片上系统 (SoC)，结合了 ARM Cortex-A9 双核处理系统 (PS) 和可编程逻辑 (PL)。这种架构允许在一个芯片上同时实现软件处理和硬件加速。PS 部分负责执行操作系统、应用程序和管理片上外设，PL 部分则用于实现自定义的硬件逻辑，如信号处理、加密解密等。Zynq 7000 系列广泛应用于工业自动化、通信系统和嵌入式系统中，提供了软硬件协同设计的高灵活性和高性能计算能力。通过 PS 和 PL 的结合，用户可以设计和实现复杂的嵌入式系统，并且在运行时动态调整硬件配置，以适应不同的应用需求。 2. PL (Programmable Logic) (字数: 300)可编程逻辑 (PL) 是 Zynq SoC 中用于实现自定义硬件功能的部分。PL 的核心包括查找表 (LUT)、触发器、存储器块和可编程互连，这些组件可以组合成复杂的逻辑功能。PL 的可编程性使得 FPGA 可以灵活地适应各种应用需求，用户可以通过硬件描述语言 (HDL)...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/25/FPGA-%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93%E6%A1%86%E6%9E%B6/" title="FPGA 相关总结框架">FPGA 相关总结框架</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-24T16:00:00.000Z" title="发表于 2024-08-25 00:00:00">2024-08-25</time></span></div><div class="content">Zynq 7000 SoC (字数: 300)核心架构 ARM Cortex-A9 双核处理系统：负责执行操作系统和应用程序，提供处理能力。 **可编程逻辑 (PL)**：用于实现自定义硬件逻辑，如信号处理和硬件加速。  功能模块 PS（Processing System）：管理片上外设，通过操作系统进行软件处理。 PL（Programmable Logic）：实现硬件加速和自定义逻辑。  应用领域 工业自动化：用于控制系统和自动化设备。 通信系统：用于处理数据流和信号处理任务。 嵌入式系统：广泛应用于需要高灵活性和高性能的系统中。  PL (Programmable Logic) (字数: 300)主要组成部分 **查找表 (LUT)**：用于实现逻辑函数的核心组件。 触发器：用于存储和传递数据的基本单元。 存储器块：用于数据存储和缓存。 可编程互连：连接各逻辑单元，形成复杂的电路结构。  可编程性 灵活性：适应各种应用需求，能够快速调整设计。 HDL...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/25/testbench/" title="Verilog 仿真 Testbench 的书写指南">Verilog 仿真 Testbench 的书写指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-24T16:00:00.000Z" title="发表于 2024-08-25 00:00:00">2024-08-25</time></span></div><div class="content">1. 定义模块首先，你需要定义你要测试的设计模块。比如，一个简单的与门模块可以定义如下： 1234567module and_gate (    input wire a,    input wire b,    output wire y);    assign y = a &amp; b;endmodule  2. 创建 Testbench 模块Testbench 是一个独立的 Verilog 模块，用于模拟和测试设计模块的行为。它没有任何输入或输出端口，主要负责生成测试信号，并监视设计模块的输出。 123456789101112131415161718192021222324252627282930313233343536module and_gate_tb;    // 定义 Testbench 中的寄存器和线    reg a;    reg b;    wire y;    // 实例化需要测试的模块    and_gate uut (        .a(a),         .b(b),         .y(y)    );    // 初始化输入信号   ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/25/verilog%E6%9D%82%E8%B0%88/" title="Verilog 中的数值表示方法与运算符">Verilog 中的数值表示方法与运算符</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-24T16:00:00.000Z" title="发表于 2024-08-25 00:00:00">2024-08-25</time></span></div><div class="content">Verilog 中的数值表示方法二进制 (Binary)使用前缀 b 或 B，并以 数字&#39; 开头。 示例: 14&#x27;b1010 // 表示4位的二进制数1010  八进制 (Octal)使用前缀 o 或 O，并以 数字&#39; 开头。 示例: 14&#x27;o12 // 表示4位的八进制数12（对应二进制为1010）  十进制 (Decimal)直接使用数字，或者用 d 或 D 前缀。 示例: 14&#x27;d10 // 表示十进制数10  十六进制 (Hexadecimal)使用前缀 h 或 H，并以 数字&#39; 开头。 示例: 14&#x27;hA // 表示4位的十六进制数A（对应二进制为1010）  Verilog 中的运算符算术运算符 + : 加法 - : 减法 * : 乘法 / : 除法 % : 取模  比较运算符 == : 相等 != : 不等 &lt; : 小于 &lt;= : 小于等于 &gt; : 大于 &gt;= : 大于等于  逻辑运算符 &amp;&amp; : 逻辑与 || : 逻辑或 ! :...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Panan13</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">49</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/gentoo%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" title="gentoo安装指南">gentoo安装指南</a><time datetime="2024-09-27T14:33:01.000Z" title="发表于 2024-09-27 22:33:01">2024-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/html5-css3%E5%AD%A6%E4%B9%A0/" title="html5+css3学习">html5+css3学习</a><time datetime="2024-09-24T03:59:58.000Z" title="发表于 2024-09-24 11:59:58">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/ppt%E5%AD%A6%E4%B9%A0/" title="ppt学习">ppt学习</a><time datetime="2024-09-24T03:59:45.000Z" title="发表于 2024-09-24 11:59:45">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/12/test/" title="test">test</a><time datetime="2024-09-12T13:22:50.000Z" title="发表于 2024-09-12 21:22:50">2024-09-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/10/Git-Bash-%E5%92%8C-PowerShell-%E7%9A%84%E5%8C%BA%E5%88%AB/" title="Git Bash 和 PowerShell 的区别">Git Bash 和 PowerShell 的区别</a><time datetime="2024-09-09T16:00:00.000Z" title="发表于 2024-09-10 00:00:00">2024-09-10</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">开发工具</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">技术</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"><span class="card-category-list-name">技术分享</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%A7%A3%E6%9E%90/"><span class="card-category-list-name">技术解析</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"><span class="card-category-list-name">目标检测</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">编程</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/MATLAB/"><span class="card-category-list-name">MATLAB</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/Python/"><span class="card-category-list-name">Python</span><span class="card-category-list-count">1</span></a></li></ul></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Apache/" style="font-size: 1.1em; color: #999">Apache</a> <a href="/tags/ModelSim/" style="font-size: 1.1em; color: #999">ModelSim</a> <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" style="font-size: 1.1em; color: #999">版本控制</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 1.1em; color: #999">开源</a> <a href="/tags/Intel/" style="font-size: 1.1em; color: #999">Intel</a> <a href="/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" style="font-size: 1.1em; color: #999">开发环境</a> <a href="/tags/Testbench/" style="font-size: 1.1em; color: #999">Testbench</a> <a href="/tags/Kubernetes/" style="font-size: 1.1em; color: #999">Kubernetes</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">移动开发</a> <a href="/tags/%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92/" style="font-size: 1.1em; color: #999">容器编排</a> <a href="/tags/YOLO/" style="font-size: 1.1em; color: #999">YOLO</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" style="font-size: 1.1em; color: #999">计算机视觉</a> <a href="/tags/MPL/" style="font-size: 1.1em; color: #999">MPL</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 1.1em; color: #999">云计算</a> <a href="/tags/YAML/" style="font-size: 1.1em; color: #999">YAML</a> <a href="/tags/Bash/" style="font-size: 1.3em; color: #99a1ac">Bash</a> <a href="/tags/Libraries/" style="font-size: 1.1em; color: #999">Libraries</a> <a href="/tags/PowerShell/" style="font-size: 1.1em; color: #999">PowerShell</a> <a href="/tags/MATLAB/" style="font-size: 1.1em; color: #999">MATLAB</a> <a href="/tags/NVIDIA/" style="font-size: 1.1em; color: #999">NVIDIA</a> <a href="/tags/Hexo/" style="font-size: 1.3em; color: #99a1ac">Hexo</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" style="font-size: 1.1em; color: #999">虚拟环境</a> <a href="/tags/Docker/" style="font-size: 1.1em; color: #999">Docker</a> <a href="/tags/BSD/" style="font-size: 1.1em; color: #999">BSD</a> <a href="/tags/%E5%AE%B9%E5%99%A8/" style="font-size: 1.1em; color: #999">容器</a> <a href="/tags/LaTeX/" style="font-size: 1.1em; color: #999">LaTeX</a> <a href="/tags/%E4%BB%BF%E7%9C%9F/" style="font-size: 1.3em; color: #99a1ac">仿真</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 1.1em; color: #999">编码</a> <a href="/tags/Rust/" style="font-size: 1.1em; color: #999">Rust</a> <a href="/tags/linux-gentoo-kde-grub-fstab-openrc/" style="font-size: 1.1em; color: #999">linux gentoo kde grub fstab openrc</a> <a href="/tags/JSON/" style="font-size: 1.1em; color: #999">JSON</a> <a href="/tags/%E8%BD%AC%E6%8D%A2%E5%85%B3%E7%B3%BB/" style="font-size: 1.1em; color: #999">转换关系</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 1.1em; color: #999">性能</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.1em; color: #999">深度学习</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.1em; color: #999">编程语言</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 1.1em; color: #999">跨平台</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 1.1em; color: #999">插件</a> <a href="/tags/VS-Code/" style="font-size: 1.1em; color: #999">VS Code</a> <a href="/tags/%E4%BD%8D/" style="font-size: 1.1em; color: #999">位</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 1.5em; color: #99a9bf">学习</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
       
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://panan13.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
+    <ul class="card-archive-list">
   
-    <article id="post-通信原理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/25/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" class="article-date">
-  <time class="dt-published" datetime="2024-08-25T14:47:04.000Z" itemprop="datePublished">2024-08-25</time>
-</a>
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/09/">
+          <span class="card-archive-list-date">九月 2024</span>
+          <span class="card-archive-list-count">11</span>
+        </a>
+      </li>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/25/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/">通信原理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/25/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" data-id="cm2ixhdct002u2elw19rya3lx" data-title="通信原理" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-随机信号分析" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/25/%E9%9A%8F%E6%9C%BA%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/" class="article-date">
-  <time class="dt-published" datetime="2024-08-25T14:46:52.000Z" itemprop="datePublished">2024-08-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/25/%E9%9A%8F%E6%9C%BA%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/">随机信号分析</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/25/%E9%9A%8F%E6%9C%BA%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/" data-id="cm2ixhdct002w2elw0wqpedvm" data-title="随机信号分析" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-数字信号处理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/25/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" class="article-date">
-  <time class="dt-published" datetime="2024-08-25T14:46:41.000Z" itemprop="datePublished">2024-08-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/25/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/">数字信号处理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/25/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" data-id="cm2ixhdcq002e2elwhxrjbibj" data-title="数字信号处理" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-kali-linux名言" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/25/kali-linux%E5%90%8D%E8%A8%80/" class="article-date">
-  <time class="dt-published" datetime="2024-08-25T13:57:20.000Z" itemprop="datePublished">2024-08-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/25/kali-linux%E5%90%8D%E8%A8%80/">kali linux名言</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Kali-Linux-的名言之一是："><a href="#Kali-Linux-的名言之一是：" class="headerlink" title="Kali Linux 的名言之一是："></a>Kali Linux 的名言之一是：</h1><h2 id="“The-quieter-you-become-the-more-you-are-able-to-hear-“"><a href="#“The-quieter-you-become-the-more-you-are-able-to-hear-“" class="headerlink" title="“The quieter you become, the more you are able to hear.“"></a>“<strong>The quieter you become, the more you are able to hear.</strong>“</h2><h2 id="翻译成中文为："><a href="#翻译成中文为：" class="headerlink" title="翻译成中文为："></a>翻译成中文为：</h2><h2 id="“你越安静，你就越能够听见。“"><a href="#“你越安静，你就越能够听见。“" class="headerlink" title="“你越安静，你就越能够听见。“"></a>“<strong>你越安静，你就越能够听见。</strong>“</h2><h3 id="这句话不仅适用于网络安全和渗透测试的领域，也反映了黑客文化中强调谨慎、观察和学习的精神。这种态度在渗透测试和安全研究中尤为重要，提醒人们要保持低调和专注，才能更深入地了解系统和环境。"><a href="#这句话不仅适用于网络安全和渗透测试的领域，也反映了黑客文化中强调谨慎、观察和学习的精神。这种态度在渗透测试和安全研究中尤为重要，提醒人们要保持低调和专注，才能更深入地了解系统和环境。" class="headerlink" title="这句话不仅适用于网络安全和渗透测试的领域，也反映了黑客文化中强调谨慎、观察和学习的精神。这种态度在渗透测试和安全研究中尤为重要，提醒人们要保持低调和专注，才能更深入地了解系统和环境。"></a>这句话不仅适用于网络安全和渗透测试的领域，也反映了黑客文化中强调谨慎、观察和学习的精神。这种态度在渗透测试和安全研究中尤为重要，提醒人们要保持低调和专注，才能更深入地了解系统和环境。</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/25/kali-linux%E5%90%8D%E8%A8%80/" data-id="cm2ixhdcg000q2elwf13oa7sp" data-title="kali linux名言" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-数学建模" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="article-date">
-  <time class="dt-published" datetime="2024-08-25T13:21:49.000Z" itemprop="datePublished">2024-08-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" data-id="cm2ixhdcr002i2elw0ifnbu4h" data-title="数学建模" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-linux下的解压命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/25/linux%E4%B8%8B%E7%9A%84%E8%A7%A3%E5%8E%8B%E5%91%BD%E4%BB%A4/" class="article-date">
-  <time class="dt-published" datetime="2024-08-25T13:01:46.000Z" itemprop="datePublished">2024-08-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/25/linux%E4%B8%8B%E7%9A%84%E8%A7%A3%E5%8E%8B%E5%91%BD%E4%BB%A4/">linux下的解压命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="tar-文件"><a href="#tar-文件" class="headerlink" title="tar 文件"></a>tar 文件</h2><h3 id="解压-tar-文件到指定目录"><a href="#解压-tar-文件到指定目录" class="headerlink" title="解压 .tar 文件到指定目录"></a>解压 <code>.tar</code> 文件到指定目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf filename.tar -C /path/to/destination/</span><br></pre></td></tr></table></figure>
-
-<h3 id="解压-tar-gz-文件到指定目录"><a href="#解压-tar-gz-文件到指定目录" class="headerlink" title="解压 .tar.gz 文件到指定目录"></a>解压 <code>.tar.gz</code> 文件到指定目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf filename.tar.gz -C /path/to/destination/</span><br></pre></td></tr></table></figure>
-
-<h3 id="解压-tar-bz2-文件到指定目录"><a href="#解压-tar-bz2-文件到指定目录" class="headerlink" title="解压 .tar.bz2 文件到指定目录"></a>解压 <code>.tar.bz2</code> 文件到指定目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xjvf filename.tar.bz2 -C /path/to/destination/</span><br></pre></td></tr></table></figure>
-
-<h3 id="解压-tar-xz-文件到指定目录"><a href="#解压-tar-xz-文件到指定目录" class="headerlink" title="解压 .tar.xz 文件到指定目录"></a>解压 <code>.tar.xz</code> 文件到指定目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xJvf filename.tar.xz -C /path/to/destination/</span><br></pre></td></tr></table></figure>
-
-<h2 id="zip-文件"><a href="#zip-文件" class="headerlink" title="zip 文件"></a>zip 文件</h2><h3 id="解压-zip-文件到指定目录"><a href="#解压-zip-文件到指定目录" class="headerlink" title="解压 .zip 文件到指定目录"></a>解压 <code>.zip</code> 文件到指定目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip filename.zip -d /path/to/destination/</span><br></pre></td></tr></table></figure>
-
-<h2 id="rar-文件"><a href="#rar-文件" class="headerlink" title="rar 文件"></a>rar 文件</h2><h3 id="解压-rar-文件到指定目录"><a href="#解压-rar-文件到指定目录" class="headerlink" title="解压 .rar 文件到指定目录"></a>解压 <code>.rar</code> 文件到指定目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unrar x filename.rar /path/to/destination/</span><br></pre></td></tr></table></figure>
-
-<h2 id="gz-文件"><a href="#gz-文件" class="headerlink" title="gz 文件"></a>gz 文件</h2><h3 id="解压-gz-文件到指定目录"><a href="#解压-gz-文件到指定目录" class="headerlink" title="解压 .gz 文件到指定目录"></a>解压 <code>.gz</code> 文件到指定目录</h3><p>对于 <code>.gz</code> 文件，通常是一个单一文件，解压后会在当前目录中生成该文件。你可以手动将其移动到目标目录。例如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gunzip -c filename.gz &gt; /path/to/destination/filename</span><br></pre></td></tr></table></figure>
-
-<h2 id="bz2-文件"><a href="#bz2-文件" class="headerlink" title="bz2 文件"></a>bz2 文件</h2><h3 id="解压-bz2-文件到指定目录"><a href="#解压-bz2-文件到指定目录" class="headerlink" title="解压 .bz2 文件到指定目录"></a>解压 <code>.bz2</code> 文件到指定目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bunzip2 filename.bz2</span><br><span class="line"><span class="built_in">mv</span> filename /path/to/destination/</span><br></pre></td></tr></table></figure>
-
-<h2 id="xz-文件"><a href="#xz-文件" class="headerlink" title="xz 文件"></a>xz 文件</h2><h3 id="解压-xz-文件到指定目录"><a href="#解压-xz-文件到指定目录" class="headerlink" title="解压 .xz 文件到指定目录"></a>解压 <code>.xz</code> 文件到指定目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unxz filename.xz</span><br><span class="line"><span class="built_in">mv</span> filename /path/to/destination/</span><br></pre></td></tr></table></figure>
-
-<h2 id="7z-文件"><a href="#7z-文件" class="headerlink" title="7z 文件"></a>7z 文件</h2><h3 id="解压-7z-文件到指定目录"><a href="#解压-7z-文件到指定目录" class="headerlink" title="解压 .7z 文件到指定目录"></a>解压 <code>.7z</code> 文件到指定目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7z x filename.7z -o/path/to/destination/</span><br></pre></td></tr></table></figure>
-<p><strong>注意</strong>: <code>-o</code> 选项后不要加空格。</p>
-<h2 id="Z-文件"><a href="#Z-文件" class="headerlink" title="Z 文件"></a>Z 文件</h2><h3 id="解压-Z-文件到指定目录"><a href="#解压-Z-文件到指定目录" class="headerlink" title="解压 .Z 文件到指定目录"></a>解压 <code>.Z</code> 文件到指定目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uncompress filename.Z</span><br><span class="line"><span class="built_in">mv</span> filename /path/to/destination/</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/25/linux%E4%B8%8B%E7%9A%84%E8%A7%A3%E5%8E%8B%E5%91%BD%E4%BB%A4/" data-id="cm2ixhdci00112elw4ulb1pm8" data-title="linux下的解压命令" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-FPGA-相关总结框架" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/25/FPGA-%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93%E6%A1%86%E6%9E%B6/" class="article-date">
-  <time class="dt-published" datetime="2024-08-24T16:00:00.000Z" itemprop="datePublished">2024-08-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/25/FPGA-%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93%E6%A1%86%E6%9E%B6/">FPGA 相关总结框架</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Zynq-7000-SoC-字数-300"><a href="#Zynq-7000-SoC-字数-300" class="headerlink" title="Zynq 7000 SoC (字数: 300)"></a>Zynq 7000 SoC (字数: 300)</h2><h3 id="核心架构"><a href="#核心架构" class="headerlink" title="核心架构"></a>核心架构</h3><ul>
-<li><strong>ARM Cortex-A9 双核处理系统</strong>：负责执行操作系统和应用程序，提供处理能力。</li>
-<li>**可编程逻辑 (PL)**：用于实现自定义硬件逻辑，如信号处理和硬件加速。</li>
-</ul>
-<h3 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h3><ul>
-<li><strong>PS（Processing System）</strong>：管理片上外设，通过操作系统进行软件处理。</li>
-<li><strong>PL（Programmable Logic）</strong>：实现硬件加速和自定义逻辑。</li>
-</ul>
-<h3 id="应用领域"><a href="#应用领域" class="headerlink" title="应用领域"></a>应用领域</h3><ul>
-<li><strong>工业自动化</strong>：用于控制系统和自动化设备。</li>
-<li><strong>通信系统</strong>：用于处理数据流和信号处理任务。</li>
-<li><strong>嵌入式系统</strong>：广泛应用于需要高灵活性和高性能的系统中。</li>
-</ul>
-<h2 id="PL-Programmable-Logic-字数-300"><a href="#PL-Programmable-Logic-字数-300" class="headerlink" title="PL (Programmable Logic) (字数: 300)"></a>PL (Programmable Logic) (字数: 300)</h2><h3 id="主要组成部分"><a href="#主要组成部分" class="headerlink" title="主要组成部分"></a>主要组成部分</h3><ul>
-<li>**查找表 (LUT)**：用于实现逻辑函数的核心组件。</li>
-<li><strong>触发器</strong>：用于存储和传递数据的基本单元。</li>
-<li><strong>存储器块</strong>：用于数据存储和缓存。</li>
-<li><strong>可编程互连</strong>：连接各逻辑单元，形成复杂的电路结构。</li>
-</ul>
-<h3 id="可编程性"><a href="#可编程性" class="headerlink" title="可编程性"></a>可编程性</h3><ul>
-<li><strong>灵活性</strong>：适应各种应用需求，能够快速调整设计。</li>
-<li><strong>HDL 定义和优化</strong>：通过硬件描述语言设计和优化逻辑电路。</li>
-</ul>
-<h3 id="主要任务"><a href="#主要任务" class="headerlink" title="主要任务"></a>主要任务</h3><ul>
-<li><strong>并行计算</strong>：处理多任务的能力。</li>
-<li><strong>实时数据处理</strong>：用于处理实时信号和数据流。</li>
-<li><strong>信号处理</strong>：用于数字信号处理应用，如滤波和解码。</li>
-</ul>
-<h2 id="PS-Processing-System-字数-305"><a href="#PS-Processing-System-字数-305" class="headerlink" title="PS (Processing System) (字数: 305)"></a>PS (Processing System) (字数: 305)</h2><h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><ul>
-<li><strong>ARM Cortex-A9 双核处理器</strong>：负责执行操作系统和复杂的软件任务。</li>
-<li><strong>片上存储器</strong>：用于存储数据和程序。</li>
-<li><strong>外设和接口</strong>：包括 UART、SPI、I2C、以太网、USB 等，用于连接外部设备。</li>
-</ul>
-<h3 id="数据传输"><a href="#数据传输" class="headerlink" title="数据传输"></a>数据传输</h3><ul>
-<li><strong>AXI 总线</strong>：PS 通过 AXI 总线与可编程逻辑 (PL) 交互，实现数据的高效传输。</li>
-</ul>
-<h3 id="支持系统"><a href="#支持系统" class="headerlink" title="支持系统"></a>支持系统</h3><ul>
-<li><strong>Linux</strong>：常用于嵌入式系统，支持多任务处理。</li>
-<li><strong>FreeRTOS</strong>：轻量级实时操作系统，适合实时性要求高的应用。</li>
-</ul>
-<h2 id="AXI-Advanced-eXtensible-Interface-字数-302"><a href="#AXI-Advanced-eXtensible-Interface-字数-302" class="headerlink" title="AXI (Advanced eXtensible Interface) (字数: 302)"></a>AXI (Advanced eXtensible Interface) (字数: 302)</h2><h3 id="高性能总线"><a href="#高性能总线" class="headerlink" title="高性能总线"></a>高性能总线</h3><ul>
-<li><strong>多主控和多从设备支持</strong>：支持多个设备同时连接，提供高带宽。</li>
-<li><strong>突发传输</strong>：允许一次传输多个数据项，减少总线占用时间。</li>
-</ul>
-<h3 id="子类型"><a href="#子类型" class="headerlink" title="子类型"></a>子类型</h3><ul>
-<li><strong>AXI Lite</strong>：简化版，用于低吞吐量的控制寄存器访问。</li>
-<li><strong>AXI Stream</strong>：用于高效的数据流传输，适合连续的音视频数据传输。</li>
-</ul>
-<h2 id="SoPC-System-on-Programmable-Chip-字数-300"><a href="#SoPC-System-on-Programmable-Chip-字数-300" class="headerlink" title="SoPC (System on Programmable Chip) (字数: 300)"></a>SoPC (System on Programmable Chip) (字数: 300)</h2><h3 id="设计组成"><a href="#设计组成" class="headerlink" title="设计组成"></a>设计组成</h3><ul>
-<li>**处理器 (软核或硬核)**：执行软件和操作系统。</li>
-<li><strong>存储器</strong>：用于存储程序和数据。</li>
-<li><strong>I&#x2F;O 接口</strong>：连接外部设备，实现数据交互。</li>
-<li><strong>自定义逻辑</strong>：通过可编程逻辑实现特定的硬件功能。</li>
-</ul>
-<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
-<li><strong>工业自动化</strong>：实时控制和数据处理。</li>
-<li><strong>通信系统</strong>：高速数据处理和传输。</li>
-<li><strong>高性能计算</strong>：用于需要硬件加速的复杂计算任务。</li>
-</ul>
-<h3 id="设计优势"><a href="#设计优势" class="headerlink" title="设计优势"></a>设计优势</h3><ul>
-<li><strong>灵活性</strong>：用户可以根据需求调整硬件配置。</li>
-<li><strong>快速原型设计</strong>：缩短开发周期，减少成本。</li>
-</ul>
-<h2 id="APSoC-All-Programmable-System-on-Chip-字数-300"><a href="#APSoC-All-Programmable-System-on-Chip-字数-300" class="headerlink" title="APSoC (All Programmable System on Chip) (字数: 300)"></a>APSoC (All Programmable System on Chip) (字数: 300)</h2><h3 id="核心架构-1"><a href="#核心架构-1" class="headerlink" title="核心架构"></a>核心架构</h3><ul>
-<li>**可编程逻辑 (PL)**：实现自定义硬件加速任务。</li>
-<li>**处理系统 (PS)**：执行软件和操作系统，管理系统资源。</li>
-</ul>
-<h3 id="功能模块-1"><a href="#功能模块-1" class="headerlink" title="功能模块"></a>功能模块</h3><ul>
-<li><strong>软硬件协同设计</strong>：通过软件定义硬件，实现动态调整和优化。</li>
-<li><strong>硬件加速</strong>：通过 PL 提供高性能计算能力，满足复杂计算需求。</li>
-</ul>
-<h3 id="应用领域-1"><a href="#应用领域-1" class="headerlink" title="应用领域"></a>应用领域</h3><ul>
-<li><strong>嵌入式系统</strong>：用于需要灵活性和高性能的应用。</li>
-<li><strong>通信系统</strong>：用于高速数据传输和信号处理。</li>
-<li><strong>工业控制</strong>：用于实时控制和数据处理任务。</li>
-</ul>
-<h2 id="APU-Application-Processing-Unit-字数-302"><a href="#APU-Application-Processing-Unit-字数-302" class="headerlink" title="APU (Application Processing Unit) (字数: 302)"></a>APU (Application Processing Unit) (字数: 302)</h2><h3 id="主要组成部分-1"><a href="#主要组成部分-1" class="headerlink" title="主要组成部分"></a>主要组成部分</h3><ul>
-<li><strong>ARM Cortex-A 系列处理器</strong>：执行应用程序和操作系统。</li>
-<li>**浮点运算单元 (FPU)**：加速复杂数学运算。</li>
-<li>**矢量处理单元 (NEON)**：用于多媒体处理和信号处理。</li>
-</ul>
-<h3 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h3><ul>
-<li><strong>多核架构</strong>：支持多线程和并行处理，提升系统性能。</li>
-<li>**对称多处理 (SMP)**：均衡负载，优化处理能力。</li>
-</ul>
-<h3 id="数据传输-1"><a href="#数据传输-1" class="headerlink" title="数据传输"></a>数据传输</h3><ul>
-<li><strong>AXI 总线</strong>：通过 AXI 与片上外设和 PL 进行高速数据交互。</li>
-</ul>
-<h3 id="应用领域-2"><a href="#应用领域-2" class="headerlink" title="应用领域"></a>应用领域</h3><ul>
-<li><strong>实时数据处理</strong>：如图像和视频处理。</li>
-<li><strong>高性能计算</strong>：需要大量计算资源的应用场景。</li>
-</ul>
-<h2 id="PLD-Programmable-Logic-Device-字数-300"><a href="#PLD-Programmable-Logic-Device-字数-300" class="headerlink" title="PLD (Programmable Logic Device) (字数: 300)"></a>PLD (Programmable Logic Device) (字数: 300)</h2><h3 id="主要类型"><a href="#主要类型" class="headerlink" title="主要类型"></a>主要类型</h3><ul>
-<li>**CPLD (Complex Programmable Logic Device)**：用于实现固定逻辑功能，适合延迟敏感的应用。</li>
-<li>**FPGA (Field Programmable Gate Array)**：提供更多逻辑资源和可编程性，适用于复杂逻辑设计。</li>
-</ul>
-<h3 id="内部结构"><a href="#内部结构" class="headerlink" title="内部结构"></a>内部结构</h3><ul>
-<li>**查找表 (LUT)**：实现基本逻辑功能。</li>
-<li><strong>触发器</strong>：用于数据存储和传输。</li>
-<li><strong>可编程互连</strong>：连接逻辑单元，构建复杂电路。</li>
-</ul>
-<h3 id="应用场景-1"><a href="#应用场景-1" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
-<li><strong>嵌入式系统</strong>：快速原型设计和低批量生产。</li>
-<li><strong>硬件加速</strong>：通过 PLD 实现特定任务的硬件加速。</li>
-</ul>
-<h2 id="CPLD-Complex-Programmable-Logic-Device-字数-300"><a href="#CPLD-Complex-Programmable-Logic-Device-字数-300" class="headerlink" title="CPLD (Complex Programmable Logic Device) (字数: 300)"></a>CPLD (Complex Programmable Logic Device) (字数: 300)</h2><h3 id="内部结构-1"><a href="#内部结构-1" class="headerlink" title="内部结构"></a>内部结构</h3><ul>
-<li><strong>逻辑宏单元</strong>：固定数量的逻辑单元，适合实现简单控制逻辑。</li>
-<li><strong>可编程互连</strong>：连接逻辑单元，构成电路。</li>
-</ul>
-<h3 id="功能特性-1"><a href="#功能特性-1" class="headerlink" title="功能特性"></a>功能特性</h3><ul>
-<li><strong>非易失性存储</strong>：编程后逻辑结构保持不变，适合需要快速响应的应用。</li>
-<li><strong>固定逻辑延迟</strong>：逻辑延迟恒定，适合延迟敏感的应用场景。</li>
-</ul>
-<h3 id="应用领域-3"><a href="#应用领域-3" class="headerlink" title="应用领域"></a>应用领域</h3><ul>
-<li><strong>消费电子</strong>：用于简单控制和状态机设计。</li>
-<li><strong>通信设备</strong>：实现接口转换和数据路由。</li>
-<li><strong>工业控制</strong>：用于低功耗、低延迟的控制系统。</li>
-</ul>
-<h2 id="AXI-GP-General-Purpose-AXI-字数-299"><a href="#AXI-GP-General-Purpose-AXI-字数-299" class="headerlink" title="AXI_GP (General Purpose AXI) (字数: 299)"></a>AXI_GP (General Purpose AXI) (字数: 299)</h2><h3 id="接口特性"><a href="#接口特性" class="headerlink" title="接口特性"></a>接口特性</h3><ul>
-<li><strong>低带宽数据传输</strong>：适合控制寄存器读写和低速外设访问。</li>
-<li><strong>灵活性</strong>：支持 PS 和 PL 之间的数据交换。</li>
-</ul>
-<h3 id="应用场景-2"><a href="#应用场景-2" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
-<li><strong>控制信号传输</strong>：用于发送配置信息或读取状态寄存器。</li>
-<li><strong>低速外设接口</strong>：连接低速设备，如传感器和简单控制器。</li>
-</ul>
-<h3 id="设计优势-1"><a href="#设计优势-1" class="headerlink" title="设计优势"></a>设计优势</h3><ul>
-<li><strong>高效数据传输</strong>：在控制信号和低速数据传输中表现出色。</li>
-<li><strong>软硬件协同工作</strong>：在 SoC 中实现灵活的硬件配置和数据处理。</li>
-</ul>
-<h2 id="AMBA-Advanced-Microcontroller-Bus-Architecture-字数-303"><a href="#AMBA-Advanced-Microcontroller-Bus-Architecture-字数-303" class="headerlink" title="AMBA (Advanced Microcontroller Bus Architecture) (字数: 303)"></a>AMBA (Advanced Microcontroller Bus Architecture) (字数: 303)</h2><h3 id="总线架构"><a href="#总线架构" class="headerlink" title="总线架构"></a>总线架构</h3><ul>
-<li><strong>APB（Advanced Peripheral Bus）</strong>：用于连接低带宽外设。</li>
-<li><strong>AHB（Advanced High-performance Bus）</strong>：用于高带宽数据传输。</li>
-<li><strong>AXI（Advanced eXtensible Interface）</strong>：用于高性能片上通信。</li>
-</ul>
-<h3 id="设计特性"><a href="#设计特性" class="headerlink" title="设计特性"></a>设计特性</h3><ul>
-<li><strong>模块化接口</strong>：允许不同 IP 核无缝集成到 SoC 中。</li>
-<li><strong>多主控支持</strong>：支持多主控和多从设备连接。</li>
-</ul>
-<h3 id="应用场景-3"><a href="#应用场景-3" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
-<li><strong>嵌入式处理器</strong>：用于连接处理器和外设。</li>
-<li><strong>数字信号处理器</strong>：用于高速数据传输和信号处理。</li>
-<li><strong>ASIC 设计</strong>：简化片上系统的集成，提高设计效率。</li>
-</ul>
-<h2 id="AHB-Advanced-High-performance-Bus-字数-300"><a href="#AHB-Advanced-High-performance-Bus-字数-300" class="headerlink" title="AHB (Advanced High-performance Bus) (字数: 300)"></a>AHB (Advanced High-performance Bus) (字数: 300)</h2><h3 id="总线特性"><a href="#总线特性" class="headerlink" title="总线特性"></a>总线特性</h3><ul>
-<li><strong>高带宽和低延迟</strong>：适合高性能片上通信。</li>
-<li><strong>突发传输</strong>：支持一次性传输多个数据项，减少总线占用。</li>
-</ul>
-<h3 id="设计架构"><a href="#设计架构" class="headerlink" title="设计架构"></a>设计架构</h3><ul>
-<li><strong>集中式仲裁机制</strong>：通过仲裁器控制总线使用权，确保数据传输有效性。</li>
-<li><strong>多主控和多从设备支持</strong>：支持多个设备同时连接，优化资源使用。</li>
-</ul>
-<h3 id="应用场景-4"><a href="#应用场景-4" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
-<li><strong>存储器访问</strong>：高速访问片上存储器，适合大数据量传输。</li>
-<li><strong>高速外设接口</strong>：连接高速外设，如网络控制器和图形处理器。</li>
-</ul>
-<h2 id="ATB-Advanced-Trace-Bus-字数-300"><a href="#ATB-Advanced-Trace-Bus-字数-300" class="headerlink" title="ATB (Advanced Trace Bus) (字数: 300)"></a>ATB (Advanced Trace Bus) (字数: 300)</h2><h3 id="总线功能"><a href="#总线功能" class="headerlink" title="总线功能"></a>总线功能</h3><ul>
-<li><strong>片上调试和跟踪</strong>：实时监控和记录处理器指令和数据流。</li>
-<li><strong>调试工具支持</strong>：与外部调试工具（如 ARM CoreSight）集成。</li>
-</ul>
-<h3 id="设计特点"><a href="#设计特点" class="headerlink" title="设计特点"></a>设计特点</h3><ul>
-<li><strong>低系统性能影响</strong>：通过高效传输机制，减少调试对系统性能的影响。</li>
-<li><strong>及时性和准确性</strong>：确保调试数据的实时传输和准确记录。</li>
-</ul>
-<h3 id="应用领域-4"><a href="#应用领域-4" class="headerlink" title="应用领域"></a>应用领域</h3><ul>
-<li><strong>复杂多核系统</strong>：用于调试多核处理器和片上系统。</li>
-<li><strong>实时应用优化</strong>：通过调试优化系统性能，提升实时性。</li>
-</ul>
-<h2 id="Block-Design-字数-300"><a href="#Block-Design-字数-300" class="headerlink" title="Block Design (字数: 300)"></a>Block Design (字数: 300)</h2><h3 id="设计方法"><a href="#设计方法" class="headerlink" title="设计方法"></a>设计方法</h3><ul>
-<li><strong>图形化设计</strong>：通过图形界面拖放 IP 核，快速构建系统。</li>
-<li><strong>模块化设计</strong>：支持处理器、存储器、外设和自定义逻辑模块的组合。</li>
-</ul>
-<h3 id="功能特性-2"><a href="#功能特性-2" class="headerlink" title="功能特性"></a>功能特性</h3><ul>
-<li><strong>参数化配置</strong>：允许用户配置模块参数，优化设计性能。</li>
-<li><strong>自动生成 HDL 代码</strong>：设计完成后自动生成硬件描述语言代码。</li>
-</ul>
-<h3 id="应用场景-5"><a href="#应用场景-5" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
-<li><strong>快速原型设计</strong>：适合快速搭建和验证系统架构。</li>
-<li><strong>FPGA 开发</strong>：极大提高设计效率，缩短开发周期。</li>
-</ul>
-<h2 id="C-C-字数-300"><a href="#C-C-字数-300" class="headerlink" title="C&#x2F;C++ (字数: 300)"></a>C&#x2F;C++ (字数: 300)</h2><h3 id="语言特点"><a href="#语言特点" class="headerlink" title="语言特点"></a>语言特点</h3><ul>
-<li><strong>C 语言</strong>：简洁、高效，接近硬件，适用于底层硬件控制。</li>
-<li><strong>C++ 语言</strong>：面向对象，增加了类和对象的概念，代码更易维护和扩展。</li>
-</ul>
-<h3 id="功能特性-3"><a href="#功能特性-3" class="headerlink" title="功能特性"></a>功能特性</h3><ul>
-<li><strong>低级控制</strong>：强大的低级控制能力，直接与硬件交互。</li>
-<li><strong>广泛硬件支持</strong>：许多嵌入式处理器和微控制器提供针对 C&#x2F;C++ 的编译器和开发工具。</li>
-</ul>
-<h3 id="应用领域-5"><a href="#应用领域-5" class="headerlink" title="应用领域"></a>应用领域</h3><ul>
-<li><strong>操作系统开发</strong>：用于开发嵌入式操作系统和驱动程序。</li>
-<li><strong>底层硬件控制</strong>：实现硬件控制和系统优化。</li>
-</ul>
-<h2 id="HLS-High-Level-Synthesis-字数-300"><a href="#HLS-High-Level-Synthesis-字数-300" class="headerlink" title="HLS (High-Level Synthesis) (字数: 300)"></a>HLS (High-Level Synthesis) (字数: 300)</h2><h3 id="主要功能-1"><a href="#主要功能-1" class="headerlink" title="主要功能"></a>主要功能</h3><ul>
-<li><strong>高级语言转换</strong>：将 C&#x2F;C++ 转换为硬件描述语言 (HDL)。</li>
-<li><strong>代码优化</strong>：自动进行代码优化、流水线化和并行化。</li>
-</ul>
-<h3 id="设计优势-2"><a href="#设计优势-2" class="headerlink" title="设计优势"></a>设计优势</h3><ul>
-<li><strong>加速设计流程</strong>：通过高级语言描述硬件行为，快速生成 HDL 代码。</li>
-<li><strong>提高系统性能</strong>：充分利用硬件资源，优化计算效率。</li>
-</ul>
-<h3 id="应用领域-6"><a href="#应用领域-6" class="headerlink" title="应用领域"></a>应用领域</h3><ul>
-<li><strong>图像处理</strong>：快速实现硬件加速算法，如滤波和解码。</li>
-<li><strong>信号处理</strong>：实现高效的数字信号处理应用。</li>
-<li><strong>加密算法</strong>：硬件实现加密解密功能，提高安全性。</li>
-</ul>
-<h2 id="ILA-Integrated-Logic-Analyzer-字数-300"><a href="#ILA-Integrated-Logic-Analyzer-字数-300" class="headerlink" title="ILA (Integrated Logic Analyzer) (字数: 300)"></a>ILA (Integrated Logic Analyzer) (字数: 300)</h2><h3 id="主要功能-2"><a href="#主要功能-2" class="headerlink" title="主要功能"></a>主要功能</h3><ul>
-<li><strong>实时信号捕获</strong>：在不影响系统性能的情况下，捕获和分析内部信号。</li>
-<li><strong>调试工具集成</strong>：通过 JTAG 接口与外部调试工具连接，设置触发条件和信号捕获。</li>
-</ul>
-<h3 id="设计特点-1"><a href="#设计特点-1" class="headerlink" title="设计特点"></a>设计特点</h3><ul>
-<li><strong>多通道信号捕获</strong>：支持多个信号通道的同步捕获。</li>
-<li><strong>深度存储器</strong>：适合监控长时间的信号活动。</li>
-</ul>
-<h3 id="应用场景-6"><a href="#应用场景-6" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
-<li><strong>高性能调试</strong>：用于调试复杂的 FPGA 系统，不引入额外延迟。</li>
-<li><strong>实时性要求高的应用</strong>：确保系统在运行时的信号稳定和准确。</li>
-</ul>
-<h2 id="VIO-Virtual-Input-Output-字数-300"><a href="#VIO-Virtual-Input-Output-字数-300" class="headerlink" title="VIO (Virtual Input&#x2F;Output) (字数: 300)"></a>VIO (Virtual Input&#x2F;Output) (字数: 300)</h2><h3 id="主要功能-3"><a href="#主要功能-3" class="headerlink" title="主要功能"></a>主要功能</h3><ul>
-<li><strong>动态信号输入和观察</strong>：允许用户在仿真或实时调试时动态输入和观察信号。</li>
-<li><strong>双向信号传输</strong>：支持从外部输入信号到 FPGA 内部，或从 FPGA 输出信号到外部监控。</li>
-</ul>
-<h3 id="设计优势-3"><a href="#设计优势-3" class="headerlink" title="设计优势"></a>设计优势</h3><ul>
-<li><strong>实时调试</strong>：通过不修改 FPGA 设计，实时调整和监控信号状态。</li>
-<li><strong>提高调试效率</strong>：特别适用于复杂系统的调试和验证。</li>
-</ul>
-<h3 id="应用场景-7"><a href="#应用场景-7" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
-<li><strong>系统验证</strong>：用于验证 FPGA 设计在不同条件下的行为。</li>
-<li><strong>动态调整</strong>：调试时动态调整信号输入，优化系统性能。</li>
-</ul>
-<h2 id="时序约束-Timing-Constraints-字数-300"><a href="#时序约束-Timing-Constraints-字数-300" class="headerlink" title="时序约束 (Timing Constraints) (字数: 300)"></a>时序约束 (Timing Constraints) (字数: 300)</h2><h3 id="定义和应用"><a href="#定义和应用" class="headerlink" title="定义和应用"></a>定义和应用</h3><ul>
-<li><strong>时钟周期</strong>：定义信号传输所需的时间。</li>
-<li><strong>建立时间和保持时间</strong>：确保信号在时钟沿前后满足稳定性要求。</li>
-</ul>
-<h3 id="设计影响"><a href="#设计影响" class="headerlink" title="设计影响"></a>设计影响</h3><ul>
-<li><strong>性能和可靠性</strong>：时序约束直接影响 FPGA 设计的性能和可靠性。</li>
-<li><strong>自动调整</strong>：通过综合和布局布线工具，自动调整电路结构以满足时序要求。</li>
-</ul>
-<h3 id="应用场景-8"><a href="#应用场景-8" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
-<li><strong>高性能设计</strong>：用于高频设计中，确保系统在高频下稳定运行。</li>
-<li><strong>低功耗设计</strong>：严格的时序约束有助于优化功耗，延长电池寿命。</li>
-</ul>
-<h2 id="CPLD-Complex-Programmable-Logic-Device-字数-300-1"><a href="#CPLD-Complex-Programmable-Logic-Device-字数-300-1" class="headerlink" title="CPLD (Complex Programmable Logic Device) (字数: 300)"></a>CPLD (Complex Programmable Logic Device) (字数: 300)</h2><h3 id="内部结构-2"><a href="#内部结构-2" class="headerlink" title="内部结构"></a>内部结构</h3><ul>
-<li><strong>逻辑宏单元</strong>：固定数量的逻辑单元，适合实现简单控制逻辑。</li>
-<li><strong>可编程互连</strong>：连接逻辑单元，构成电路。</li>
-</ul>
-<h3 id="功能特性-4"><a href="#功能特性-4" class="headerlink" title="功能特性"></a>功能特性</h3><ul>
-<li><strong>非易失性存储</strong>：编程后逻辑结构保持不变，适合需要快速响应的应用。</li>
-<li><strong>固定逻辑延迟</strong>：逻辑延迟恒定，适合延迟敏感的应用场景。</li>
-</ul>
-<h3 id="应用领域-7"><a href="#应用领域-7" class="headerlink" title="应用领域"></a>应用领域</h3><ul>
-<li><strong>消费电子</strong>：用于简单控制和状态机设计。</li>
-<li><strong>通信设备</strong>：实现接口转换和数据路由。</li>
-<li><strong>工业控制</strong>：用于低功耗、低延迟的控制系统。</li>
-</ul>
-<h2 id="FPGA-逻辑值的不同含义-字数-300"><a href="#FPGA-逻辑值的不同含义-字数-300" class="headerlink" title="FPGA 逻辑值的不同含义 (字数: 300)"></a>FPGA 逻辑值的不同含义 (字数: 300)</h2><h3 id="逻辑值类型"><a href="#逻辑值类型" class="headerlink" title="逻辑值类型"></a>逻辑值类型</h3><ul>
-<li>**高电平 (1)**：表示“真”或高逻辑电平。</li>
-<li>**低电平 (0)**：表示“假”或低逻辑电平。</li>
-<li>**未知 (X)**：仿真中信号的值不确定，通常出现在复位或未初始化时。</li>
-<li>**高阻 (Z)**：信号处于高阻抗状态，不驱动任何电路。</li>
-</ul>
-<h3 id="仿真中的应用"><a href="#仿真中的应用" class="headerlink" title="仿真中的应用"></a>仿真中的应用</h3><ul>
-<li><strong>X 和 Z 的意义</strong>：帮助设计者识别设计中的潜在问题。</li>
-</ul>
-<h3 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h3><ul>
-<li><strong>1 和 0</strong>：在 FPGA 实际运行中，1 和 0 是最常用的逻辑值。</li>
-<li><strong>X 和 Z</strong>：主要用于仿真和调试过程中。</li>
-</ul>
-<h2 id="二进制、八进制、十进制、十六进制-字数-300"><a href="#二进制、八进制、十进制、十六进制-字数-300" class="headerlink" title="二进制、八进制、十进制、十六进制 (字数: 300)"></a>二进制、八进制、十进制、十六进制 (字数: 300)</h2><h3 id="数制介绍"><a href="#数制介绍" class="headerlink" title="数制介绍"></a>数制介绍</h3><ul>
-<li><strong>二进制</strong>：使用 0 和 1 表示数字，是计算机和数字电路的基础。</li>
-<li><strong>八进制</strong>：以 8 为基数，使用 0-7 的数字，缩短二进制表示长度。</li>
-<li><strong>十进制</strong>：日常使用的数制，以 10 为基数，使用 0-9 的数字。</li>
-<li><strong>十六进制</strong>：以 16 为基数，使用 0-9 和字母 A-F 表示数字，常用于表示内存地址和机器码。</li>
-</ul>
-<h3 id="应用场景-9"><a href="#应用场景-9" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
-<li><strong>二进制和十六进制</strong>：FPGA 设计中常用的数制，便于直接与硬件位级信号对应。</li>
-<li><strong>八进制</strong>：在某些情况下使用，但相对较少。</li>
-</ul>
-<h3 id="数制转换"><a href="#数制转换" class="headerlink" title="数制转换"></a>数制转换</h3><ul>
-<li><strong>从二进制到其他数制的转换</strong>：在设计和调试中经常需要进行数制转换。</li>
-</ul>
-<h2 id="Verilog-运算符-字数-301"><a href="#Verilog-运算符-字数-301" class="headerlink" title="Verilog 运算符 (字数: 301)"></a>Verilog 运算符 (字数: 301)</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><ul>
-<li><strong>加法 (+)</strong></li>
-<li><strong>减法 (-)</strong></li>
-<li><strong>乘法 (*)</strong></li>
-<li><strong>除法 (&#x2F;)</strong></li>
-</ul>
-<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h3><ul>
-<li><strong>大于 (&gt;)</strong></li>
-<li><strong>小于 (&lt;)</strong></li>
-<li><strong>等于 (&#x3D;&#x3D;)</strong></li>
-</ul>
-<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><ul>
-<li><strong>与 (&amp;&amp;)</strong></li>
-<li><strong>或 (||)</strong></li>
-<li><strong>非 (!)</strong></li>
-</ul>
-<h3 id="按位运算符"><a href="#按位运算符" class="headerlink" title="按位运算符"></a>按位运算符</h3><ul>
-<li><strong>与 (&amp;)</strong></li>
-<li><strong>或 (|)</strong></li>
-<li><strong>异或 (^)</strong></li>
-<li><strong>非 (~)</strong></li>
-</ul>
-<h3 id="移位运算符"><a href="#移位运算符" class="headerlink" title="移位运算符"></a>移位运算符</h3><ul>
-<li><strong>左移 (&lt;&lt;)</strong></li>
-<li><strong>右移 (&gt;&gt;)</strong></li>
-</ul>
-<h3 id="应用场景-10"><a href="#应用场景-10" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
-<li><strong>描述硬件行为</strong>：运算符直接影响电路功能和性能。</li>
-<li><strong>优化电路设计</strong>：正确使用运算符，提高硬件描述效率和性能。</li>
-</ul>
-<h2 id="Verilog-关键字-字数-299"><a href="#Verilog-关键字-字数-299" class="headerlink" title="Verilog 关键字 (字数: 299)"></a>Verilog 关键字 (字数: 299)</h2><h3 id="模块定义"><a href="#模块定义" class="headerlink" title="模块定义"></a>模块定义</h3><ul>
-<li><strong>module</strong>：定义一个模块的名称和端口。</li>
-</ul>
-<h3 id="信号声明"><a href="#信号声明" class="headerlink" title="信号声明"></a>信号声明</h3><ul>
-<li><strong>input</strong>：定义输入端口。</li>
-<li><strong>output</strong>：定义输出端口。</li>
-<li><strong>wire</strong>：定义连线，用于连接模块间的信号。</li>
-<li><strong>reg</strong>：定义寄存器，用于存储数据。</li>
-</ul>
-<h3 id="逻辑描述"><a href="#逻辑描述" class="headerlink" title="逻辑描述"></a>逻辑描述</h3><ul>
-<li><strong>always</strong>：定义时序逻辑。</li>
-<li><strong>initial</strong>：定义初始化过程。</li>
-</ul>
-<h3 id="接口控制"><a href="#接口控制" class="headerlink" title="接口控制"></a>接口控制</h3><ul>
-<li><strong>assign</strong>：定义组合逻辑的连接方式。</li>
-</ul>
-<h3 id="应用场景-11"><a href="#应用场景-11" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
-<li><strong>模块设计和逻辑描述</strong>：通过关键字控制硬件逻辑结构。</li>
-<li><strong>定义模块间的接口</strong>：确保信号传输和数据处理的正确性。</li>
-</ul>
-<h2 id="Verilog-板块结构-字数-300"><a href="#Verilog-板块结构-字数-300" class="headerlink" title="Verilog 板块结构 (字数: 300)"></a>Verilog 板块结构 (字数: 300)</h2><h3 id="模块声明"><a href="#模块声明" class="headerlink" title="模块声明"></a>模块声明</h3><ul>
-<li><strong>模块名称和端口定义</strong>：通过 module 关键字定义。</li>
-</ul>
-<h3 id="信号声明-1"><a href="#信号声明-1" class="headerlink" title="信号声明"></a>信号声明</h3><ul>
-<li><strong>内部信号定义</strong>：通过 wire 和 reg 定义内部信号。</li>
-</ul>
-<h3 id="逻辑描述-1"><a href="#逻辑描述-1" class="headerlink" title="逻辑描述"></a>逻辑描述</h3><ul>
-<li><strong>时序逻辑</strong>：使用 always 块描述触发器和寄存器的行为。</li>
-<li><strong>组合逻辑</strong>：通过 assign 或 always 块描述。</li>
-</ul>
-<h3 id="模块实例化"><a href="#模块实例化" class="headerlink" title="模块实例化"></a>模块实例化</h3><ul>
-<li><strong>子模块调用</strong>：通过实例化其他模块实现模块化设计。</li>
-</ul>
-<h3 id="应用场景-12"><a href="#应用场景-12" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
-<li><strong>硬件逻辑设计</strong>：板块结构清晰，便于组织和管理设计。</li>
-<li><strong>调试和验证</strong>：合理的板块结构有助于提高代码可读性和可维护性。</li>
-</ul>
-<h2 id="端口-字数-298"><a href="#端口-字数-298" class="headerlink" title="端口 (字数: 298)"></a>端口 (字数: 298)</h2><h3 id="端口类型"><a href="#端口类型" class="headerlink" title="端口类型"></a>端口类型</h3><ul>
-<li><strong>input</strong>：定义输入信号的端口。</li>
-<li><strong>output</strong>：定义输出信号的端口。</li>
-<li><strong>inout</strong>：定义双向信号的端口。</li>
-</ul>
-<h3 id="信号连接"><a href="#信号连接" class="headerlink" title="信号连接"></a>信号连接</h3><ul>
-<li><strong>wire</strong>：连接模块间的信号。</li>
-<li><strong>reg</strong>：用于存储和驱动输出信号。</li>
-</ul>
-<h3 id="应用场景-13"><a href="#应用场景-13" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
-<li><strong>模块与外部通信</strong>：端口定义决定了模块与外部设备的信号传递方式。</li>
-<li><strong>模块重用性</strong>：合理的端口设计有助于提高模块的重用性和系统的扩展性。</li>
-</ul>
-<h3 id="设计注意事项"><a href="#设计注意事项" class="headerlink" title="设计注意事项"></a>设计注意事项</h3><ul>
-<li><strong>信号方向和类型选择</strong>：确保接口一致性，避免信号冲突和错误传输。</li>
-</ul>
-<h2 id="阻塞和非阻塞-字数-300"><a href="#阻塞和非阻塞-字数-300" class="headerlink" title="阻塞和非阻塞 (字数: 300)"></a>阻塞和非阻塞 (字数: 300)</h2><h3 id="阻塞赋值"><a href="#阻塞赋值" class="headerlink" title="阻塞赋值"></a>阻塞赋值</h3><ul>
-<li><strong>&#x3D; 运算符</strong>：表示在一个时间步中按顺序执行所有赋值操作。</li>
-<li><strong>应用场景</strong>：常用于描述组合逻辑。</li>
-</ul>
-<h3 id="非阻塞赋值"><a href="#非阻塞赋值" class="headerlink" title="非阻塞赋值"></a>非阻塞赋值</h3><ul>
-<li><strong>&lt;&#x3D; 运算符</strong>：表示在同一个时间步内所有赋值操作并行执行。</li>
-<li><strong>应用场景</strong>：常用于描述时序逻辑，如触发器或寄存器的行为。</li>
-</ul>
-<h3 id="设计影响-1"><a href="#设计影响-1" class="headerlink" title="设计影响"></a>设计影响</h3><ul>
-<li><strong>时序行为</strong>：阻塞和非阻塞赋值方式直接影响电路的时序行为。</li>
-<li><strong>硬件实现</strong>：在设计复杂时序电路时，正确区分两种赋值方式尤为重要。</li>
-</ul>
-<h3 id="优化设计"><a href="#优化设计" class="headerlink" title="优化设计"></a>优化设计</h3><ul>
-<li><strong>避免时序错误</strong>：合理使用赋值方式，确保电路按预期工作。</li>
-</ul>
-<h2 id="状态及状态机-字数-300"><a href="#状态及状态机-字数-300" class="headerlink" title="状态及状态机 (字数: 300)"></a>状态及状态机 (字数: 300)</h2><h3 id="状态机组成"><a href="#状态机组成" class="headerlink" title="状态机组成"></a>状态机组成</h3><ul>
-<li><strong>状态集</strong>：定义系统可能的所有状态。</li>
-<li><strong>初始状态</strong>：系统启动时的初始状态。</li>
-</ul>
-<h3 id="状态转移"><a href="#状态转移" class="headerlink" title="状态转移"></a>状态转移</h3><ul>
-<li><strong>基于输入条件</strong>：状态间的转移由输入信号或事件触发。</li>
-</ul>
-<h3 id="输出逻辑"><a href="#输出逻辑" class="headerlink" title="输出逻辑"></a>输出逻辑</h3><ul>
-<li><strong>决定每个状态的输出行为</strong>：根据当前状态和输入信号决定输出。</li>
-</ul>
-<h3 id="设计类型"><a href="#设计类型" class="headerlink" title="设计类型"></a>设计类型</h3><ul>
-<li><strong>同步状态机</strong>：基于时钟信号驱动，所有状态转换同步进行。</li>
-<li><strong>异步状态机</strong>：基于事件驱动，状态转换不依赖全局时钟。</li>
-</ul>
-<h3 id="应用场景-14"><a href="#应用场景-14" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
-<li><strong>控制逻辑</strong>：用于实现复杂的控制系统和协议处理。</li>
-<li><strong>时序控制</strong>：确保系统按预定的顺序和时序运行。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/25/FPGA-%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93%E6%A1%86%E6%9E%B6/" data-id="cm2ixhdc600012elw5y19dun6" data-title="FPGA 相关总结框架" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-FPGA相关总结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/25/FPGA%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/" class="article-date">
-  <time class="dt-published" datetime="2024-08-24T16:00:00.000Z" itemprop="datePublished">2024-08-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/25/FPGA%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/">FPGA 相关总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="1-Zynq-7000-SoC-字数-300"><a href="#1-Zynq-7000-SoC-字数-300" class="headerlink" title="1. Zynq 7000 SoC (字数: 300)"></a>1. Zynq 7000 SoC (字数: 300)</h2><p>Zynq 7000 SoC 是由 Xilinx 推出的一种高度集成的片上系统 (SoC)，结合了 ARM Cortex-A9 双核处理系统 (PS) 和可编程逻辑 (PL)。这种架构允许在一个芯片上同时实现软件处理和硬件加速。PS 部分负责执行操作系统、应用程序和管理片上外设，PL 部分则用于实现自定义的硬件逻辑，如信号处理、加密解密等。Zynq 7000 系列广泛应用于工业自动化、通信系统和嵌入式系统中，提供了软硬件协同设计的高灵活性和高性能计算能力。通过 PS 和 PL 的结合，用户可以设计和实现复杂的嵌入式系统，并且在运行时动态调整硬件配置，以适应不同的应用需求。</p>
-<h2 id="2-PL-Programmable-Logic-字数-300"><a href="#2-PL-Programmable-Logic-字数-300" class="headerlink" title="2. PL (Programmable Logic) (字数: 300)"></a>2. PL (Programmable Logic) (字数: 300)</h2><p>可编程逻辑 (PL) 是 Zynq SoC 中用于实现自定义硬件功能的部分。PL 的核心包括查找表 (LUT)、触发器、存储器块和可编程互连，这些组件可以组合成复杂的逻辑功能。PL 的可编程性使得 FPGA 可以灵活地适应各种应用需求，用户可以通过硬件描述语言 (HDL) 来定义和优化逻辑设计。通过 PL，可以实现并行计算、实时数据处理和信号处理等任务。相比传统的 ASIC，PL 提供了极大的设计灵活性，允许在开发过程中反复修改电路设计，缩短了产品开发周期，并降低了设计成本。</p>
-<h2 id="3-PS-Processing-System-字数-305"><a href="#3-PS-Processing-System-字数-305" class="headerlink" title="3. PS (Processing System) (字数: 305)"></a>3. PS (Processing System) (字数: 305)</h2><p>PS 是 Zynq SoC 中的处理系统部分，包含 ARM Cortex-A9 双核处理器、片上存储器、外设和多种接口。PS 负责执行操作系统和应用程序，并通过 AXI 总线与可编程逻辑 (PL) 进行紧密的硬件交互，从而实现高效的数据处理和硬件加速。PS 提供了一整套丰富的外设接口，包括 UART、SPI、I2C、以太网和 USB 等，支持多种嵌入式操作系统，如 Linux 和 FreeRTOS。PS 与 PL 的结合使得 Zynq SoC 成为一个功能强大的嵌入式平台，能够同时满足软件灵活性和硬件性能需求，广泛应用于工业控制、通信设备和消费电子等领域。</p>
-<h2 id="4-AXI-Advanced-eXtensible-Interface-字数-302"><a href="#4-AXI-Advanced-eXtensible-Interface-字数-302" class="headerlink" title="4. AXI (Advanced eXtensible Interface) (字数: 302)"></a>4. AXI (Advanced eXtensible Interface) (字数: 302)</h2><p>AXI 是 AMBA (Advanced Microcontroller Bus Architecture) 总线协议的一部分，用于高性能片上通信。AXI 提供高带宽和低延迟的数据传输，支持多主控和多从设备，并允许突发传输以减少通信开销。AXI Lite 是 AXI 的简化版本，主要用于低带宽控制寄存器访问，而 AXI Stream 则用于高效的数据流传输，如音频或视频数据。AXI 广泛应用于 SoC 设计中，尤其是在 Zynq 系列中，AXI 负责处理系统 (PS) 与可编程逻辑 (PL) 之间的数据传输。它的高效性和灵活性使其成为片上系统设计中的关键组件。</p>
-<table>
-<thead>
-<tr>
-<th>子类型</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>AXI Lite</td>
-<td>简化版，用于低吞吐量的控制寄存器访问。</td>
-</tr>
-<tr>
-<td>AXI Stream</td>
-<td>高效数据流传输，适合连续音视频数据。</td>
-</tr>
-</tbody></table>
-<h2 id="5-SoPC-System-on-Programmable-Chip-字数-300"><a href="#5-SoPC-System-on-Programmable-Chip-字数-300" class="headerlink" title="5. SoPC (System on Programmable Chip) (字数: 300)"></a>5. SoPC (System on Programmable Chip) (字数: 300)</h2><p>SoPC 是在可编程逻辑设备（如 FPGA）上集成处理器、存储器、I&#x2F;O 接口和自定义逻辑功能的系统。SoPC 的设计允许在一片 FPGA 上实现完整的嵌入式系统，用户可以通过硬件描述语言 (HDL) 定义和实现各种硬件功能，同时通过软核或硬核处理器来运行操作系统和应用程序。SoPC 提供了高度的灵活性和可定制性，适用于需要动态硬件配置的应用场景，如工业自动化、通信系统和高性能计算。SoPC 设计减少了系统集成的复杂性和时间成本，特别适合快速原型设计和低批量生产。</p>
-<h2 id="6-APSoC-All-Programmable-System-on-Chip-字数-300"><a href="#6-APSoC-All-Programmable-System-on-Chip-字数-300" class="headerlink" title="6. APSoC (All Programmable System on Chip) (字数: 300)"></a>6. APSoC (All Programmable System on Chip) (字数: 300)</h2><p>APSoC 是一种结合了可编程逻辑 (PL) 和处理系统 (PS) 的全可编程片上系统，典型的例子是 Xilinx 的 Zynq 系列。APSoC 允许用户通过软件定义硬件，实现软硬件的协同设计。APSoC 的架构使得它在处理复杂计算任务时能够充分利用硬件加速，同时在运行时根据应用需求动态调整硬件配置。APSoC 的 PS 部分负责执行操作系统和应用程序，而 PL 部分则用于处理数据密集型任务，如视频处理、信号处理和加密解密。APSoC 在高性能计算、嵌入式系统、通信和工业控制领域具有广泛应用。</p>
-<h2 id="7-APU-Application-Processing-Unit-字数-302"><a href="#7-APU-Application-Processing-Unit-字数-302" class="headerlink" title="7. APU (Application Processing Unit) (字数: 302)"></a>7. APU (Application Processing Unit) (字数: 302)</h2><p>APU 是指应用处理单元，通常在 SoC 或 APSoC 中指代 ARM Cortex-A 系列的处理器核心。APU 负责执行操作系统和应用程序，支持多核架构和对称多处理 (SMP)，可以同时运行多个线程或进程，提升系统的处理能力和响应速度。APU 集成了浮点运算单元 (FPU) 和矢量处理单元 (NEON)，用于加速复杂的数学运算和多媒体处理。通过 AXI 总线，APU 能与片上外设和可编程逻辑 (PL) 高效通信，适用于实时数据处理、图像处理和高性能计算等应用场景。</p>
-<h2 id="8-PLD-Programmable-Logic-Device-字数-300"><a href="#8-PLD-Programmable-Logic-Device-字数-300" class="headerlink" title="8. PLD (Programmable Logic Device) (字数: 300)"></a>8. PLD (Programmable Logic Device) (字数: 300)</h2><p>PLD 是一种可编程逻辑器件，允许用户通过编程定义数字电路的逻辑功能。PLD 包括复杂可编程逻辑器件 (CPLD) 和现场可编程门阵列 (FPGA) 两种主要类型。PLD 的内部结构包括查找表 (LUT)、触发器和可编程互连，用户可以通过硬件描述语言 (HDL) 对这些组件进行编程，以实现所需的逻辑功能。PLD 提供了设计的灵活性和可重复配置的优势，广泛应用于嵌入式系统、快速原型设计和低批量生产中。相比于固定逻辑的 ASIC，PLD 允许用户在开发过程中反复修改电路设计，适应不断变化的需求。</p>
-<h2 id="9-CPLD-Complex-Programmable-Logic-Device-字数-300"><a href="#9-CPLD-Complex-Programmable-Logic-Device-字数-300" class="headerlink" title="9. CPLD (Complex Programmable Logic Device) (字数: 300)"></a>9. CPLD (Complex Programmable Logic Device) (字数: 300)</h2><p>CPLD 是 PLD 家族中的一种，具有较少的逻辑单元和较低的复杂性，但在延迟和功耗方面表现优异。CPLD 的逻辑资源固定，编程后的逻辑延迟恒定，因此适用于对延迟敏感的应用场景，如简单的控制逻辑、状态机、数据路由和接口转换等。CPLD 通常具有非易失性存储功能，能够在上电后立即启动，因此特别适合需要快速响应的嵌入式系统设计。CPLD 广泛应用于消费电子、通信设备和工业控制系统中，是一种理想的选择，适合低功耗、低延迟需求的场景。</p>
-<h2 id="10-AXI-GP-General-Purpose-AXI-字数-299"><a href="#10-AXI-GP-General-Purpose-AXI-字数-299" class="headerlink" title="10. AXI_GP (General Purpose AXI) (字数: 299)"></a>10. AXI_GP (General Purpose AXI) (字数: 299)</h2><p>AXI_GP 是 Zynq SoC 中的通用 AXI 接口，用于处理系统 (PS) 和可编程逻辑 (PL) 之间的低带宽数据传输。AXI_GP 提供了一种简单、高效的方式，让 PS 能够通过 AXI 总线与 PL 交换数据。这种接口通常用于控制寄存器的读写和低速外设的访问。与高带宽的 AXI_HP（High Performance）接口相比，AXI_GP 更适合控制信号和低速数据的传输，如从 PS 向 PL 发送配置信息或读取 PL 中的状态寄存器。AXI_GP 的设计使得 SoC 在软硬件协同工作时具有更好的灵活性和适应性。</p>
-<h2 id="11-AMBA-Advanced-Microcontroller-Bus-Architecture-字数-303"><a href="#11-AMBA-Advanced-Microcontroller-Bus-Architecture-字数-303" class="headerlink" title="11. AMBA (Advanced Microcontroller Bus Architecture) (字数: 303)"></a>11. AMBA (Advanced Microcontroller Bus Architecture) (字数: 303)</h2><p>AMBA 是 ARM 公司开发的片上总线架构标准，用于连接 SoC 中的各种功能模块。AMBA 提供了模块化的接口标准，允许不同的 IP 核无缝集成到 SoC 中。AMBA 总线架构包括 APB（Advanced Peripheral Bus）、AHB（Advanced High-performance Bus）和 AXI（Advanced eXtensible Interface），分别用于低带宽外设、高带宽存储器和高性能数据传输。AMBA 的设计旨在简化片上系统 (SoC) 的集成，使得开发者能够更高效地构建复杂的嵌入式系统。它广泛应用于嵌入式处理器、数字信号处理器和 ASIC 设计中，是现代 SoC 设计中的关键标准。</p>
-<h2 id="12-AHB-Advanced-High-performance-Bus-字数-300"><a href="#12-AHB-Advanced-High-performance-Bus-字数-300" class="headerlink" title="12. AHB (Advanced High-performance Bus) (字数: 300)"></a>12. AHB (Advanced High-performance Bus) (字数: 300)</h2><p>AHB 是 AMBA 总线架构的一部分，专为高性能片上通信设计，提供了高带宽和低延迟的数据传输能力。AHB 采用了集中式仲裁机制，支持多主控和多从设备的连接，通过仲裁器控制总线的使用权，确保数据传输的有效性和可靠性。AHB 还支持突发传输模式，可以一次性传输多个数据项，进一步提高了总线的利用效率。AHB 在 SoC 设计中广泛应用，特别是在需要高带宽和实时数据处理的应用中，如存储器访问和高速外设接口。AHB 的灵活性和高效性使其成为现代片上系统设计中的关键组件。</p>
-<h2 id="13-ATB-Advanced-Trace-Bus-字数-300"><a href="#13-ATB-Advanced-Trace-Bus-字数-300" class="headerlink" title="13. ATB (Advanced Trace Bus) (字数: 300)"></a>13. ATB (Advanced Trace Bus) (字数: 300)</h2><p>ATB 是 AMBA 总线架构中的一种专用于片上调试和跟踪的总线协议。ATB 主要用于实时监控和记录处理器的指令和数据流，帮助设计者进行系统调试和性能分析。ATB 通过追踪数据流的变化，能够捕获系统中发生的所有指令执行和数据传输情况，并将这些信息传递给外部调试工具（如 ARM CoreSight）。ATB 的设计目标是尽可能降低对系统性能的影响，因此采用了高效的传输机制，确保调试数据的及时性和准确性。ATB 为嵌入式系统提供了强大的调试能力，尤其适用于复杂多核系统和实时应用的调试和优化。</p>
-<h2 id="14-Block-Design-字数-300"><a href="#14-Block-Design-字数-300" class="headerlink" title="14. Block Design (字数: 300)"></a>14. Block Design (字数: 300)</h2><p>Block Design 是 FPGA 设计中的一种图形化设计方法，用户可以通过连接预定义的 IP 核模块来快速搭建系统架构。Block Design 是 Xilinx Vivado 开发工具中的一项核心功能，允许用户以模块化的方式设计和验证复杂的系统。每个模块可以是处理器、存储器、外设或用户自定义的逻辑功能，通过图形界面拖放这些模块并连接它们，用户可以快速构建系统原型。Block Design 还支持模块的参数化配置，使得设计更加灵活和高效。完成设计后，Block Design 可以自动生成 HDL 代码并与其他设计工具集成，极大地提高了 FPGA 开发效率。</p>
-<h2 id="15-C-C-字数-300"><a href="#15-C-C-字数-300" class="headerlink" title="15. C&#x2F;C++ (字数: 300)"></a>15. C&#x2F;C++ (字数: 300)</h2><p>C 和 C++ 是两种广泛用于嵌入式系统开发的编程语言。C 语言以其简洁、高效、接近硬件的特性，成为嵌入式开发的首选语言之一，适用于操作系统、驱动程序和底层硬件控制的开发。C++ 是在 C 的基础上扩展的面向对象编程语言，增加了类和对象的概念，使得代码更易维护和扩展。C&#x2F;C++ 在嵌入式系统开发中的重要性体现在其强大的低级控制能力和广泛的硬件支持上。许多嵌入式处理器和微控制器都提供了针对 C&#x2F;C++ 的编译器和开发工具，使得开发者能够直接与硬件交互，实现高效的系统控制。</p>
-<h2 id="16-HLS-High-Level-Synthesis-字数-300"><a href="#16-HLS-High-Level-Synthesis-字数-300" class="headerlink" title="16. HLS (High-Level Synthesis) (字数: 300)"></a>16. HLS (High-Level Synthesis) (字数: 300)</h2><p>HLS 是一种将高级编程语言（如 C&#x2F;C++）转换为硬件描述语言（HDL）的技术，用于加速硬件设计流程。HLS 通过允许设计者使用高级编程语言来描述算法和系统行为，然后将这些描述自动转换为可综合的 HDL 代码，大幅提高了设计效率。HLS 工具通常包括代码优化、自动流水线化、并行化等功能，帮助设计者充分利用硬件资源，提高系统性能。HLS 特别适合需要快速实现硬件加速的应用，如图像处理、信号处理和加密算法等。在 FPGA 设计中，HLS 工具可以显著减少开发时间，使得设计者能够在更短的时间内从算法模型到硬件实现，快速验证和迭代设计。</p>
-<h2 id="17-ILA-Integrated-Logic-Analyzer-字数-300"><a href="#17-ILA-Integrated-Logic-Analyzer-字数-300" class="headerlink" title="17. ILA (Integrated Logic Analyzer) (字数: 300)"></a>17. ILA (Integrated Logic Analyzer) (字数: 300)</h2><p>ILA 是 FPGA 内部的集成逻辑分析仪工具，允许用户在不影响系统性能的情况下实时捕获和分析内部信号。ILA 是 Xilinx 提供的调试 IP 核，通过在设计中插入 ILA 核，用户可以在硬件运行时监控和记录指定信号的活动。ILA 可以通过 JTAG 接口与外部调试工具连接，用户可以设置触发条件，捕获感兴趣的信号并进行详细分析。ILA 支持多通道信号捕获和深度存储器，适合监控长时间的信号活动。与传统的外部逻辑分析仪不同，ILA 完全集成在 FPGA 内部，不会对系统引入额外的延迟或干扰，适用于调试高性能和实时性要求高的应用。</p>
-<h2 id="18-VIO-Virtual-Input-Output-字数-300"><a href="#18-VIO-Virtual-Input-Output-字数-300" class="headerlink" title="18. VIO (Virtual Input&#x2F;Output) (字数: 300)"></a>18. VIO (Virtual Input&#x2F;Output) (字数: 300)</h2><p>VIO 是一种 FPGA 内部的虚拟输入&#x2F;输出调试工具，允许用户在仿真或实时调试时动态地输入和观察信号。VIO 是 Xilinx 提供的调试 IP 核，通过在设计中插入 VIO 核，用户可以通过外部工具实时控制 FPGA 内部的信号状态，并观察这些信号对系统的影响。VIO 支持双向信号传输，用户可以将外部的控制信号输入到 FPGA 内部，或将 FPGA 内部的信号输出到外部进行监控。VIO 的实时调试能力对于验证复杂系统的行为非常有用，尤其在无法通过普通测试手段进行验证的情况下。VIO 允许设计者在不修改 FPGA 设计的情况下，动态调整信号输入或监控系统输出，从而提高调试效率。</p>
-<h2 id="19-时序约束-Timing-Constraints-字数-300"><a href="#19-时序约束-Timing-Constraints-字数-300" class="headerlink" title="19. 时序约束 (Timing Constraints) (字数: 300)"></a>19. 时序约束 (Timing Constraints) (字数: 300)</h2><p>时序约束是 FPGA 设计中定义信号在时钟周期内传输时间要求的规则，用于确保设计在规定的时钟频率下正常工作。时序约束通常包括时钟周期、建立时间、保持时间、输入输出延迟等。这些约束决定了设计中每个信号在传输过程中的最大和最小延迟，从而确保在整个系统中数据能正确传输并被采样。时序约束的定义和应用直接影响到 FPGA 设计的性能和可靠性。通过时序约束，综合和布局布线工具可以自动调整电路结构，以满足时序要求，确保设计在目标频率下不会出现时序违例。时序约束是 FPGA 设计流程中的关键步骤，特别是在高性能和低功耗设计中，严格的时序约束确保了系统的稳定性和优化性能。</p>
-<h2 id="20-CPLD-Complex-Programmable-Logic-Device-字数-300"><a href="#20-CPLD-Complex-Programmable-Logic-Device-字数-300" class="headerlink" title="20. CPLD (Complex Programmable Logic Device) (字数: 300)"></a>20. CPLD (Complex Programmable Logic Device) (字数: 300)</h2><p>CPLD 是复杂可编程逻辑器件，是 PLD 家族的一员，具有较少的逻辑单元和较低的复杂性，但在延迟和功耗方面表现优异。CPLD 内部由多个逻辑宏单元组成，这些宏单元通过可编程的互连网络连接在一起。与 FPGA 不同，CPLD 的逻辑资源较为固定，且编程后的逻辑延迟相对恒定，因此非常适合那些对延迟敏感但逻辑复杂度不高的应用场景。CPLD 通常用于简单的逻辑控制、状态机、数据路由和接口转换等应用，在需要快速响应和低功耗的场合，如消费电子、通信设备和工业控制系统中，CPLD 是一种理想的选择。</p>
-<h2 id="21-FPGA-逻辑值的不同含义-字数-300"><a href="#21-FPGA-逻辑值的不同含义-字数-300" class="headerlink" title="21. FPGA 逻辑值的不同含义 (字数: 300)"></a>21. FPGA 逻辑值的不同含义 (字数: 300)</h2><p>在 FPGA 设计中，逻辑值通常表示为高电平 (1) 和低电平 (0)，此外还包括两种特殊状态：未知 (X) 和高阻 (Z)。高电平和低电平分别对应于数字逻辑中的 “真” 和 “假”。未知状态 (X) 表示在仿真中某个信号的值不确定，通常出现在复位或未初始化时。高阻状态 (Z) 表示信号处于高阻抗状态，通常用于三态缓冲器中，表示该信号不驱动任何电路。在仿真过程中，这些逻辑值用于描述电路的行为，并在调试时帮助设计者识别潜在的设计问题。在 FPGA 实际运行中，1 和 0 是最常用的逻辑值，而 X 和 Z 主要用于仿真和调试。了解这些逻辑值的含义对于准确描述和验证电路行为至关重要。</p>
-<h2 id="22-二进制、八进制、十进制、十六进制-字数-300"><a href="#22-二进制、八进制、十进制、十六进制-字数-300" class="headerlink" title="22. 二进制、八进制、十进制、十六进制 (字数: 300)"></a>22. 二进制、八进制、十进制、十六进制 (字数: 300)</h2><p>二进制、八进制、十进制和十六进制是表示数字的不同数制。在 FPGA 和嵌入式系统中，这些数制经常被用来表示数据。二进制使用 0 和 1 表示数字，是计算机和数字电路的基础；八进制以 8 为基数，使用 0-7 的数字，通常用于缩短二进制表示的长度；十进制是日常使用的数制，以 10 为基数，使用 0-9 的数字；十六进制以 16 为基数，使用 0-9 和字母 A-F 表示数字，常用于表示内存地址和机器码。FPGA 设计中，二进制和十六进制是最常用的数制，便于直接与硬件位级信号对应。八进制在某些情况下也使用，但相对较少。了解这些数制的转换和应用对于嵌入式系统设计和调试至关重要，特别是在处理低级别的数据和信号时。</p>
-<h2 id="23-Verilog-运算符-字数-301"><a href="#23-Verilog-运算符-字数-301" class="headerlink" title="23. Verilog 运算符 (字数: 301)"></a>23. Verilog 运算符 (字数: 301)</h2><p>Verilog 是一种硬件描述语言，其中的运算符用于执行各种逻辑、算术和位操作。算术运算符包括 +、-、*、&#x2F;，用于实现加法、减法、乘法和除法。关系运算符如 &gt;、&lt;、&#x3D;&#x3D;，用于比较两个值。**逻辑运算符**如 &amp;&amp;、||、!，用于处理布尔逻辑。**按位运算符**如 &amp;、|、^、~，用于位级操作，常用于处理多位信号。**移位运算符**如 &lt;&lt;、&gt;&gt;，用于左移或右移操作数的位。运算符是 Verilog 代码的重要组成部分，直接影响电路的功能和性能。正确使用运算符可以帮助设计者高效描述硬件行为，从而实现高性能的电路设计。运算符的功能和用法与 C 语言类似，易于学习和使用，但在硬件描述中，设计者需要注意运算的硬件实现效率和时序影响。</p>
-<h2 id="24-Verilog-关键字-字数-299"><a href="#24-Verilog-关键字-字数-299" class="headerlink" title="24. Verilog 关键字 (字数: 299)"></a>24. Verilog 关键字 (字数: 299)</h2><p>Verilog 关键字是 Verilog 语言中具有特殊意义的保留词，用于定义和控制硬件描述的结构和行为。常见的关键字包括 module（定义一个模块）、input（定义输入端口）、output（定义输出端口）、wire（定义连线）、reg（定义寄存器）、always（定义时序逻辑）、initial（定义初始化过程）等。关键字不能作为标识符（如变量名、模块名）使用。Verilog 关键字用于描述电路的各个组成部分，如信号、逻辑关系、时序行为和模块间的接口。设计者通过正确使用这些关键字，可以准确地定义和实现复杂的硬件逻辑。Verilog 关键字的设计简洁且功能强大，是硬件描述语言的重要组成部分，广泛应用于 FPGA 和 ASIC 的设计和验证中。理解和正确使用这些关键字是编写有效 Verilog 代码的关键。</p>
-<h2 id="25-Verilog-板块结构-字数-300"><a href="#25-Verilog-板块结构-字数-300" class="headerlink" title="25. Verilog 板块结构 (字数: 300)"></a>25. Verilog 板块结构 (字数: 300)</h2><p>Verilog 板块结构是指 Verilog 模块的内部组成部分，定义了模块的输入输出端口、内部信号、逻辑描述和实例化等内容。一个典型的 Verilog 模块由模块声明、端口列表、信号声明、时序逻辑描述、组合逻辑描述以及其他模块的实例化构成。模块声明部分定义了模块的名称和端口类型，如输入、输出和双向端口。信号声明部分定义了模块内部使用的各种信号，如 wire、reg 等。时序逻辑描述通常使用 always 块来描述触发器和寄存器的行为，而组合逻辑则可以使用 assign 语句或 always 块进行描述。最后，模块的实例化允许设计者在一个模块内调用其他模块，从而实现模块化设计。Verilog 的板块结构使得设计者能够清晰地组织和管理硬件逻辑，提高代码的可读性和可维护性。合理的板块结构设计对于实现高效硬件逻辑和便于调试至关重要。</p>
-<h2 id="26-端口-字数-298"><a href="#26-端口-字数-298" class="headerlink" title="26. 端口 (字数: 298)"></a>26. 端口 (字数: 298)</h2><p>端口是 Verilog 模块与外部进行通信的接口，用于定义模块的输入、输出和双向信号。每个端口在 Verilog 中都有一个名称和类型，常见的类型包括 input（输入端口）、output（输出端口）和 inout（双向端口）。端口的定义决定了模块与其他模块或外部设备之间如何传递信号和数据。在模块的内部，端口通常连接到 wire 或 reg 信号，通过这些信号来驱动或接收来自端口的数据。端口的正确使用是模块设计的基础，它确保了不同模块之间的数据流动和控制信号传递。设计者在定义端口时，需要注意信号方向和类型的选择，以确保模块之间的接口一致性。合理的端口设计有助于提高模块的重用性和设计的可扩展性，特别是在复杂系统设计中，端口的正确定义和管理对于实现系统的可靠性和性能至关重要。</p>
-<h2 id="27-阻塞和非阻塞-字数-300"><a href="#27-阻塞和非阻塞-字数-300" class="headerlink" title="27. 阻塞和非阻塞 (字数: 300)"></a>27. 阻塞和非阻塞 (字数: 300)</h2><p>阻塞和非阻塞赋值是 Verilog 中两种不同的赋值方式，决定了信号赋值的时序行为。阻塞赋值使用 &#x3D; 运算符，表示在一个时间步中按顺序执行所有赋值操作，即下一个赋值操作要等到当前赋值操作完成后才开始执行。阻塞赋值常用于描述组合逻辑。非阻塞赋值使用 &lt;&#x3D; 运算符，表示在同一个时间步内所有赋值操作并行执行，即所有赋值操作同时开始，在同一时钟周期内生效。非阻塞赋值通常用于描述时序逻辑，如触发器或寄存器的行为。在硬件设计中，正确区分阻塞和非阻塞赋值对于实现期望的电路行为至关重要，尤其在设计复杂时序电路时需要特别注意。</p>
-<h2 id="28-状态及状态机-字数-300"><a href="#28-状态及状态机-字数-300" class="headerlink" title="28. 状态及状态机 (字数: 300)"></a>28. 状态及状态机 (字数: 300)</h2><p>状态机是一种用于控制系统行为的数学模型，由一组状态和状态之间的转移组成。状态机在 FPGA 设计中广泛应用，用于实现控制逻辑、协议处理和时序控制。一个状态机通常包括以下几个部分：状态集（定义系统可能的所有状态）、初始状态（系统启动时的状态）、状态转移（基于输入条件改变状态）和输出逻辑（决定在每个状态下的输出行为）。Verilog 支持通过 always 块和 case 语句来实现状态机的描述。状态机分为同步状态机（基于时钟信号驱动）和异步状态机（基于事件驱动）。在设计状态机时，需要仔细考虑状态转换的条件和时序要求，以确保系统能够正确响应输入信号并稳定运行。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/25/FPGA%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/" data-id="cm2ixhdc700022elw33313c6k" data-title="FPGA 相关总结" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-testbench" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/25/testbench/" class="article-date">
-  <time class="dt-published" datetime="2024-08-24T16:00:00.000Z" itemprop="datePublished">2024-08-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/25/testbench/">Verilog 仿真 Testbench 的书写指南</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="1-定义模块"><a href="#1-定义模块" class="headerlink" title="1. 定义模块"></a>1. 定义模块</h2><p>首先，你需要定义你要测试的设计模块。比如，一个简单的与门模块可以定义如下：</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> and_gate (</span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">wire</span> a,</span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">wire</span> b,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">wire</span> y</span><br><span class="line">);</span><br><span class="line">    <span class="keyword">assign</span> y = a &amp; b;</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-创建-Testbench-模块"><a href="#2-创建-Testbench-模块" class="headerlink" title="2. 创建 Testbench 模块"></a>2. 创建 Testbench 模块</h2><p>Testbench 是一个独立的 Verilog 模块，用于模拟和测试设计模块的行为。它没有任何输入或输出端口，主要负责生成测试信号，并监视设计模块的输出。</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> and_gate_tb;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义 Testbench 中的寄存器和线</span></span><br><span class="line">    <span class="keyword">reg</span> a;</span><br><span class="line">    <span class="keyword">reg</span> b;</span><br><span class="line">    <span class="keyword">wire</span> y;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 实例化需要测试的模块</span></span><br><span class="line">    and_gate uut (</span><br><span class="line">        <span class="variable">.a</span>(a), </span><br><span class="line">        <span class="variable">.b</span>(b), </span><br><span class="line">        <span class="variable">.y</span>(y)</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化输入信号</span></span><br><span class="line">    <span class="keyword">initial</span> <span class="keyword">begin</span></span><br><span class="line">        <span class="comment">// 初始化值</span></span><br><span class="line">        a = <span class="number">0</span>;</span><br><span class="line">        b = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 添加测试向量</span></span><br><span class="line">        #<span class="number">10</span> a = <span class="number">1</span>; b = <span class="number">0</span>; <span class="comment">// 测试 a=1, b=0</span></span><br><span class="line">        #<span class="number">10</span> a = <span class="number">0</span>; b = <span class="number">1</span>; <span class="comment">// 测试 a=0, b=1</span></span><br><span class="line">        #<span class="number">10</span> a = <span class="number">1</span>; b = <span class="number">1</span>; <span class="comment">// 测试 a=1, b=1</span></span><br><span class="line">        #<span class="number">10</span> a = <span class="number">0</span>; b = <span class="number">0</span>; <span class="comment">// 测试 a=0, b=0</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 结束仿真</span></span><br><span class="line">        #<span class="number">10</span> <span class="built_in">$finish</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 监视信号变化</span></span><br><span class="line">    <span class="keyword">initial</span> <span class="keyword">begin</span></span><br><span class="line">        <span class="built_in">$monitor</span>(<span class="string">&quot;Time=%0d : a=%b b=%b y=%b&quot;</span>, <span class="built_in">$time</span>, a, b, y);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-仿真输出"><a href="#3-仿真输出" class="headerlink" title="3. 仿真输出"></a>3. 仿真输出</h2><p>当你运行 Testbench 时，仿真器将执行以下步骤：</p>
-<ol>
-<li><strong>初始化信号</strong>：Testbench 初始化所有输入信号的初始值。</li>
-<li><strong>生成测试向量</strong>：Testbench 生成一系列测试信号，来模拟各种输入条件下设计模块的行为。</li>
-<li><strong>监视和输出</strong>：使用 <code>$monitor</code> 或 <code>$display</code> 来实时监控输出信号，并打印出当前时间和信号值。</li>
-</ol>
-<p>仿真器的输出示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Time=0 : a=0 b=0 y=0</span><br><span class="line">Time=10 : a=1 b=0 y=0</span><br><span class="line">Time=20 : a=0 b=1 y=0</span><br><span class="line">Time=30 : a=1 b=1 y=1</span><br><span class="line">Time=40 : a=0 b=0 y=0</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>编写 Testbench 的主要目的是验证设计模块在各种输入条件下的行为是否符合预期。Testbench 通常包括以下关键步骤：</p>
-<ol>
-<li><strong>定义测试向量</strong>：为所有输入信号定义各种测试向量，以涵盖设计模块的各种输入组合。</li>
-<li><strong>监控输出</strong>：使用 <code>$monitor</code> 或 <code>$display</code> 输出仿真过程中的信号变化，帮助你验证模块行为。</li>
-<li><strong>结束仿真</strong>：使用 <code>$finish</code> 语句在所有测试完成后结束仿真。</li>
-</ol>
-<p>通过这个流程，你可以确保设计的模块在不同输入条件下的行为是正确的，这不仅适用于 Verilog，也同样适用于其他硬件描述语言，如 VHDL。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/25/testbench/" data-id="cm2ixhdcm001p2elw40htci1w" data-title="Verilog 仿真 Testbench 的书写指南" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Testbench/" rel="tag">Testbench</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Verilog/" rel="tag">Verilog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%BF%E7%9C%9F/" rel="tag">仿真</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-verilog杂谈" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/25/verilog%E6%9D%82%E8%B0%88/" class="article-date">
-  <time class="dt-published" datetime="2024-08-24T16:00:00.000Z" itemprop="datePublished">2024-08-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/25/verilog%E6%9D%82%E8%B0%88/">Verilog 中的数值表示方法与运算符</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Verilog-中的数值表示方法"><a href="#Verilog-中的数值表示方法" class="headerlink" title="Verilog 中的数值表示方法"></a>Verilog 中的数值表示方法</h2><h3 id="二进制-Binary"><a href="#二进制-Binary" class="headerlink" title="二进制 (Binary)"></a>二进制 (Binary)</h3><p>使用前缀 <code>b</code> 或 <code>B</code>，并以 <code>数字&#39;</code> 开头。</p>
-<p><strong>示例:</strong></p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4&#x27;b1010</span> <span class="comment">// 表示4位的二进制数1010</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="八进制-Octal"><a href="#八进制-Octal" class="headerlink" title="八进制 (Octal)"></a>八进制 (Octal)</h3><p>使用前缀 <code>o</code> 或 <code>O</code>，并以 <code>数字&#39;</code> 开头。</p>
-<p><strong>示例:</strong></p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4&#x27;o12</span> <span class="comment">// 表示4位的八进制数12（对应二进制为1010）</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="十进制-Decimal"><a href="#十进制-Decimal" class="headerlink" title="十进制 (Decimal)"></a>十进制 (Decimal)</h3><p>直接使用数字，或者用 <code>d</code> 或 <code>D</code> 前缀。</p>
-<p><strong>示例:</strong></p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4&#x27;d10</span> <span class="comment">// 表示十进制数10</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="十六进制-Hexadecimal"><a href="#十六进制-Hexadecimal" class="headerlink" title="十六进制 (Hexadecimal)"></a>十六进制 (Hexadecimal)</h3><p>使用前缀 <code>h</code> 或 <code>H</code>，并以 <code>数字&#39;</code> 开头。</p>
-<p><strong>示例:</strong></p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4&#x27;hA</span> <span class="comment">// 表示4位的十六进制数A（对应二进制为1010）</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Verilog-中的运算符"><a href="#Verilog-中的运算符" class="headerlink" title="Verilog 中的运算符"></a>Verilog 中的运算符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><ul>
-<li><code>+</code> : 加法</li>
-<li><code>-</code> : 减法</li>
-<li><code>*</code> : 乘法</li>
-<li><code>/</code> : 除法</li>
-<li><code>%</code> : 取模</li>
-</ul>
-<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><ul>
-<li><code>==</code> : 相等</li>
-<li><code>!=</code> : 不等</li>
-<li><code>&lt;</code> : 小于</li>
-<li><code>&lt;=</code> : 小于等于</li>
-<li><code>&gt;</code> : 大于</li>
-<li><code>&gt;=</code> : 大于等于</li>
-</ul>
-<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><ul>
-<li><code>&amp;&amp;</code> : 逻辑与</li>
-<li><code>||</code> : 逻辑或</li>
-<li><code>!</code> : 逻辑非</li>
-</ul>
-<h3 id="按位运算符"><a href="#按位运算符" class="headerlink" title="按位运算符"></a>按位运算符</h3><ul>
-<li><code>&amp;</code> : 按位与</li>
-<li><code>|</code> : 按位或</li>
-<li><code>^</code> : 按位异或</li>
-<li><code>~</code> : 按位非</li>
-<li><code>&lt;&lt;</code> : 左移</li>
-<li><code>&gt;&gt;</code> : 右移</li>
-</ul>
-<h3 id="连接运算符"><a href="#连接运算符" class="headerlink" title="连接运算符"></a>连接运算符</h3><ul>
-<li><code>&#123;&#125;</code> : 连接操作符，例如 <code>&#123;2&#39;b10, 2&#39;b11&#125;</code> 会连接成 <code>4&#39;b1011</code></li>
-</ul>
-<h3 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符"></a>条件运算符</h3><ul>
-<li><code>?:</code> : 条件操作符，例如 <code>a ? b : c</code> 表示如果 <code>a</code> 为真，则选择 <code>b</code>，否则选择 <code>c</code></li>
-</ul>
-<h2 id="Verilog-中的关键字"><a href="#Verilog-中的关键字" class="headerlink" title="Verilog 中的关键字"></a>Verilog 中的关键字</h2><h3 id="模块定义和结束"><a href="#模块定义和结束" class="headerlink" title="模块定义和结束"></a>模块定义和结束</h3><ul>
-<li><code>module</code></li>
-<li><code>endmodule</code></li>
-</ul>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
-<li><code>wire</code></li>
-<li><code>reg</code></li>
-<li><code>tri</code></li>
-<li><code>tri0</code></li>
-<li><code>tri1</code></li>
-<li><code>triand</code></li>
-<li><code>trior</code></li>
-<li><code>trireg</code></li>
-<li><code>wand</code></li>
-<li><code>wor</code></li>
-<li><code>integer</code></li>
-<li><code>real</code></li>
-<li><code>realtime</code></li>
-<li><code>time</code></li>
-<li><code>supply0</code></li>
-<li><code>supply1</code></li>
-<li><code>parameter</code></li>
-<li><code>localparam</code></li>
-</ul>
-<h3 id="常量与赋值"><a href="#常量与赋值" class="headerlink" title="常量与赋值"></a>常量与赋值</h3><ul>
-<li><code>defparam</code></li>
-<li><code>assign</code></li>
-<li><code>deassign</code></li>
-<li><code>initial</code></li>
-<li><code>always</code></li>
-<li><code>force</code></li>
-<li><code>release</code></li>
-</ul>
-<h3 id="控制结构"><a href="#控制结构" class="headerlink" title="控制结构"></a>控制结构</h3><ul>
-<li><code>if</code></li>
-<li><code>else</code></li>
-<li><code>case</code></li>
-<li><code>endcase</code></li>
-<li><code>casex</code></li>
-<li><code>casez</code></li>
-<li><code>forever</code></li>
-<li><code>repeat</code></li>
-<li><code>while</code></li>
-<li><code>for</code></li>
-<li><code>begin</code></li>
-<li><code>end</code></li>
-<li><code>fork</code></li>
-<li><code>join</code></li>
-<li><code>wait</code></li>
-<li><code>disable</code></li>
-</ul>
-<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ul>
-<li><code>and</code></li>
-<li><code>or</code></li>
-<li><code>xor</code></li>
-<li><code>not</code></li>
-<li><code>nand</code></li>
-<li><code>nor</code></li>
-<li><code>xnor</code></li>
-</ul>
-<h3 id="任务与函数"><a href="#任务与函数" class="headerlink" title="任务与函数"></a>任务与函数</h3><ul>
-<li><code>function</code></li>
-<li><code>endfunction</code></li>
-<li><code>task</code></li>
-<li><code>endtask</code></li>
-</ul>
-<h3 id="输入-输出声明"><a href="#输入-输出声明" class="headerlink" title="输入&#x2F;输出声明"></a>输入&#x2F;输出声明</h3><ul>
-<li><code>input</code></li>
-<li><code>output</code></li>
-<li><code>inout</code></li>
-</ul>
-<h3 id="事件控制"><a href="#事件控制" class="headerlink" title="事件控制"></a>事件控制</h3><ul>
-<li><code>posedge</code></li>
-<li><code>negedge</code></li>
-<li><code>event</code></li>
-</ul>
-<h3 id="仿真控制"><a href="#仿真控制" class="headerlink" title="仿真控制"></a>仿真控制</h3><ul>
-<li><code>timescale</code></li>
-<li><code>specify</code></li>
-<li><code>endspecify</code></li>
-<li><code>specparam</code></li>
-<li><code>scalared</code></li>
-<li><code>vectored</code></li>
-</ul>
-<h3 id="系统任务与函数"><a href="#系统任务与函数" class="headerlink" title="系统任务与函数"></a>系统任务与函数</h3><ul>
-<li><code>$display</code></li>
-<li><code>$finish</code></li>
-<li><code>$stop</code></li>
-<li><code>$time</code></li>
-<li><code>$stime</code></li>
-<li><code>$realtime</code></li>
-<li><code>$setup</code></li>
-<li><code>$hold</code></li>
-<li><code>$monitor</code></li>
-<li><code>$monitoroff</code></li>
-<li><code>$monitoron</code></li>
-<li><code>$displayb</code></li>
-<li><code>$displayo</code></li>
-<li><code>$displayh</code></li>
-<li><code>$displaytime</code></li>
-<li><code>$strobe</code></li>
-<li><code>$showvars</code></li>
-</ul>
-<h3 id="设计单元声明"><a href="#设计单元声明" class="headerlink" title="设计单元声明"></a>设计单元声明</h3><ul>
-<li><code>primitive</code></li>
-<li><code>endprimitive</code></li>
-<li><code>table</code></li>
-<li><code>endtable</code></li>
-<li><code>cell</code></li>
-<li><code>config</code></li>
-<li><code>design</code></li>
-<li><code>instance</code></li>
-<li><code>library</code></li>
-<li><code>liblist</code></li>
-<li><code>use</code></li>
-<li><code>pulse</code></li>
-<li><code>delay_mode_distributed</code></li>
-<li><code>delay_mode_path</code></li>
-<li><code>delay_mode_unit</code></li>
-<li><code>delay_mode_zero</code></li>
-</ul>
-<h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><ul>
-<li><code>generate</code></li>
-<li><code>genvar</code></li>
-<li><code>endgenerate</code></li>
-<li><code>default</code></li>
-<li><code>highz0</code></li>
-<li><code>highz1</code></li>
-<li><code>rnmos</code></li>
-<li><code>rpmos</code></li>
-<li><code>rtran</code></li>
-<li><code>rtranif0</code></li>
-<li><code>rtranif1</code></li>
-<li><code>tran</code></li>
-<li><code>tranif0</code></li>
-<li><code>tranif1</code></li>
-<li><code>bufif0</code></li>
-<li><code>bufif1</code></li>
-<li><code>notif0</code></li>
-<li><code>notif1</code></li>
-<li><code>pullup</code></li>
-<li><code>pulldown</code></li>
-<li><code>showcancelled</code></li>
-<li><code>endconfig</code></li>
-</ul>
-<p>这些关键字和运算符在 Verilog 中具有特定的语法功能，使用时需要遵循特定的语法规则。掌握这些内容有助于编写高效且正确的 Verilog 代码。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panan13.github.io/2024/08/25/verilog%E6%9D%82%E8%B0%88/" data-id="cm2ixhdcn001s2elwckz0c231" data-title="Verilog 中的数值表示方法与运算符" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">下一页 &raquo;</a>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%A7%A3%E6%9E%90/">技术解析</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/">目标检测</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/MATLAB/">MATLAB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/Python/">Python</a></li></ul></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AMD/" rel="tag">AMD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BSD/" rel="tag">BSD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/" rel="tag">Bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dart/" rel="tag">Dart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPL/" rel="tag">GPL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intel/" rel="tag">Intel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/" rel="tag">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/" rel="tag">Java, 项目结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaTeX/" rel="tag">LaTeX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Libraries/" rel="tag">Libraries</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MATLAB/" rel="tag">MATLAB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MIT/" rel="tag">MIT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MPL/" rel="tag">MPL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ModelSim/" rel="tag">ModelSim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NVIDIA/" rel="tag">NVIDIA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rust/" rel="tag">Rust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Testbench/" rel="tag">Testbench</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Code/" rel="tag">VS Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Verilog/" rel="tag">Verilog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/YAML/" rel="tag">YAML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/YOLO/" rel="tag">YOLO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/conda/" rel="tag">conda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-gentoo-kde-grub-fstab-openrc/" rel="tag">linux gentoo kde grub fstab openrc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pip/" rel="tag">pip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" rel="tag">云计算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%BF%E7%9C%9F/" rel="tag">仿真</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%8D/" rel="tag">位</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%8F%E8%AE%AE/" rel="tag">协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E8%8A%82/" rel="tag">字节</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%98%E5%82%A8%E7%B1%BB%E5%9E%8B/" rel="tag">存储类型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92/" rel="tag">容器编排</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" rel="tag">开发指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" rel="tag">开发环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90/" rel="tag">开源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD/" rel="tag">性能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%98%BE%E5%8D%A1/" rel="tag">显卡</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" rel="tag">版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E4%BB%B6%E5%88%86%E6%9E%90/" rel="tag">硬件分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" rel="tag">移动开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A0%81/" rel="tag">编码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="tag">编程语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" rel="tag">虚拟环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" rel="tag">计算机视觉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" rel="tag">跨平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91/" rel="tag">跨平台开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E6%8D%A2%E5%85%B3%E7%B3%BB/" rel="tag">转换关系</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90/" rel="tag">软件分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" rel="tag">逆向工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%9F%E5%BA%A6%E6%AF%94%E8%BE%83/" rel="tag">速度比较</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/BSD/" style="font-size: 10px;">BSD</a> <a href="/tags/Bash/" style="font-size: 13.33px;">Bash</a> <a href="/tags/Dart/" style="font-size: 10px;">Dart</a> <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/Flutter/" style="font-size: 13.33px;">Flutter</a> <a href="/tags/GPL/" style="font-size: 10px;">GPL</a> <a href="/tags/Git/" style="font-size: 16.67px;">Git</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/Intel/" style="font-size: 10px;">Intel</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/Java-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">Java, 项目结构</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a> <a href="/tags/Libraries/" style="font-size: 10px;">Libraries</a> <a href="/tags/MATLAB/" style="font-size: 10px;">MATLAB</a> <a href="/tags/MIT/" style="font-size: 10px;">MIT</a> <a href="/tags/MPL/" style="font-size: 10px;">MPL</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/ModelSim/" style="font-size: 10px;">ModelSim</a> <a href="/tags/NVIDIA/" style="font-size: 10px;">NVIDIA</a> <a href="/tags/PowerShell/" style="font-size: 10px;">PowerShell</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/Testbench/" style="font-size: 10px;">Testbench</a> <a href="/tags/VS-Code/" style="font-size: 10px;">VS Code</a> <a href="/tags/Verilog/" style="font-size: 10px;">Verilog</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/YAML/" style="font-size: 10px;">YAML</a> <a href="/tags/YOLO/" style="font-size: 10px;">YOLO</a> <a href="/tags/conda/" style="font-size: 10px;">conda</a> <a href="/tags/linux-gentoo-kde-grub-fstab-openrc/" style="font-size: 10px;">linux gentoo kde grub fstab openrc</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">云计算</a> <a href="/tags/%E4%BB%BF%E7%9C%9F/" style="font-size: 13.33px;">仿真</a> <a href="/tags/%E4%BD%8D/" style="font-size: 10px;">位</a> <a href="/tags/%E5%8D%8F%E8%AE%AE/" style="font-size: 10px;">协议</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%AD%97%E8%8A%82/" style="font-size: 10px;">字节</a> <a href="/tags/%E5%AD%98%E5%82%A8%E7%B1%BB%E5%9E%8B/" style="font-size: 10px;">存储类型</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 20px;">学习</a> <a href="/tags/%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">容器</a> <a href="/tags/%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92/" style="font-size: 10px;">容器编排</a> <a href="/tags/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" style="font-size: 10px;">开发指南</a> <a href="/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" style="font-size: 10px;">开发环境</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 10px;">开源</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 10px;">性能</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">插件</a> <a href="/tags/%E6%98%BE%E5%8D%A1/" style="font-size: 10px;">显卡</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" style="font-size: 10px;">版本控制</a> <a href="/tags/%E7%A1%AC%E4%BB%B6%E5%88%86%E6%9E%90/" style="font-size: 10px;">硬件分析</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" style="font-size: 10px;">移动开发</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 10px;">编码</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 16.67px;">编程</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">编程语言</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" style="font-size: 10px;">虚拟环境</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" style="font-size: 10px;">计算机视觉</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">跨平台</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91/" style="font-size: 10px;">跨平台开发</a> <a href="/tags/%E8%BD%AC%E6%8D%A2%E5%85%B3%E7%B3%BB/" style="font-size: 10px;">转换关系</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90/" style="font-size: 10px;">软件分析</a> <a href="/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">逆向工程</a> <a href="/tags/%E9%80%9F%E5%BA%A6%E6%AF%94%E8%BE%83/" style="font-size: 10px;">速度比较</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/09/27/gentoo%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">gentoo安装指南</a>
-          </li>
-        
-          <li>
-            <a href="/2024/09/24/html5-css3%E5%AD%A6%E4%B9%A0/">html5+css3学习</a>
-          </li>
-        
-          <li>
-            <a href="/2024/09/24/ppt%E5%AD%A6%E4%B9%A0/">ppt学习</a>
-          </li>
-        
-          <li>
-            <a href="/2024/09/12/test/">test</a>
-          </li>
-        
-          <li>
-            <a href="/2024/09/10/Git-Bash-%E5%92%8C-PowerShell-%E7%9A%84%E5%8C%BA%E5%88%AB/">Git Bash 和 PowerShell 的区别</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2024 Panan13<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/08/">
+          <span class="card-archive-list-date">八月 2024</span>
+          <span class="card-archive-list-count">38</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">49</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-10-24T15:14:38.889Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By Panan13</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
