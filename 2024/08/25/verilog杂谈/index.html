@@ -1,0 +1,358 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Verilog 中的数值表示方法与运算符 | 我的博客</title><meta name="author" content="panan13"><meta name="copyright" content="panan13"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Verilog 中的数值表示方法二进制 (Binary)使用前缀 b 或 B，并以 数字&#39; 开头。 示例: 14&#x27;b1010 &#x2F;&#x2F; 表示4位的二进制数1010  八进制 (Octal)使用前缀 o 或 O，并以 数字&#39; 开头。 示例: 14&#x27;o12 &#x2F;&#x2F; 表示4位的八进制数12（对应二进制为1010）  十进制 (Decimal)直接使用数字，或者用 d 或 D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Verilog 中的数值表示方法与运算符">
+<meta property="og:url" content="http://example.com/2024/08/25/verilog%E6%9D%82%E8%B0%88/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="Verilog 中的数值表示方法二进制 (Binary)使用前缀 b 或 B，并以 数字&#39; 开头。 示例: 14&#x27;b1010 &#x2F;&#x2F; 表示4位的二进制数1010  八进制 (Octal)使用前缀 o 或 O，并以 数字&#39; 开头。 示例: 14&#x27;o12 &#x2F;&#x2F; 表示4位的八进制数12（对应二进制为1010）  十进制 (Decimal)直接使用数字，或者用 d 或 D">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
+<meta property="article:published_time" content="2024-08-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-02-14T13:20:15.450Z">
+<meta property="article:author" content="panan13">
+<meta property="article:tag" content="Hexo, 博客, 个人博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Verilog 中的数值表示方法与运算符",
+  "url": "http://example.com/2024/08/25/verilog%E6%9D%82%E8%B0%88/",
+  "image": "http://example.com/img/butterfly-icon.png",
+  "datePublished": "2024-08-24T16:00:00.000Z",
+  "dateModified": "2025-02-14T13:20:15.450Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "panan13",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/08/25/verilog%E6%9D%82%E8%B0%88/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Verilog 中的数值表示方法与运算符',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">我的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">Verilog 中的数值表示方法与运算符</span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">Verilog 中的数值表示方法与运算符</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-24T16:00:00.000Z" title="发表于 2024-08-25 00:00:00">2024-08-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-14T13:20:15.450Z" title="更新于 2025-02-14 21:20:15">2025-02-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="Verilog-中的数值表示方法"><a href="#Verilog-中的数值表示方法" class="headerlink" title="Verilog 中的数值表示方法"></a>Verilog 中的数值表示方法</h2><h3 id="二进制-Binary"><a href="#二进制-Binary" class="headerlink" title="二进制 (Binary)"></a>二进制 (Binary)</h3><p>使用前缀 <code>b</code> 或 <code>B</code>，并以 <code>数字&#39;</code> 开头。</p>
+<p><strong>示例:</strong></p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4&#x27;b1010</span> <span class="comment">// 表示4位的二进制数1010</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="八进制-Octal"><a href="#八进制-Octal" class="headerlink" title="八进制 (Octal)"></a>八进制 (Octal)</h3><p>使用前缀 <code>o</code> 或 <code>O</code>，并以 <code>数字&#39;</code> 开头。</p>
+<p><strong>示例:</strong></p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4&#x27;o12</span> <span class="comment">// 表示4位的八进制数12（对应二进制为1010）</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="十进制-Decimal"><a href="#十进制-Decimal" class="headerlink" title="十进制 (Decimal)"></a>十进制 (Decimal)</h3><p>直接使用数字，或者用 <code>d</code> 或 <code>D</code> 前缀。</p>
+<p><strong>示例:</strong></p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4&#x27;d10</span> <span class="comment">// 表示十进制数10</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="十六进制-Hexadecimal"><a href="#十六进制-Hexadecimal" class="headerlink" title="十六进制 (Hexadecimal)"></a>十六进制 (Hexadecimal)</h3><p>使用前缀 <code>h</code> 或 <code>H</code>，并以 <code>数字&#39;</code> 开头。</p>
+<p><strong>示例:</strong></p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4&#x27;hA</span> <span class="comment">// 表示4位的十六进制数A（对应二进制为1010）</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Verilog-中的运算符"><a href="#Verilog-中的运算符" class="headerlink" title="Verilog 中的运算符"></a>Verilog 中的运算符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><ul>
+<li><code>+</code> : 加法</li>
+<li><code>-</code> : 减法</li>
+<li><code>*</code> : 乘法</li>
+<li><code>/</code> : 除法</li>
+<li><code>%</code> : 取模</li>
+</ul>
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><ul>
+<li><code>==</code> : 相等</li>
+<li><code>!=</code> : 不等</li>
+<li><code>&lt;</code> : 小于</li>
+<li><code>&lt;=</code> : 小于等于</li>
+<li><code>&gt;</code> : 大于</li>
+<li><code>&gt;=</code> : 大于等于</li>
+</ul>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><ul>
+<li><code>&amp;&amp;</code> : 逻辑与</li>
+<li><code>||</code> : 逻辑或</li>
+<li><code>!</code> : 逻辑非</li>
+</ul>
+<h3 id="按位运算符"><a href="#按位运算符" class="headerlink" title="按位运算符"></a>按位运算符</h3><ul>
+<li><code>&amp;</code> : 按位与</li>
+<li><code>|</code> : 按位或</li>
+<li><code>^</code> : 按位异或</li>
+<li><code>~</code> : 按位非</li>
+<li><code>&lt;&lt;</code> : 左移</li>
+<li><code>&gt;&gt;</code> : 右移</li>
+</ul>
+<h3 id="连接运算符"><a href="#连接运算符" class="headerlink" title="连接运算符"></a>连接运算符</h3><ul>
+<li><code>&#123;&#125;</code> : 连接操作符，例如 <code>&#123;2&#39;b10, 2&#39;b11&#125;</code> 会连接成 <code>4&#39;b1011</code></li>
+</ul>
+<h3 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符"></a>条件运算符</h3><ul>
+<li><code>?:</code> : 条件操作符，例如 <code>a ? b : c</code> 表示如果 <code>a</code> 为真，则选择 <code>b</code>，否则选择 <code>c</code></li>
+</ul>
+<h2 id="Verilog-中的关键字"><a href="#Verilog-中的关键字" class="headerlink" title="Verilog 中的关键字"></a>Verilog 中的关键字</h2><h3 id="模块定义和结束"><a href="#模块定义和结束" class="headerlink" title="模块定义和结束"></a>模块定义和结束</h3><ul>
+<li><code>module</code></li>
+<li><code>endmodule</code></li>
+</ul>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
+<li><code>wire</code></li>
+<li><code>reg</code></li>
+<li><code>tri</code></li>
+<li><code>tri0</code></li>
+<li><code>tri1</code></li>
+<li><code>triand</code></li>
+<li><code>trior</code></li>
+<li><code>trireg</code></li>
+<li><code>wand</code></li>
+<li><code>wor</code></li>
+<li><code>integer</code></li>
+<li><code>real</code></li>
+<li><code>realtime</code></li>
+<li><code>time</code></li>
+<li><code>supply0</code></li>
+<li><code>supply1</code></li>
+<li><code>parameter</code></li>
+<li><code>localparam</code></li>
+</ul>
+<h3 id="常量与赋值"><a href="#常量与赋值" class="headerlink" title="常量与赋值"></a>常量与赋值</h3><ul>
+<li><code>defparam</code></li>
+<li><code>assign</code></li>
+<li><code>deassign</code></li>
+<li><code>initial</code></li>
+<li><code>always</code></li>
+<li><code>force</code></li>
+<li><code>release</code></li>
+</ul>
+<h3 id="控制结构"><a href="#控制结构" class="headerlink" title="控制结构"></a>控制结构</h3><ul>
+<li><code>if</code></li>
+<li><code>else</code></li>
+<li><code>case</code></li>
+<li><code>endcase</code></li>
+<li><code>casex</code></li>
+<li><code>casez</code></li>
+<li><code>forever</code></li>
+<li><code>repeat</code></li>
+<li><code>while</code></li>
+<li><code>for</code></li>
+<li><code>begin</code></li>
+<li><code>end</code></li>
+<li><code>fork</code></li>
+<li><code>join</code></li>
+<li><code>wait</code></li>
+<li><code>disable</code></li>
+</ul>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ul>
+<li><code>and</code></li>
+<li><code>or</code></li>
+<li><code>xor</code></li>
+<li><code>not</code></li>
+<li><code>nand</code></li>
+<li><code>nor</code></li>
+<li><code>xnor</code></li>
+</ul>
+<h3 id="任务与函数"><a href="#任务与函数" class="headerlink" title="任务与函数"></a>任务与函数</h3><ul>
+<li><code>function</code></li>
+<li><code>endfunction</code></li>
+<li><code>task</code></li>
+<li><code>endtask</code></li>
+</ul>
+<h3 id="输入-输出声明"><a href="#输入-输出声明" class="headerlink" title="输入&#x2F;输出声明"></a>输入&#x2F;输出声明</h3><ul>
+<li><code>input</code></li>
+<li><code>output</code></li>
+<li><code>inout</code></li>
+</ul>
+<h3 id="事件控制"><a href="#事件控制" class="headerlink" title="事件控制"></a>事件控制</h3><ul>
+<li><code>posedge</code></li>
+<li><code>negedge</code></li>
+<li><code>event</code></li>
+</ul>
+<h3 id="仿真控制"><a href="#仿真控制" class="headerlink" title="仿真控制"></a>仿真控制</h3><ul>
+<li><code>timescale</code></li>
+<li><code>specify</code></li>
+<li><code>endspecify</code></li>
+<li><code>specparam</code></li>
+<li><code>scalared</code></li>
+<li><code>vectored</code></li>
+</ul>
+<h3 id="系统任务与函数"><a href="#系统任务与函数" class="headerlink" title="系统任务与函数"></a>系统任务与函数</h3><ul>
+<li><code>$display</code></li>
+<li><code>$finish</code></li>
+<li><code>$stop</code></li>
+<li><code>$time</code></li>
+<li><code>$stime</code></li>
+<li><code>$realtime</code></li>
+<li><code>$setup</code></li>
+<li><code>$hold</code></li>
+<li><code>$monitor</code></li>
+<li><code>$monitoroff</code></li>
+<li><code>$monitoron</code></li>
+<li><code>$displayb</code></li>
+<li><code>$displayo</code></li>
+<li><code>$displayh</code></li>
+<li><code>$displaytime</code></li>
+<li><code>$strobe</code></li>
+<li><code>$showvars</code></li>
+</ul>
+<h3 id="设计单元声明"><a href="#设计单元声明" class="headerlink" title="设计单元声明"></a>设计单元声明</h3><ul>
+<li><code>primitive</code></li>
+<li><code>endprimitive</code></li>
+<li><code>table</code></li>
+<li><code>endtable</code></li>
+<li><code>cell</code></li>
+<li><code>config</code></li>
+<li><code>design</code></li>
+<li><code>instance</code></li>
+<li><code>library</code></li>
+<li><code>liblist</code></li>
+<li><code>use</code></li>
+<li><code>pulse</code></li>
+<li><code>delay_mode_distributed</code></li>
+<li><code>delay_mode_path</code></li>
+<li><code>delay_mode_unit</code></li>
+<li><code>delay_mode_zero</code></li>
+</ul>
+<h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><ul>
+<li><code>generate</code></li>
+<li><code>genvar</code></li>
+<li><code>endgenerate</code></li>
+<li><code>default</code></li>
+<li><code>highz0</code></li>
+<li><code>highz1</code></li>
+<li><code>rnmos</code></li>
+<li><code>rpmos</code></li>
+<li><code>rtran</code></li>
+<li><code>rtranif0</code></li>
+<li><code>rtranif1</code></li>
+<li><code>tran</code></li>
+<li><code>tranif0</code></li>
+<li><code>tranif1</code></li>
+<li><code>bufif0</code></li>
+<li><code>bufif1</code></li>
+<li><code>notif0</code></li>
+<li><code>notif1</code></li>
+<li><code>pullup</code></li>
+<li><code>pulldown</code></li>
+<li><code>showcancelled</code></li>
+<li><code>endconfig</code></li>
+</ul>
+<p>这些关键字和运算符在 Verilog 中具有特定的语法功能，使用时需要遵循特定的语法规则。掌握这些内容有助于编写高效且正确的 Verilog 代码。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">panan13</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/08/25/verilog%E6%9D%82%E8%B0%88/">http://example.com/2024/08/25/verilog%E6%9D%82%E8%B0%88/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">我的博客</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/08/25/FPGA%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/" title="FPGA 相关总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">FPGA 相关总结</div></div><div class="info-2"><div class="info-item-1">1. Zynq 7000 SoC (字数: 300)Zynq 7000 SoC 是由 Xilinx 推出的一种高度集成的片上系统 (SoC)，结合了 ARM Cortex-A9 双核处理系统 (PS) 和可编程逻辑 (PL)。这种架构允许在一个芯片上同时实现软件处理和硬件加速。PS 部分负责执行操作系统、应用程序和管理片上外设，PL 部分则用于实现自定义的硬件逻辑，如信号处理、加密解密等。Zynq 7000 系列广泛应用于工业自动化、通信系统和嵌入式系统中，提供了软硬件协同设计的高灵活性和高性能计算能力。通过 PS 和 PL 的结合，用户可以设计和实现复杂的嵌入式系统，并且在运行时动态调整硬件配置，以适应不同的应用需求。 2. PL (Programmable Logic) (字数: 300)可编程逻辑 (PL) 是 Zynq SoC 中用于实现自定义硬件功能的部分。PL 的核心包括查找表 (LUT)、触发器、存储器块和可编程互连，这些组件可以组合成复杂的逻辑功能。PL 的可编程性使得 FPGA 可以灵活地适应各种应用需求，用户可以通过硬件描述语言 (HDL)...</div></div></div></a><a class="pagination-related" href="/2024/08/25/testbench/" title="Verilog 仿真 Testbench 的书写指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Verilog 仿真 Testbench 的书写指南</div></div><div class="info-2"><div class="info-item-1">1. 定义模块首先，你需要定义你要测试的设计模块。比如，一个简单的与门模块可以定义如下： 1234567module and_gate (    input wire a,    input wire b,    output wire y);    assign y = a &amp; b;endmodule  2. 创建 Testbench 模块Testbench 是一个独立的 Verilog 模块，用于模拟和测试设计模块的行为。它没有任何输入或输出端口，主要负责生成测试信号，并监视设计模块的输出。 123456789101112131415161718192021222324252627282930313233343536module and_gate_tb;    // 定义 Testbench 中的寄存器和线    reg a;    reg b;    wire y;    // 实例化需要测试的模块    and_gate uut (        .a(a),         .b(b),         .y(y)    );    // 初始化输入信号   ...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">panan13</div><div class="author-info-description">这是我的 Hexo 博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Verilog-%E4%B8%AD%E7%9A%84%E6%95%B0%E5%80%BC%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">Verilog 中的数值表示方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6-Binary"><span class="toc-number">1.1.</span> <span class="toc-text">二进制 (Binary)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AB%E8%BF%9B%E5%88%B6-Octal"><span class="toc-number">1.2.</span> <span class="toc-text">八进制 (Octal)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E8%BF%9B%E5%88%B6-Decimal"><span class="toc-number">1.3.</span> <span class="toc-text">十进制 (Decimal)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6-Hexadecimal"><span class="toc-number">1.4.</span> <span class="toc-text">十六进制 (Hexadecimal)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Verilog-%E4%B8%AD%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.</span> <span class="toc-text">Verilog 中的运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.1.</span> <span class="toc-text">算术运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.2.</span> <span class="toc-text">比较运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.3.</span> <span class="toc-text">逻辑运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.4.</span> <span class="toc-text">按位运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.5.</span> <span class="toc-text">连接运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.6.</span> <span class="toc-text">条件运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Verilog-%E4%B8%AD%E7%9A%84%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">3.</span> <span class="toc-text">Verilog 中的关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%AE%9A%E4%B9%89%E5%92%8C%E7%BB%93%E6%9D%9F"><span class="toc-number">3.1.</span> <span class="toc-text">模块定义和结束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.2.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F%E4%B8%8E%E8%B5%8B%E5%80%BC"><span class="toc-number">3.3.</span> <span class="toc-text">常量与赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84"><span class="toc-number">3.4.</span> <span class="toc-text">控制结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.5.</span> <span class="toc-text">运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%87%BD%E6%95%B0"><span class="toc-number">3.6.</span> <span class="toc-text">任务与函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5-%E8%BE%93%E5%87%BA%E5%A3%B0%E6%98%8E"><span class="toc-number">3.7.</span> <span class="toc-text">输入&#x2F;输出声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E6%8E%A7%E5%88%B6"><span class="toc-number">3.8.</span> <span class="toc-text">事件控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E6%8E%A7%E5%88%B6"><span class="toc-number">3.9.</span> <span class="toc-text">仿真控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%87%BD%E6%95%B0"><span class="toc-number">3.10.</span> <span class="toc-text">系统任务与函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E5%8D%95%E5%85%83%E5%A3%B0%E6%98%8E"><span class="toc-number">3.11.</span> <span class="toc-text">设计单元声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%82%E9%A1%B9"><span class="toc-number">3.12.</span> <span class="toc-text">杂项</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/14/hello-world/" title="Hello World">Hello World</a><time datetime="2025-02-14T13:16:36.798Z" title="发表于 2025-02-14 21:16:36">2025-02-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/gentoo%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" title="gentoo安装指南">gentoo安装指南</a><time datetime="2024-09-27T14:33:01.000Z" title="发表于 2024-09-27 22:33:01">2024-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/html5-css3%E5%AD%A6%E4%B9%A0/" title="html5+css3学习">html5+css3学习</a><time datetime="2024-09-24T03:59:58.000Z" title="发表于 2024-09-24 11:59:58">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/ppt%E5%AD%A6%E4%B9%A0/" title="ppt学习">ppt学习</a><time datetime="2024-09-24T03:59:45.000Z" title="发表于 2024-09-24 11:59:45">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/12/test/" title="test">test</a><time datetime="2024-09-12T13:22:50.000Z" title="发表于 2024-09-12 21:22:50">2024-09-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By panan13</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

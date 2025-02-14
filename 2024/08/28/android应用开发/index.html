@@ -1,0 +1,262 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>使用Flutter开发Android应用的完整指南 | 我的博客</title><meta name="author" content="panan13"><meta name="copyright" content="panan13"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="在移动应用开发领域，Flutter作为一个跨平台框架，以其高效的开发流程和优美的UI设计能力，受到了广泛的欢迎。本文将详细介绍使用Flutter开发Android应用的步骤、相关语法介绍以及Flutter框架的文件结构和开发时的注意事项。 使用Flutter开发Android实时温度显示软件的步骤1. 准备开发环境在开发Flutter应用之前，首先需要准备好开发环境：  安装Flutter SDK">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Flutter开发Android应用的完整指南">
+<meta property="og:url" content="http://example.com/2024/08/28/android%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="在移动应用开发领域，Flutter作为一个跨平台框架，以其高效的开发流程和优美的UI设计能力，受到了广泛的欢迎。本文将详细介绍使用Flutter开发Android应用的步骤、相关语法介绍以及Flutter框架的文件结构和开发时的注意事项。 使用Flutter开发Android实时温度显示软件的步骤1. 准备开发环境在开发Flutter应用之前，首先需要准备好开发环境：  安装Flutter SDK">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
+<meta property="article:published_time" content="2024-08-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-02-14T13:19:51.964Z">
+<meta property="article:author" content="panan13">
+<meta property="article:tag" content="Flutter">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="Dart">
+<meta property="article:tag" content="开发指南">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "使用Flutter开发Android应用的完整指南",
+  "url": "http://example.com/2024/08/28/android%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/",
+  "image": "http://example.com/img/butterfly-icon.png",
+  "datePublished": "2024-08-27T16:00:00.000Z",
+  "dateModified": "2025-02-14T13:19:51.964Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "panan13",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/08/28/android%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '使用Flutter开发Android应用的完整指南',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">我的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">使用Flutter开发Android应用的完整指南</span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">使用Flutter开发Android应用的完整指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-27T16:00:00.000Z" title="发表于 2024-08-28 00:00:00">2024-08-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-14T13:19:51.964Z" title="更新于 2025-02-14 21:19:51">2025-02-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>在移动应用开发领域，Flutter作为一个跨平台框架，以其高效的开发流程和优美的UI设计能力，受到了广泛的欢迎。本文将详细介绍使用Flutter开发Android应用的步骤、相关语法介绍以及Flutter框架的文件结构和开发时的注意事项。</p>
+<h2 id="使用Flutter开发Android实时温度显示软件的步骤"><a href="#使用Flutter开发Android实时温度显示软件的步骤" class="headerlink" title="使用Flutter开发Android实时温度显示软件的步骤"></a>使用Flutter开发Android实时温度显示软件的步骤</h2><h3 id="1-准备开发环境"><a href="#1-准备开发环境" class="headerlink" title="1. 准备开发环境"></a>1. 准备开发环境</h3><p>在开发Flutter应用之前，首先需要准备好开发环境：</p>
+<ul>
+<li><strong>安装Flutter SDK</strong>: 从Flutter的<a target="_blank" rel="noopener" href="https://flutter.dev/docs/get-started/install">官方网站</a>下载并安装适合你操作系统的Flutter SDK。</li>
+<li><strong>安装Android Studio</strong>: Android Studio提供了必要的Android开发工具，包括Android SDK和一个功能齐全的IDE。</li>
+<li><strong>设置环境变量</strong>: 将Flutter SDK路径添加到系统的PATH环境变量中，以便在命令行中使用<code>flutter</code>命令。</li>
+<li><strong>配置Android设备</strong>: 可以使用真实设备或Android模拟器进行开发和测试。确保设备连接正确，并开启开发者模式和USB调试。</li>
+</ul>
+<h3 id="2-创建Flutter项目"><a href="#2-创建Flutter项目" class="headerlink" title="2. 创建Flutter项目"></a>2. 创建Flutter项目</h3><p>接下来，创建一个新的Flutter项目：</p>
+<ul>
+<li><strong>创建新项目</strong>: 使用命令<code>flutter create your_project_name</code>在命令行中创建一个新的Flutter项目。</li>
+<li><strong>打开项目</strong>: 在Android Studio中打开这个项目，选择“Open an existing project”并导航到项目文件夹。</li>
+</ul>
+<h3 id="3-开发实时温度显示软件"><a href="#3-开发实时温度显示软件" class="headerlink" title="3. 开发实时温度显示软件"></a>3. 开发实时温度显示软件</h3><h4 id="3-1-界面设计"><a href="#3-1-界面设计" class="headerlink" title="3.1 界面设计"></a>3.1 界面设计</h4><p>使用Flutter的Widgets来设计应用的用户界面。对于显示温度数据，可以使用<code>Text</code>、<code>Column</code>、<code>Row</code>等常用组件。使用<code>Scaffold</code>、<code>AppBar</code>等布局组件来组织界面，并在<code>body</code>中使用<code>FutureBuilder</code>或<code>StreamBuilder</code>来显示实时温度数据。</p>
+<h4 id="3-2-获取实时温度数据"><a href="#3-2-获取实时温度数据" class="headerlink" title="3.2 获取实时温度数据"></a>3.2 获取实时温度数据</h4><p>选择一个提供实时天气数据的API（如OpenWeatherMap API）。在Flutter中，使用<code>http</code>包发起网络请求，并解析返回的JSON数据。将温度数据从API响应中提取出来，并更新UI。例如，可以使用<code>setState()</code>来更新显示的温度。</p>
+<h4 id="3-3-添加功能"><a href="#3-3-添加功能" class="headerlink" title="3.3 添加功能"></a>3.3 添加功能</h4><p>你可以通过按钮或定时器来定期刷新温度数据，并将最新数据显示在界面上。此外，还要考虑网络不稳定或API请求失败的情况，添加错误处理逻辑，给用户提示。</p>
+<h3 id="4-运行和调试"><a href="#4-运行和调试" class="headerlink" title="4. 运行和调试"></a>4. 运行和调试</h3><p>在Android Studio中使用“Run”按钮，将应用部署到模拟器或真实设备上。你也可以在命令行中使用<code>flutter run</code>命令来启动应用。使用Android Studio的调试工具，如断点、日志输出等，排查和修复代码中的问题。</p>
+<h3 id="5-打包和发布"><a href="#5-打包和发布" class="headerlink" title="5. 打包和发布"></a>5. 打包和发布</h3><p>使用<code>flutter build apk</code>命令生成APK文件。你也可以生成带签名的APK或AAB文件以发布到Google Play Store。在发布前，确保应用经过充分测试，并优化性能和用户体验。</p>
+<h3 id="6-维护和更新"><a href="#6-维护和更新" class="headerlink" title="6. 维护和更新"></a>6. 维护和更新</h3><p>在发布新版本时，更新应用的版本号，并记录每次更新的内容。同时，关注用户反馈，修复bug，持续改进应用功能。</p>
+<h2 id="相关的Flutter语法介绍"><a href="#相关的Flutter语法介绍" class="headerlink" title="相关的Flutter语法介绍"></a>相关的Flutter语法介绍</h2><h3 id="1-变量与数据类型"><a href="#1-变量与数据类型" class="headerlink" title="1. 变量与数据类型"></a>1. 变量与数据类型</h3><p>Dart是一种静态类型语言，但可以使用<code>var</code>来声明变量，其类型可以由编译器推断。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> age = <span class="number">30</span>;</span><br><span class="line"><span class="built_in">double</span> temperature = <span class="number">23.5</span>;</span><br><span class="line"><span class="built_in">String</span> cityName = <span class="string">&#x27;Beijing&#x27;</span>;</span><br><span class="line"><span class="built_in">bool</span> isRaining = <span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">var</span> country = <span class="string">&#x27;China&#x27;</span>; <span class="comment">// Dart会自动推断为String类型</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-函数"><a href="#2-函数" class="headerlink" title="2. 函数"></a>2. 函数</h3><p>函数是Dart中的一等公民，可以作为参数传递，也可以作为返回值。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个简单的函数</span></span><br><span class="line"><span class="built_in">String</span> greet(<span class="built_in">String</span> name) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;Hello, <span class="subst">$name</span>&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数作为参数</span></span><br><span class="line"><span class="keyword">void</span> printGreeting(<span class="built_in">Function</span> greetFunction, <span class="built_in">String</span> name) &#123;</span><br><span class="line">  <span class="built_in">print</span>(greetFunction(name));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用函数</span></span><br><span class="line">printGreeting(greet, <span class="string">&#x27;Alice&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-条件语句"><a href="#3-条件语句" class="headerlink" title="3. 条件语句"></a>3. 条件语句</h3><p>条件语句包括<code>if-else</code>和<code>switch-case</code>。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> temperature = <span class="number">35</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (temperature &gt; <span class="number">30</span>) &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;It\&#x27;s hot!&#x27;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (temperature &lt; <span class="number">15</span>) &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;It\&#x27;s cold!&#x27;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;The weather is nice.&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span> weather = <span class="string">&#x27;rainy&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> (weather) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">&#x27;sunny&#x27;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;It\&#x27;s sunny!&#x27;</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">&#x27;rainy&#x27;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;It\&#x27;s raining!&#x27;</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Unknown weather.&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-循环"><a href="#4-循环" class="headerlink" title="4. 循环"></a>4. 循环</h3><p>Dart中支持<code>for</code>、<code>while</code>、<code>do-while</code>循环。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for循环</span></span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;Iteration <span class="subst">$i</span>&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// while循环</span></span><br><span class="line"><span class="built_in">int</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (count &lt; <span class="number">5</span>) &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;Count <span class="subst">$count</span>&#x27;</span>);</span><br><span class="line">  count++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// do-while循环</span></span><br><span class="line"><span class="built_in">int</span> index = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;Index <span class="subst">$index</span>&#x27;</span>);</span><br><span class="line">  index++;</span><br><span class="line">&#125; <span class="keyword">while</span> (index &lt; <span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-类与对象"><a href="#5-类与对象" class="headerlink" title="5. 类与对象"></a>5. 类与对象</h3><p>Dart是面向对象的语言，类是构建应用程序的基本单位。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Weather</span> </span>&#123;</span><br><span class="line">  <span class="built_in">String</span> cityName;</span><br><span class="line">  <span class="built_in">double</span> temperature;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 构造函数</span></span><br><span class="line">  Weather(<span class="keyword">this</span>.cityName, <span class="keyword">this</span>.temperature);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 方法</span></span><br><span class="line">  <span class="keyword">void</span> display() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;The temperature in <span class="subst">$cityName</span> is <span class="subst">$temperature</span>°C.&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建对象</span></span><br><span class="line"><span class="keyword">var</span> beijingWeather = Weather(<span class="string">&#x27;Beijing&#x27;</span>, <span class="number">26.5</span>);</span><br><span class="line">beijingWeather.display();</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-异步编程"><a href="#6-异步编程" class="headerlink" title="6. 异步编程"></a>6. 异步编程</h3><p>Flutter应用中经常需要进行异步操作，如网络请求。Dart使用<code>async</code>和<code>await</code>关键字处理异步操作。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Future&lt;<span class="built_in">String</span>&gt; fetchWeatherData() <span class="keyword">async</span> &#123;</span><br><span class="line">  <span class="keyword">await</span> Future.delayed(<span class="built_in">Duration</span>(seconds: <span class="number">2</span>)); <span class="comment">// 模拟网络请求</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;It\&#x27;s sunny and 30°C.&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() <span class="keyword">async</span> &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;Fetching weather data...&#x27;</span>);</span><br><span class="line">  <span class="built_in">String</span> weather = <span class="keyword">await</span> fetchWeatherData();</span><br><span class="line">  <span class="built_in">print</span>(weather);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-列表与映射"><a href="#7-列表与映射" class="headerlink" title="7. 列表与映射"></a>7. 列表与映射</h3><p>Dart中的列表（List）和映射（Map）类似于其他编程语言中的数组和哈希表。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 列表</span></span><br><span class="line"><span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; cities = [<span class="string">&#x27;Beijing&#x27;</span>, <span class="string">&#x27;Shanghai&#x27;</span>, <span class="string">&#x27;Guangzhou&#x27;</span>];</span><br><span class="line">cities.add(<span class="string">&#x27;Shenzhen&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历列表</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> city <span class="keyword">in</span> cities) &#123;</span><br><span class="line">  <span class="built_in">print</span>(city);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 映射</span></span><br><span class="line"><span class="built_in">Map</span>&lt;<span class="built_in">String</span>, <span class="built_in">int</span>&gt; cityPopulation = &#123;</span><br><span class="line">  <span class="string">&#x27;Beijing&#x27;</span>: <span class="number">21540000</span>,</span><br><span class="line">  <span class="string">&#x27;Shanghai&#x27;</span>: <span class="number">24240000</span>,</span><br><span class="line">  <span class="string">&#x27;Guangzhou&#x27;</span>: <span class="number">13500000</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 访问映射元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;The population of Beijing is <span class="subst">$&#123;cityPopulation[<span class="string">&#x27;Beijing&#x27;</span>]&#125;</span>&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-Flutter中的常用Widget"><a href="#8-Flutter中的常用Widget" class="headerlink" title="8. Flutter中的常用Widget"></a>8. Flutter中的常用Widget</h3><p>Flutter中，Widget是构建UI的基础单元。常用的Widget有：</p>
+<ul>
+<li><strong>Text</strong>: 用于显示文本。</li>
+<li><strong>Column</strong>和<strong>Row</strong>: 用于布局子Widget。</li>
+<li><strong>Container</strong>: 一个可以包含子Widget并允许设置其位置、大小、边距、填充等的容器。</li>
+<li><strong>Scaffold</strong>: Flutter应用的基本结构，包含<code>AppBar</code>、<code>Drawer</code>、<code>BottomNavigationBar</code>等。</li>
+<li><strong>ListView</strong>: 用于显示滚动列表。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:flutter/material.dart&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  runApp(MyApp());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApp</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>&#123;</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="keyword">return</span> MaterialApp(</span><br><span class="line">      home: Scaffold(</span><br><span class="line">        appBar: AppBar(</span><br><span class="line">          title: Text(<span class="string">&#x27;Weather App&#x27;</span>),</span><br><span class="line">        ),</span><br><span class="line">        body: Center(</span><br><span class="line">          child: Text(<span class="string">&#x27;It\&#x27;s sunny and 30°C.&#x27;</span>),</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-状态管理"><a href="#9-状态管理" class="headerlink" title="9. 状态管理"></a>9. 状态管理</h3><p>Flutter应用中的状态管理通常通过<code>StatefulWidget</code>和<code>setState()</code>实现。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WeatherApp</span> <span class="keyword">extends</span> <span class="title">StatefulWidget</span> </span>&#123;</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  _WeatherAppState createState() =&gt; _WeatherAppState();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">_WeatherAppState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">WeatherApp</span>&gt; </span>&#123;</span><br><span class="line">  <span class="built_in">String</span> weather = <span class="string">&#x27;Unknown&#x27;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">void</span> updateWeather() &#123;</span><br><span class="line">    setState(() &#123;</span><br><span class="line">      weather = <span class="string">&#x27;It\&#x27;s sunny and 30°C.&#x27;</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="keyword">return</span> Scaffold(</span><br><span class="line">      appBar: AppBar(</span><br><span class="line">        title: Text(<span class="string">&#x27;Weather App&#x27;</span>),</span><br><span class="line">      ),</span><br><span class="line">      body: Column(</span><br><span class="line">        mainAxisAlignment: MainAxisAlignment.center,</span><br><span class="line">        children: &lt;Widget&gt;[</span><br><span class="line">          Text(weather),</span><br><span class="line">          ElevatedButton(</span><br><span class="line">            onPressed: updateWeather,</span><br><span class="line">            child: Text(<span class="string">&#x27;Get Weather&#x27;</span>),</span><br><span class="line">          ),</span><br><span class="line">        ],</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Flutter框架的文件结构及开发注意事项"><a href="#Flutter框架的文件结构及开发注意事项" class="headerlink" title="Flutter框架的文件结构及开发注意事项"></a>Flutter框架的文件结构及开发注意事项</h2><h3 id="Flutter项目的典型文件结构"><a href="#Flutter项目的典型文件结构" class="headerlink" title="Flutter项目的典型文件结构"></a>Flutter项目的典型文件结构</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">my<span class="emphasis">_flutter_</span>app/</span><br><span class="line">│</span><br><span class="line">├── android/               # Android</span><br><span class="line"></span><br><span class="line">平台相关文件</span><br><span class="line">│</span><br><span class="line">├── ios/                   # iOS平台相关文件</span><br><span class="line">│</span><br><span class="line">├── lib/                   # 主业务逻辑和代码库</span><br><span class="line">│   ├── main.dart          # 应用程序的入口文件</span><br><span class="line">│   ├── src/               # 业务代码（可选，根据项目复杂度自行组织）</span><br><span class="line">│   ├── models/            # 数据模型（可选）</span><br><span class="line">│   ├── screens/           # 界面代码（可选）</span><br><span class="line">│   ├── widgets/           # 公共组件（可选）</span><br><span class="line">│</span><br><span class="line">├── test/                  # 测试代码</span><br><span class="line">│</span><br><span class="line">├── build/                 # 构建输出文件（自动生成）</span><br><span class="line">│</span><br><span class="line">├── pubspec.yaml           # 项目配置文件，包含依赖项、资源等</span><br><span class="line">│</span><br><span class="line">├── pubspec.lock           # 锁定依赖版本的文件</span><br><span class="line">│</span><br><span class="line">├── .gitignore             # Git忽略文件配置</span><br><span class="line">│</span><br><span class="line">└── README.md              # 项目说明文件</span><br></pre></td></tr></table></figure>
+
+<h3 id="各个文件和目录的详细介绍"><a href="#各个文件和目录的详细介绍" class="headerlink" title="各个文件和目录的详细介绍"></a>各个文件和目录的详细介绍</h3><ul>
+<li><p><strong>android&#x2F;</strong> 和 <strong>ios&#x2F;</strong>: 这些目录包含了针对Android和iOS平台的配置文件。一般情况下，不需要直接修改这些文件，除非需要进行特定平台的定制化配置。</p>
+</li>
+<li><p><strong>lib&#x2F;</strong>: 这是项目中最重要的目录，所有的Dart代码都存放在这里。<code>main.dart</code>是应用的入口文件，其他的文件和目录可以根据需要进行组织，例如<code>src/</code>、<code>models/</code>、<code>screens/</code>和<code>widgets/</code>目录。</p>
+</li>
+<li><p><strong>test&#x2F;</strong>: 存放测试代码的目录。Flutter支持单元测试和UI测试，建议开发者编写相应的测试代码以确保代码质量。</p>
+</li>
+<li><p><strong>build&#x2F;</strong>: 此目录由Flutter自动生成，包含了构建过程中生成的中间文件和输出文件。通常不需要手动修改。</p>
+</li>
+<li><p><strong>pubspec.yaml</strong>: 这是Flutter项目的配置文件，定义了项目的依赖项、资源文件、Flutter SDK的版本等内容。任何与项目依赖相关的更改都需要在这个文件中进行。</p>
+</li>
+<li><p><strong>pubspec.lock</strong>: 由<code>pub get</code>命令自动生成，记录了当前项目使用的依赖项的具体版本。</p>
+</li>
+<li><p><strong>.gitignore</strong>: Git配置文件，用于指定哪些文件或目录不应被版本控制系统跟踪。</p>
+</li>
+<li><p><strong>README.md</strong>: 项目的说明文件，通常用于提供项目的简介、使用方法、开发说明等。</p>
+</li>
+</ul>
+<h3 id="开发时应该注意的事项"><a href="#开发时应该注意的事项" class="headerlink" title="开发时应该注意的事项"></a>开发时应该注意的事项</h3><ol>
+<li><p><strong>文件结构组织</strong>: 随着项目的复杂度增加，合理组织文件结构至关重要。将业务逻辑、模型、界面和组件分别放在不同的目录中，可以提高代码的可读性和可维护性。</p>
+</li>
+<li><p><strong>依赖管理</strong>: 通过<code>pubspec.yaml</code>文件管理项目的依赖项。添加或升级依赖项时，请务必运行<code>flutter pub get</code>命令以下载并更新依赖库。</p>
+</li>
+<li><p><strong>资源管理</strong>: 项目中的图像、字体等资源应通过<code>pubspec.yaml</code>文件进行声明。确保资源路径正确，并按需添加或删除资源。</p>
+</li>
+<li><p><strong>状态管理</strong>: 随着应用程序复杂性的增加，选择合适的状态管理方案（如<code>Provider</code>、<code>Bloc</code>、<code>Riverpod</code>等）至关重要。尽量避免过多的全局变量，以减少耦合性。</p>
+</li>
+<li><p><strong>测试驱动开发（TDD）</strong>: 尽可能编写单元测试和集成测试，确保代码质量。Flutter提供了强大的测试框架，建议在<code>test/</code>目录下为核心逻辑编写测试用例。</p>
+</li>
+<li><p><strong>代码风格</strong>: 遵循Dart的代码风格指南，并使用Flutter的自动格式化工具（如<code>flutter format</code>）保持一致的代码风格。</p>
+</li>
+<li><p><strong>性能优化</strong>: 对于性能要求较高的应用，建议优化界面重绘、减少不必要的setState调用，以及使用Flutter提供的性能分析工具（如<code>Dart DevTools</code>）来检测和解决性能瓶颈。</p>
+</li>
+<li><p><strong>跨平台差异化处理</strong>: 虽然Flutter支持跨平台开发，但某些平台特定的功能或UI可能需要进行差异化处理。在<code>android/</code>和<code>ios/</code>目录下进行相关配置，确保应用在不同平台上的一致性和表现。</p>
+</li>
+<li><p><strong>版本控制</strong>: 使用Git等版本控制系统进行代码管理。配置好<code>.gitignore</code>文件，确保不必要的文件（如构建输出文件、临时文件）不会被提交到版本库。</p>
+</li>
+<li><p><strong>定期更新依赖</strong>: Flutter和Dart生态系统在快速发展，定期检查和更新项目依赖库，可以避免遇到兼容性问题，并使用最新的功能和优化。</p>
+</li>
+</ol>
+<p>通过合理组织项目结构和注意以上这些事项，开发者可以更高效地管理Flutter项目，并提高开发和维护的效率。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">panan13</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/08/28/android%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">http://example.com/2024/08/28/android%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">我的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Flutter/">Flutter</a><a class="post-meta__tags" href="/tags/Android/">Android</a><a class="post-meta__tags" href="/tags/Dart/">Dart</a><a class="post-meta__tags" href="/tags/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/">开发指南</a></div><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/08/27/%E9%BB%91%E7%8C%B4%E5%AD%90/" title="黑猴子"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">黑猴子</div></div><div class="info-2"><div class="info-item-1"> </div></div></div></a><a class="pagination-related" href="/2024/08/28/MC%E5%AE%9E%E7%8E%B0%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9E%E6%8E%A5%E5%8E%9F%E7%90%86/" title="MC实现局域网连接原理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">MC实现局域网连接原理</div></div><div class="info-2"><div class="info-item-1">Minecraft可以通过局域网加入到别人的游戏主要是由于以下几个技术机制的共同作用： 1. 局域网的共享网络环境局域网（Local Area Network, LAN）是一个共享的网络环境，所有连接到同一局域网的设备都可以互相通信。这意味着当某个设备在局域网中启动一个Minecraft游戏并开启局域网联机功能时，其他设备能够“看到”这个游戏，并有机会与其建立连接。 2. Minecraft的局域网游戏广播机制当一个玩家在Minecraft中选择“打开局域网”选项时，Minecraft会在后台执行以下操作：  启动一个局域网服务器: 该玩家的设备开始充当一个本地服务器，管理其他玩家的连接和游戏世界的状态。  发送UDP广播: Minecraft通过UDP协议向局域网中所有设备广播这个服务器的可用性。这个广播消息中包含了服务器的IP地址、端口号和一些关于游戏世界的基本信息（例如游戏模式、允许的玩家数量等）。   3....</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/08/27/flutter%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Flutter 详细介绍"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="info-item-2">Flutter 详细介绍</div></div><div class="info-2"><div class="info-item-1">什么是 Flutter？Flutter 是由 Google 开发的一款开源 UI 软件开发工具包，主要用于跨平台的移动应用、桌面应用和 Web 应用的开发。通过 Flutter，开发者可以使用一套代码库同时开发适用于 iOS、Android、Windows、macOS、Linux 和 Web 等多个平台的应用。 Flutter 的核心特点 跨平台开发：Flutter 允许开发者编写一次代码，并在多个平台上运行，极大地减少了开发时间和成本。 高性能：Flutter 采用了硬件加速的 Skia 图形引擎，能够直接编译成机器码，从而提供高性能的 UI 渲染。 丰富的组件库：Flutter 提供了丰富的预置组件（widgets），包括 Material Design 和 Cupertino 组件库。 热重载（Hot Reload）：热重载允许开发者在不重新加载应用程序的情况下，立即查看代码更改的效果。 灵活的 UI 设计：Flutter 采用了声明式 UI 编程模型，允许开发者通过组合不同的 widgets 构建复杂的界面。  Flutter 的架构Flutter...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">panan13</div><div class="author-info-description">这是我的 Hexo 博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Flutter%E5%BC%80%E5%8F%91Android%E5%AE%9E%E6%97%B6%E6%B8%A9%E5%BA%A6%E6%98%BE%E7%A4%BA%E8%BD%AF%E4%BB%B6%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.</span> <span class="toc-text">使用Flutter开发Android实时温度显示软件的步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%87%86%E5%A4%87%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-number">1.1.</span> <span class="toc-text">1. 准备开发环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BAFlutter%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.2.</span> <span class="toc-text">2. 创建Flutter项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%BC%80%E5%8F%91%E5%AE%9E%E6%97%B6%E6%B8%A9%E5%BA%A6%E6%98%BE%E7%A4%BA%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">3. 开发实时温度显示软件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 界面设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E8%8E%B7%E5%8F%96%E5%AE%9E%E6%97%B6%E6%B8%A9%E5%BA%A6%E6%95%B0%E6%8D%AE"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 获取实时温度数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%E6%B7%BB%E5%8A%A0%E5%8A%9F%E8%83%BD"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3 添加功能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%BF%90%E8%A1%8C%E5%92%8C%E8%B0%83%E8%AF%95"><span class="toc-number">1.4.</span> <span class="toc-text">4. 运行和调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%89%93%E5%8C%85%E5%92%8C%E5%8F%91%E5%B8%83"><span class="toc-number">1.5.</span> <span class="toc-text">5. 打包和发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E7%BB%B4%E6%8A%A4%E5%92%8C%E6%9B%B4%E6%96%B0"><span class="toc-number">1.6.</span> <span class="toc-text">6. 维护和更新</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%9A%84Flutter%E8%AF%AD%E6%B3%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">相关的Flutter语法介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8F%98%E9%87%8F%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.1.</span> <span class="toc-text">1. 变量与数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text">2. 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="toc-number">2.3.</span> <span class="toc-text">3. 条件语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.4.</span> <span class="toc-text">4. 循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.5.</span> <span class="toc-text">5. 类与对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B"><span class="toc-number">2.6.</span> <span class="toc-text">6. 异步编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%88%97%E8%A1%A8%E4%B8%8E%E6%98%A0%E5%B0%84"><span class="toc-number">2.7.</span> <span class="toc-text">7. 列表与映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-Flutter%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8Widget"><span class="toc-number">2.8.</span> <span class="toc-text">8. Flutter中的常用Widget</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">2.9.</span> <span class="toc-text">9. 状态管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter%E6%A1%86%E6%9E%B6%E7%9A%84%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E5%8F%8A%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">3.</span> <span class="toc-text">Flutter框架的文件结构及开发注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Flutter%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%85%B8%E5%9E%8B%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">3.1.</span> <span class="toc-text">Flutter项目的典型文件结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E4%B8%AA%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95%E7%9A%84%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.2.</span> <span class="toc-text">各个文件和目录的详细介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E6%97%B6%E5%BA%94%E8%AF%A5%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B%E9%A1%B9"><span class="toc-number">3.3.</span> <span class="toc-text">开发时应该注意的事项</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/14/hello-world/" title="Hello World">Hello World</a><time datetime="2025-02-14T13:16:36.798Z" title="发表于 2025-02-14 21:16:36">2025-02-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/gentoo%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" title="gentoo安装指南">gentoo安装指南</a><time datetime="2024-09-27T14:33:01.000Z" title="发表于 2024-09-27 22:33:01">2024-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/html5-css3%E5%AD%A6%E4%B9%A0/" title="html5+css3学习">html5+css3学习</a><time datetime="2024-09-24T03:59:58.000Z" title="发表于 2024-09-24 11:59:58">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/ppt%E5%AD%A6%E4%B9%A0/" title="ppt学习">ppt学习</a><time datetime="2024-09-24T03:59:45.000Z" title="发表于 2024-09-24 11:59:45">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/12/test/" title="test">test</a><time datetime="2024-09-12T13:22:50.000Z" title="发表于 2024-09-12 21:22:50">2024-09-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By panan13</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

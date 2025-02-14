@@ -1,0 +1,206 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>FPGA 相关总结 | 我的博客</title><meta name="author" content="panan13"><meta name="copyright" content="panan13"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1. Zynq 7000 SoC (字数: 300)Zynq 7000 SoC 是由 Xilinx 推出的一种高度集成的片上系统 (SoC)，结合了 ARM Cortex-A9 双核处理系统 (PS) 和可编程逻辑 (PL)。这种架构允许在一个芯片上同时实现软件处理和硬件加速。PS 部分负责执行操作系统、应用程序和管理片上外设，PL 部分则用于实现自定义的硬件逻辑，如信号处理、加密解密等。Zynq">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FPGA 相关总结">
+<meta property="og:url" content="http://example.com/2024/08/25/FPGA%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="1. Zynq 7000 SoC (字数: 300)Zynq 7000 SoC 是由 Xilinx 推出的一种高度集成的片上系统 (SoC)，结合了 ARM Cortex-A9 双核处理系统 (PS) 和可编程逻辑 (PL)。这种架构允许在一个芯片上同时实现软件处理和硬件加速。PS 部分负责执行操作系统、应用程序和管理片上外设，PL 部分则用于实现自定义的硬件逻辑，如信号处理、加密解密等。Zynq">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
+<meta property="article:published_time" content="2024-08-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-02-14T13:19:54.572Z">
+<meta property="article:author" content="panan13">
+<meta property="article:tag" content="Hexo, 博客, 个人博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "FPGA 相关总结",
+  "url": "http://example.com/2024/08/25/FPGA%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/",
+  "image": "http://example.com/img/butterfly-icon.png",
+  "datePublished": "2024-08-24T16:00:00.000Z",
+  "dateModified": "2025-02-14T13:19:54.572Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "panan13",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/08/25/FPGA%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'FPGA 相关总结',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">我的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">FPGA 相关总结</span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">FPGA 相关总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-24T16:00:00.000Z" title="发表于 2024-08-25 00:00:00">2024-08-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-14T13:19:54.572Z" title="更新于 2025-02-14 21:19:54">2025-02-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="1-Zynq-7000-SoC-字数-300"><a href="#1-Zynq-7000-SoC-字数-300" class="headerlink" title="1. Zynq 7000 SoC (字数: 300)"></a>1. Zynq 7000 SoC (字数: 300)</h2><p>Zynq 7000 SoC 是由 Xilinx 推出的一种高度集成的片上系统 (SoC)，结合了 ARM Cortex-A9 双核处理系统 (PS) 和可编程逻辑 (PL)。这种架构允许在一个芯片上同时实现软件处理和硬件加速。PS 部分负责执行操作系统、应用程序和管理片上外设，PL 部分则用于实现自定义的硬件逻辑，如信号处理、加密解密等。Zynq 7000 系列广泛应用于工业自动化、通信系统和嵌入式系统中，提供了软硬件协同设计的高灵活性和高性能计算能力。通过 PS 和 PL 的结合，用户可以设计和实现复杂的嵌入式系统，并且在运行时动态调整硬件配置，以适应不同的应用需求。</p>
+<h2 id="2-PL-Programmable-Logic-字数-300"><a href="#2-PL-Programmable-Logic-字数-300" class="headerlink" title="2. PL (Programmable Logic) (字数: 300)"></a>2. PL (Programmable Logic) (字数: 300)</h2><p>可编程逻辑 (PL) 是 Zynq SoC 中用于实现自定义硬件功能的部分。PL 的核心包括查找表 (LUT)、触发器、存储器块和可编程互连，这些组件可以组合成复杂的逻辑功能。PL 的可编程性使得 FPGA 可以灵活地适应各种应用需求，用户可以通过硬件描述语言 (HDL) 来定义和优化逻辑设计。通过 PL，可以实现并行计算、实时数据处理和信号处理等任务。相比传统的 ASIC，PL 提供了极大的设计灵活性，允许在开发过程中反复修改电路设计，缩短了产品开发周期，并降低了设计成本。</p>
+<h2 id="3-PS-Processing-System-字数-305"><a href="#3-PS-Processing-System-字数-305" class="headerlink" title="3. PS (Processing System) (字数: 305)"></a>3. PS (Processing System) (字数: 305)</h2><p>PS 是 Zynq SoC 中的处理系统部分，包含 ARM Cortex-A9 双核处理器、片上存储器、外设和多种接口。PS 负责执行操作系统和应用程序，并通过 AXI 总线与可编程逻辑 (PL) 进行紧密的硬件交互，从而实现高效的数据处理和硬件加速。PS 提供了一整套丰富的外设接口，包括 UART、SPI、I2C、以太网和 USB 等，支持多种嵌入式操作系统，如 Linux 和 FreeRTOS。PS 与 PL 的结合使得 Zynq SoC 成为一个功能强大的嵌入式平台，能够同时满足软件灵活性和硬件性能需求，广泛应用于工业控制、通信设备和消费电子等领域。</p>
+<h2 id="4-AXI-Advanced-eXtensible-Interface-字数-302"><a href="#4-AXI-Advanced-eXtensible-Interface-字数-302" class="headerlink" title="4. AXI (Advanced eXtensible Interface) (字数: 302)"></a>4. AXI (Advanced eXtensible Interface) (字数: 302)</h2><p>AXI 是 AMBA (Advanced Microcontroller Bus Architecture) 总线协议的一部分，用于高性能片上通信。AXI 提供高带宽和低延迟的数据传输，支持多主控和多从设备，并允许突发传输以减少通信开销。AXI Lite 是 AXI 的简化版本，主要用于低带宽控制寄存器访问，而 AXI Stream 则用于高效的数据流传输，如音频或视频数据。AXI 广泛应用于 SoC 设计中，尤其是在 Zynq 系列中，AXI 负责处理系统 (PS) 与可编程逻辑 (PL) 之间的数据传输。它的高效性和灵活性使其成为片上系统设计中的关键组件。</p>
+<table>
+<thead>
+<tr>
+<th>子类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AXI Lite</td>
+<td>简化版，用于低吞吐量的控制寄存器访问。</td>
+</tr>
+<tr>
+<td>AXI Stream</td>
+<td>高效数据流传输，适合连续音视频数据。</td>
+</tr>
+</tbody></table>
+<h2 id="5-SoPC-System-on-Programmable-Chip-字数-300"><a href="#5-SoPC-System-on-Programmable-Chip-字数-300" class="headerlink" title="5. SoPC (System on Programmable Chip) (字数: 300)"></a>5. SoPC (System on Programmable Chip) (字数: 300)</h2><p>SoPC 是在可编程逻辑设备（如 FPGA）上集成处理器、存储器、I&#x2F;O 接口和自定义逻辑功能的系统。SoPC 的设计允许在一片 FPGA 上实现完整的嵌入式系统，用户可以通过硬件描述语言 (HDL) 定义和实现各种硬件功能，同时通过软核或硬核处理器来运行操作系统和应用程序。SoPC 提供了高度的灵活性和可定制性，适用于需要动态硬件配置的应用场景，如工业自动化、通信系统和高性能计算。SoPC 设计减少了系统集成的复杂性和时间成本，特别适合快速原型设计和低批量生产。</p>
+<h2 id="6-APSoC-All-Programmable-System-on-Chip-字数-300"><a href="#6-APSoC-All-Programmable-System-on-Chip-字数-300" class="headerlink" title="6. APSoC (All Programmable System on Chip) (字数: 300)"></a>6. APSoC (All Programmable System on Chip) (字数: 300)</h2><p>APSoC 是一种结合了可编程逻辑 (PL) 和处理系统 (PS) 的全可编程片上系统，典型的例子是 Xilinx 的 Zynq 系列。APSoC 允许用户通过软件定义硬件，实现软硬件的协同设计。APSoC 的架构使得它在处理复杂计算任务时能够充分利用硬件加速，同时在运行时根据应用需求动态调整硬件配置。APSoC 的 PS 部分负责执行操作系统和应用程序，而 PL 部分则用于处理数据密集型任务，如视频处理、信号处理和加密解密。APSoC 在高性能计算、嵌入式系统、通信和工业控制领域具有广泛应用。</p>
+<h2 id="7-APU-Application-Processing-Unit-字数-302"><a href="#7-APU-Application-Processing-Unit-字数-302" class="headerlink" title="7. APU (Application Processing Unit) (字数: 302)"></a>7. APU (Application Processing Unit) (字数: 302)</h2><p>APU 是指应用处理单元，通常在 SoC 或 APSoC 中指代 ARM Cortex-A 系列的处理器核心。APU 负责执行操作系统和应用程序，支持多核架构和对称多处理 (SMP)，可以同时运行多个线程或进程，提升系统的处理能力和响应速度。APU 集成了浮点运算单元 (FPU) 和矢量处理单元 (NEON)，用于加速复杂的数学运算和多媒体处理。通过 AXI 总线，APU 能与片上外设和可编程逻辑 (PL) 高效通信，适用于实时数据处理、图像处理和高性能计算等应用场景。</p>
+<h2 id="8-PLD-Programmable-Logic-Device-字数-300"><a href="#8-PLD-Programmable-Logic-Device-字数-300" class="headerlink" title="8. PLD (Programmable Logic Device) (字数: 300)"></a>8. PLD (Programmable Logic Device) (字数: 300)</h2><p>PLD 是一种可编程逻辑器件，允许用户通过编程定义数字电路的逻辑功能。PLD 包括复杂可编程逻辑器件 (CPLD) 和现场可编程门阵列 (FPGA) 两种主要类型。PLD 的内部结构包括查找表 (LUT)、触发器和可编程互连，用户可以通过硬件描述语言 (HDL) 对这些组件进行编程，以实现所需的逻辑功能。PLD 提供了设计的灵活性和可重复配置的优势，广泛应用于嵌入式系统、快速原型设计和低批量生产中。相比于固定逻辑的 ASIC，PLD 允许用户在开发过程中反复修改电路设计，适应不断变化的需求。</p>
+<h2 id="9-CPLD-Complex-Programmable-Logic-Device-字数-300"><a href="#9-CPLD-Complex-Programmable-Logic-Device-字数-300" class="headerlink" title="9. CPLD (Complex Programmable Logic Device) (字数: 300)"></a>9. CPLD (Complex Programmable Logic Device) (字数: 300)</h2><p>CPLD 是 PLD 家族中的一种，具有较少的逻辑单元和较低的复杂性，但在延迟和功耗方面表现优异。CPLD 的逻辑资源固定，编程后的逻辑延迟恒定，因此适用于对延迟敏感的应用场景，如简单的控制逻辑、状态机、数据路由和接口转换等。CPLD 通常具有非易失性存储功能，能够在上电后立即启动，因此特别适合需要快速响应的嵌入式系统设计。CPLD 广泛应用于消费电子、通信设备和工业控制系统中，是一种理想的选择，适合低功耗、低延迟需求的场景。</p>
+<h2 id="10-AXI-GP-General-Purpose-AXI-字数-299"><a href="#10-AXI-GP-General-Purpose-AXI-字数-299" class="headerlink" title="10. AXI_GP (General Purpose AXI) (字数: 299)"></a>10. AXI_GP (General Purpose AXI) (字数: 299)</h2><p>AXI_GP 是 Zynq SoC 中的通用 AXI 接口，用于处理系统 (PS) 和可编程逻辑 (PL) 之间的低带宽数据传输。AXI_GP 提供了一种简单、高效的方式，让 PS 能够通过 AXI 总线与 PL 交换数据。这种接口通常用于控制寄存器的读写和低速外设的访问。与高带宽的 AXI_HP（High Performance）接口相比，AXI_GP 更适合控制信号和低速数据的传输，如从 PS 向 PL 发送配置信息或读取 PL 中的状态寄存器。AXI_GP 的设计使得 SoC 在软硬件协同工作时具有更好的灵活性和适应性。</p>
+<h2 id="11-AMBA-Advanced-Microcontroller-Bus-Architecture-字数-303"><a href="#11-AMBA-Advanced-Microcontroller-Bus-Architecture-字数-303" class="headerlink" title="11. AMBA (Advanced Microcontroller Bus Architecture) (字数: 303)"></a>11. AMBA (Advanced Microcontroller Bus Architecture) (字数: 303)</h2><p>AMBA 是 ARM 公司开发的片上总线架构标准，用于连接 SoC 中的各种功能模块。AMBA 提供了模块化的接口标准，允许不同的 IP 核无缝集成到 SoC 中。AMBA 总线架构包括 APB（Advanced Peripheral Bus）、AHB（Advanced High-performance Bus）和 AXI（Advanced eXtensible Interface），分别用于低带宽外设、高带宽存储器和高性能数据传输。AMBA 的设计旨在简化片上系统 (SoC) 的集成，使得开发者能够更高效地构建复杂的嵌入式系统。它广泛应用于嵌入式处理器、数字信号处理器和 ASIC 设计中，是现代 SoC 设计中的关键标准。</p>
+<h2 id="12-AHB-Advanced-High-performance-Bus-字数-300"><a href="#12-AHB-Advanced-High-performance-Bus-字数-300" class="headerlink" title="12. AHB (Advanced High-performance Bus) (字数: 300)"></a>12. AHB (Advanced High-performance Bus) (字数: 300)</h2><p>AHB 是 AMBA 总线架构的一部分，专为高性能片上通信设计，提供了高带宽和低延迟的数据传输能力。AHB 采用了集中式仲裁机制，支持多主控和多从设备的连接，通过仲裁器控制总线的使用权，确保数据传输的有效性和可靠性。AHB 还支持突发传输模式，可以一次性传输多个数据项，进一步提高了总线的利用效率。AHB 在 SoC 设计中广泛应用，特别是在需要高带宽和实时数据处理的应用中，如存储器访问和高速外设接口。AHB 的灵活性和高效性使其成为现代片上系统设计中的关键组件。</p>
+<h2 id="13-ATB-Advanced-Trace-Bus-字数-300"><a href="#13-ATB-Advanced-Trace-Bus-字数-300" class="headerlink" title="13. ATB (Advanced Trace Bus) (字数: 300)"></a>13. ATB (Advanced Trace Bus) (字数: 300)</h2><p>ATB 是 AMBA 总线架构中的一种专用于片上调试和跟踪的总线协议。ATB 主要用于实时监控和记录处理器的指令和数据流，帮助设计者进行系统调试和性能分析。ATB 通过追踪数据流的变化，能够捕获系统中发生的所有指令执行和数据传输情况，并将这些信息传递给外部调试工具（如 ARM CoreSight）。ATB 的设计目标是尽可能降低对系统性能的影响，因此采用了高效的传输机制，确保调试数据的及时性和准确性。ATB 为嵌入式系统提供了强大的调试能力，尤其适用于复杂多核系统和实时应用的调试和优化。</p>
+<h2 id="14-Block-Design-字数-300"><a href="#14-Block-Design-字数-300" class="headerlink" title="14. Block Design (字数: 300)"></a>14. Block Design (字数: 300)</h2><p>Block Design 是 FPGA 设计中的一种图形化设计方法，用户可以通过连接预定义的 IP 核模块来快速搭建系统架构。Block Design 是 Xilinx Vivado 开发工具中的一项核心功能，允许用户以模块化的方式设计和验证复杂的系统。每个模块可以是处理器、存储器、外设或用户自定义的逻辑功能，通过图形界面拖放这些模块并连接它们，用户可以快速构建系统原型。Block Design 还支持模块的参数化配置，使得设计更加灵活和高效。完成设计后，Block Design 可以自动生成 HDL 代码并与其他设计工具集成，极大地提高了 FPGA 开发效率。</p>
+<h2 id="15-C-C-字数-300"><a href="#15-C-C-字数-300" class="headerlink" title="15. C&#x2F;C++ (字数: 300)"></a>15. C&#x2F;C++ (字数: 300)</h2><p>C 和 C++ 是两种广泛用于嵌入式系统开发的编程语言。C 语言以其简洁、高效、接近硬件的特性，成为嵌入式开发的首选语言之一，适用于操作系统、驱动程序和底层硬件控制的开发。C++ 是在 C 的基础上扩展的面向对象编程语言，增加了类和对象的概念，使得代码更易维护和扩展。C&#x2F;C++ 在嵌入式系统开发中的重要性体现在其强大的低级控制能力和广泛的硬件支持上。许多嵌入式处理器和微控制器都提供了针对 C&#x2F;C++ 的编译器和开发工具，使得开发者能够直接与硬件交互，实现高效的系统控制。</p>
+<h2 id="16-HLS-High-Level-Synthesis-字数-300"><a href="#16-HLS-High-Level-Synthesis-字数-300" class="headerlink" title="16. HLS (High-Level Synthesis) (字数: 300)"></a>16. HLS (High-Level Synthesis) (字数: 300)</h2><p>HLS 是一种将高级编程语言（如 C&#x2F;C++）转换为硬件描述语言（HDL）的技术，用于加速硬件设计流程。HLS 通过允许设计者使用高级编程语言来描述算法和系统行为，然后将这些描述自动转换为可综合的 HDL 代码，大幅提高了设计效率。HLS 工具通常包括代码优化、自动流水线化、并行化等功能，帮助设计者充分利用硬件资源，提高系统性能。HLS 特别适合需要快速实现硬件加速的应用，如图像处理、信号处理和加密算法等。在 FPGA 设计中，HLS 工具可以显著减少开发时间，使得设计者能够在更短的时间内从算法模型到硬件实现，快速验证和迭代设计。</p>
+<h2 id="17-ILA-Integrated-Logic-Analyzer-字数-300"><a href="#17-ILA-Integrated-Logic-Analyzer-字数-300" class="headerlink" title="17. ILA (Integrated Logic Analyzer) (字数: 300)"></a>17. ILA (Integrated Logic Analyzer) (字数: 300)</h2><p>ILA 是 FPGA 内部的集成逻辑分析仪工具，允许用户在不影响系统性能的情况下实时捕获和分析内部信号。ILA 是 Xilinx 提供的调试 IP 核，通过在设计中插入 ILA 核，用户可以在硬件运行时监控和记录指定信号的活动。ILA 可以通过 JTAG 接口与外部调试工具连接，用户可以设置触发条件，捕获感兴趣的信号并进行详细分析。ILA 支持多通道信号捕获和深度存储器，适合监控长时间的信号活动。与传统的外部逻辑分析仪不同，ILA 完全集成在 FPGA 内部，不会对系统引入额外的延迟或干扰，适用于调试高性能和实时性要求高的应用。</p>
+<h2 id="18-VIO-Virtual-Input-Output-字数-300"><a href="#18-VIO-Virtual-Input-Output-字数-300" class="headerlink" title="18. VIO (Virtual Input&#x2F;Output) (字数: 300)"></a>18. VIO (Virtual Input&#x2F;Output) (字数: 300)</h2><p>VIO 是一种 FPGA 内部的虚拟输入&#x2F;输出调试工具，允许用户在仿真或实时调试时动态地输入和观察信号。VIO 是 Xilinx 提供的调试 IP 核，通过在设计中插入 VIO 核，用户可以通过外部工具实时控制 FPGA 内部的信号状态，并观察这些信号对系统的影响。VIO 支持双向信号传输，用户可以将外部的控制信号输入到 FPGA 内部，或将 FPGA 内部的信号输出到外部进行监控。VIO 的实时调试能力对于验证复杂系统的行为非常有用，尤其在无法通过普通测试手段进行验证的情况下。VIO 允许设计者在不修改 FPGA 设计的情况下，动态调整信号输入或监控系统输出，从而提高调试效率。</p>
+<h2 id="19-时序约束-Timing-Constraints-字数-300"><a href="#19-时序约束-Timing-Constraints-字数-300" class="headerlink" title="19. 时序约束 (Timing Constraints) (字数: 300)"></a>19. 时序约束 (Timing Constraints) (字数: 300)</h2><p>时序约束是 FPGA 设计中定义信号在时钟周期内传输时间要求的规则，用于确保设计在规定的时钟频率下正常工作。时序约束通常包括时钟周期、建立时间、保持时间、输入输出延迟等。这些约束决定了设计中每个信号在传输过程中的最大和最小延迟，从而确保在整个系统中数据能正确传输并被采样。时序约束的定义和应用直接影响到 FPGA 设计的性能和可靠性。通过时序约束，综合和布局布线工具可以自动调整电路结构，以满足时序要求，确保设计在目标频率下不会出现时序违例。时序约束是 FPGA 设计流程中的关键步骤，特别是在高性能和低功耗设计中，严格的时序约束确保了系统的稳定性和优化性能。</p>
+<h2 id="20-CPLD-Complex-Programmable-Logic-Device-字数-300"><a href="#20-CPLD-Complex-Programmable-Logic-Device-字数-300" class="headerlink" title="20. CPLD (Complex Programmable Logic Device) (字数: 300)"></a>20. CPLD (Complex Programmable Logic Device) (字数: 300)</h2><p>CPLD 是复杂可编程逻辑器件，是 PLD 家族的一员，具有较少的逻辑单元和较低的复杂性，但在延迟和功耗方面表现优异。CPLD 内部由多个逻辑宏单元组成，这些宏单元通过可编程的互连网络连接在一起。与 FPGA 不同，CPLD 的逻辑资源较为固定，且编程后的逻辑延迟相对恒定，因此非常适合那些对延迟敏感但逻辑复杂度不高的应用场景。CPLD 通常用于简单的逻辑控制、状态机、数据路由和接口转换等应用，在需要快速响应和低功耗的场合，如消费电子、通信设备和工业控制系统中，CPLD 是一种理想的选择。</p>
+<h2 id="21-FPGA-逻辑值的不同含义-字数-300"><a href="#21-FPGA-逻辑值的不同含义-字数-300" class="headerlink" title="21. FPGA 逻辑值的不同含义 (字数: 300)"></a>21. FPGA 逻辑值的不同含义 (字数: 300)</h2><p>在 FPGA 设计中，逻辑值通常表示为高电平 (1) 和低电平 (0)，此外还包括两种特殊状态：未知 (X) 和高阻 (Z)。高电平和低电平分别对应于数字逻辑中的 “真” 和 “假”。未知状态 (X) 表示在仿真中某个信号的值不确定，通常出现在复位或未初始化时。高阻状态 (Z) 表示信号处于高阻抗状态，通常用于三态缓冲器中，表示该信号不驱动任何电路。在仿真过程中，这些逻辑值用于描述电路的行为，并在调试时帮助设计者识别潜在的设计问题。在 FPGA 实际运行中，1 和 0 是最常用的逻辑值，而 X 和 Z 主要用于仿真和调试。了解这些逻辑值的含义对于准确描述和验证电路行为至关重要。</p>
+<h2 id="22-二进制、八进制、十进制、十六进制-字数-300"><a href="#22-二进制、八进制、十进制、十六进制-字数-300" class="headerlink" title="22. 二进制、八进制、十进制、十六进制 (字数: 300)"></a>22. 二进制、八进制、十进制、十六进制 (字数: 300)</h2><p>二进制、八进制、十进制和十六进制是表示数字的不同数制。在 FPGA 和嵌入式系统中，这些数制经常被用来表示数据。二进制使用 0 和 1 表示数字，是计算机和数字电路的基础；八进制以 8 为基数，使用 0-7 的数字，通常用于缩短二进制表示的长度；十进制是日常使用的数制，以 10 为基数，使用 0-9 的数字；十六进制以 16 为基数，使用 0-9 和字母 A-F 表示数字，常用于表示内存地址和机器码。FPGA 设计中，二进制和十六进制是最常用的数制，便于直接与硬件位级信号对应。八进制在某些情况下也使用，但相对较少。了解这些数制的转换和应用对于嵌入式系统设计和调试至关重要，特别是在处理低级别的数据和信号时。</p>
+<h2 id="23-Verilog-运算符-字数-301"><a href="#23-Verilog-运算符-字数-301" class="headerlink" title="23. Verilog 运算符 (字数: 301)"></a>23. Verilog 运算符 (字数: 301)</h2><p>Verilog 是一种硬件描述语言，其中的运算符用于执行各种逻辑、算术和位操作。算术运算符包括 +、-、*、&#x2F;，用于实现加法、减法、乘法和除法。关系运算符如 &gt;、&lt;、&#x3D;&#x3D;，用于比较两个值。<strong>逻辑运算符</strong>如 &amp;&amp;、||、!，用于处理布尔逻辑。<strong>按位运算符</strong>如 &amp;、|、^、~，用于位级操作，常用于处理多位信号。<strong>移位运算符</strong>如 &lt;&lt;、&gt;&gt;，用于左移或右移操作数的位。运算符是 Verilog 代码的重要组成部分，直接影响电路的功能和性能。正确使用运算符可以帮助设计者高效描述硬件行为，从而实现高性能的电路设计。运算符的功能和用法与 C 语言类似，易于学习和使用，但在硬件描述中，设计者需要注意运算的硬件实现效率和时序影响。</p>
+<h2 id="24-Verilog-关键字-字数-299"><a href="#24-Verilog-关键字-字数-299" class="headerlink" title="24. Verilog 关键字 (字数: 299)"></a>24. Verilog 关键字 (字数: 299)</h2><p>Verilog 关键字是 Verilog 语言中具有特殊意义的保留词，用于定义和控制硬件描述的结构和行为。常见的关键字包括 module（定义一个模块）、input（定义输入端口）、output（定义输出端口）、wire（定义连线）、reg（定义寄存器）、always（定义时序逻辑）、initial（定义初始化过程）等。关键字不能作为标识符（如变量名、模块名）使用。Verilog 关键字用于描述电路的各个组成部分，如信号、逻辑关系、时序行为和模块间的接口。设计者通过正确使用这些关键字，可以准确地定义和实现复杂的硬件逻辑。Verilog 关键字的设计简洁且功能强大，是硬件描述语言的重要组成部分，广泛应用于 FPGA 和 ASIC 的设计和验证中。理解和正确使用这些关键字是编写有效 Verilog 代码的关键。</p>
+<h2 id="25-Verilog-板块结构-字数-300"><a href="#25-Verilog-板块结构-字数-300" class="headerlink" title="25. Verilog 板块结构 (字数: 300)"></a>25. Verilog 板块结构 (字数: 300)</h2><p>Verilog 板块结构是指 Verilog 模块的内部组成部分，定义了模块的输入输出端口、内部信号、逻辑描述和实例化等内容。一个典型的 Verilog 模块由模块声明、端口列表、信号声明、时序逻辑描述、组合逻辑描述以及其他模块的实例化构成。模块声明部分定义了模块的名称和端口类型，如输入、输出和双向端口。信号声明部分定义了模块内部使用的各种信号，如 wire、reg 等。时序逻辑描述通常使用 always 块来描述触发器和寄存器的行为，而组合逻辑则可以使用 assign 语句或 always 块进行描述。最后，模块的实例化允许设计者在一个模块内调用其他模块，从而实现模块化设计。Verilog 的板块结构使得设计者能够清晰地组织和管理硬件逻辑，提高代码的可读性和可维护性。合理的板块结构设计对于实现高效硬件逻辑和便于调试至关重要。</p>
+<h2 id="26-端口-字数-298"><a href="#26-端口-字数-298" class="headerlink" title="26. 端口 (字数: 298)"></a>26. 端口 (字数: 298)</h2><p>端口是 Verilog 模块与外部进行通信的接口，用于定义模块的输入、输出和双向信号。每个端口在 Verilog 中都有一个名称和类型，常见的类型包括 input（输入端口）、output（输出端口）和 inout（双向端口）。端口的定义决定了模块与其他模块或外部设备之间如何传递信号和数据。在模块的内部，端口通常连接到 wire 或 reg 信号，通过这些信号来驱动或接收来自端口的数据。端口的正确使用是模块设计的基础，它确保了不同模块之间的数据流动和控制信号传递。设计者在定义端口时，需要注意信号方向和类型的选择，以确保模块之间的接口一致性。合理的端口设计有助于提高模块的重用性和设计的可扩展性，特别是在复杂系统设计中，端口的正确定义和管理对于实现系统的可靠性和性能至关重要。</p>
+<h2 id="27-阻塞和非阻塞-字数-300"><a href="#27-阻塞和非阻塞-字数-300" class="headerlink" title="27. 阻塞和非阻塞 (字数: 300)"></a>27. 阻塞和非阻塞 (字数: 300)</h2><p>阻塞和非阻塞赋值是 Verilog 中两种不同的赋值方式，决定了信号赋值的时序行为。阻塞赋值使用 &#x3D; 运算符，表示在一个时间步中按顺序执行所有赋值操作，即下一个赋值操作要等到当前赋值操作完成后才开始执行。阻塞赋值常用于描述组合逻辑。非阻塞赋值使用 &lt;&#x3D; 运算符，表示在同一个时间步内所有赋值操作并行执行，即所有赋值操作同时开始，在同一时钟周期内生效。非阻塞赋值通常用于描述时序逻辑，如触发器或寄存器的行为。在硬件设计中，正确区分阻塞和非阻塞赋值对于实现期望的电路行为至关重要，尤其在设计复杂时序电路时需要特别注意。</p>
+<h2 id="28-状态及状态机-字数-300"><a href="#28-状态及状态机-字数-300" class="headerlink" title="28. 状态及状态机 (字数: 300)"></a>28. 状态及状态机 (字数: 300)</h2><p>状态机是一种用于控制系统行为的数学模型，由一组状态和状态之间的转移组成。状态机在 FPGA 设计中广泛应用，用于实现控制逻辑、协议处理和时序控制。一个状态机通常包括以下几个部分：状态集（定义系统可能的所有状态）、初始状态（系统启动时的状态）、状态转移（基于输入条件改变状态）和输出逻辑（决定在每个状态下的输出行为）。Verilog 支持通过 always 块和 case 语句来实现状态机的描述。状态机分为同步状态机（基于时钟信号驱动）和异步状态机（基于事件驱动）。在设计状态机时，需要仔细考虑状态转换的条件和时序要求，以确保系统能够正确响应输入信号并稳定运行。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">panan13</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/08/25/FPGA%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/">http://example.com/2024/08/25/FPGA%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">我的博客</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/08/25/FPGA-%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93%E6%A1%86%E6%9E%B6/" title="FPGA 相关总结框架"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">FPGA 相关总结框架</div></div><div class="info-2"><div class="info-item-1">Zynq 7000 SoC (字数: 300)核心架构 ARM Cortex-A9 双核处理系统：负责执行操作系统和应用程序，提供处理能力。 可编程逻辑 (PL)：用于实现自定义硬件逻辑，如信号处理和硬件加速。  功能模块 PS（Processing System）：管理片上外设，通过操作系统进行软件处理。 PL（Programmable Logic）：实现硬件加速和自定义逻辑。  应用领域 工业自动化：用于控制系统和自动化设备。 通信系统：用于处理数据流和信号处理任务。 嵌入式系统：广泛应用于需要高灵活性和高性能的系统中。  PL (Programmable Logic) (字数: 300)主要组成部分 查找表 (LUT)：用于实现逻辑函数的核心组件。 触发器：用于存储和传递数据的基本单元。 存储器块：用于数据存储和缓存。 可编程互连：连接各逻辑单元，形成复杂的电路结构。  可编程性 灵活性：适应各种应用需求，能够快速调整设计。 HDL...</div></div></div></a><a class="pagination-related" href="/2024/08/25/verilog%E6%9D%82%E8%B0%88/" title="Verilog 中的数值表示方法与运算符"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Verilog 中的数值表示方法与运算符</div></div><div class="info-2"><div class="info-item-1">Verilog 中的数值表示方法二进制 (Binary)使用前缀 b 或 B，并以 数字&#39; 开头。 示例: 14&#x27;b1010 // 表示4位的二进制数1010  八进制 (Octal)使用前缀 o 或 O，并以 数字&#39; 开头。 示例: 14&#x27;o12 // 表示4位的八进制数12（对应二进制为1010）  十进制 (Decimal)直接使用数字，或者用 d 或 D 前缀。 示例: 14&#x27;d10 // 表示十进制数10  十六进制 (Hexadecimal)使用前缀 h 或 H，并以 数字&#39; 开头。 示例: 14&#x27;hA // 表示4位的十六进制数A（对应二进制为1010）  Verilog 中的运算符算术运算符 + : 加法 - : 减法 * : 乘法 / : 除法 % : 取模  比较运算符 == : 相等 != : 不等 &lt; : 小于 &lt;= : 小于等于 &gt; : 大于 &gt;= : 大于等于  逻辑运算符 &amp;&amp; : 逻辑与 || : 逻辑或 ! :...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">panan13</div><div class="author-info-description">这是我的 Hexo 博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Zynq-7000-SoC-%E5%AD%97%E6%95%B0-300"><span class="toc-number">1.</span> <span class="toc-text">1. Zynq 7000 SoC (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-PL-Programmable-Logic-%E5%AD%97%E6%95%B0-300"><span class="toc-number">2.</span> <span class="toc-text">2. PL (Programmable Logic) (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-PS-Processing-System-%E5%AD%97%E6%95%B0-305"><span class="toc-number">3.</span> <span class="toc-text">3. PS (Processing System) (字数: 305)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-AXI-Advanced-eXtensible-Interface-%E5%AD%97%E6%95%B0-302"><span class="toc-number">4.</span> <span class="toc-text">4. AXI (Advanced eXtensible Interface) (字数: 302)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-SoPC-System-on-Programmable-Chip-%E5%AD%97%E6%95%B0-300"><span class="toc-number">5.</span> <span class="toc-text">5. SoPC (System on Programmable Chip) (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-APSoC-All-Programmable-System-on-Chip-%E5%AD%97%E6%95%B0-300"><span class="toc-number">6.</span> <span class="toc-text">6. APSoC (All Programmable System on Chip) (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-APU-Application-Processing-Unit-%E5%AD%97%E6%95%B0-302"><span class="toc-number">7.</span> <span class="toc-text">7. APU (Application Processing Unit) (字数: 302)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-PLD-Programmable-Logic-Device-%E5%AD%97%E6%95%B0-300"><span class="toc-number">8.</span> <span class="toc-text">8. PLD (Programmable Logic Device) (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-CPLD-Complex-Programmable-Logic-Device-%E5%AD%97%E6%95%B0-300"><span class="toc-number">9.</span> <span class="toc-text">9. CPLD (Complex Programmable Logic Device) (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-AXI-GP-General-Purpose-AXI-%E5%AD%97%E6%95%B0-299"><span class="toc-number">10.</span> <span class="toc-text">10. AXI_GP (General Purpose AXI) (字数: 299)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-AMBA-Advanced-Microcontroller-Bus-Architecture-%E5%AD%97%E6%95%B0-303"><span class="toc-number">11.</span> <span class="toc-text">11. AMBA (Advanced Microcontroller Bus Architecture) (字数: 303)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-AHB-Advanced-High-performance-Bus-%E5%AD%97%E6%95%B0-300"><span class="toc-number">12.</span> <span class="toc-text">12. AHB (Advanced High-performance Bus) (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-ATB-Advanced-Trace-Bus-%E5%AD%97%E6%95%B0-300"><span class="toc-number">13.</span> <span class="toc-text">13. ATB (Advanced Trace Bus) (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-Block-Design-%E5%AD%97%E6%95%B0-300"><span class="toc-number">14.</span> <span class="toc-text">14. Block Design (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-C-C-%E5%AD%97%E6%95%B0-300"><span class="toc-number">15.</span> <span class="toc-text">15. C&#x2F;C++ (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-HLS-High-Level-Synthesis-%E5%AD%97%E6%95%B0-300"><span class="toc-number">16.</span> <span class="toc-text">16. HLS (High-Level Synthesis) (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-ILA-Integrated-Logic-Analyzer-%E5%AD%97%E6%95%B0-300"><span class="toc-number">17.</span> <span class="toc-text">17. ILA (Integrated Logic Analyzer) (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-VIO-Virtual-Input-Output-%E5%AD%97%E6%95%B0-300"><span class="toc-number">18.</span> <span class="toc-text">18. VIO (Virtual Input&#x2F;Output) (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F-Timing-Constraints-%E5%AD%97%E6%95%B0-300"><span class="toc-number">19.</span> <span class="toc-text">19. 时序约束 (Timing Constraints) (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-CPLD-Complex-Programmable-Logic-Device-%E5%AD%97%E6%95%B0-300"><span class="toc-number">20.</span> <span class="toc-text">20. CPLD (Complex Programmable Logic Device) (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-FPGA-%E9%80%BB%E8%BE%91%E5%80%BC%E7%9A%84%E4%B8%8D%E5%90%8C%E5%90%AB%E4%B9%89-%E5%AD%97%E6%95%B0-300"><span class="toc-number">21.</span> <span class="toc-text">21. FPGA 逻辑值的不同含义 (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-%E4%BA%8C%E8%BF%9B%E5%88%B6%E3%80%81%E5%85%AB%E8%BF%9B%E5%88%B6%E3%80%81%E5%8D%81%E8%BF%9B%E5%88%B6%E3%80%81%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6-%E5%AD%97%E6%95%B0-300"><span class="toc-number">22.</span> <span class="toc-text">22. 二进制、八进制、十进制、十六进制 (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-Verilog-%E8%BF%90%E7%AE%97%E7%AC%A6-%E5%AD%97%E6%95%B0-301"><span class="toc-number">23.</span> <span class="toc-text">23. Verilog 运算符 (字数: 301)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-Verilog-%E5%85%B3%E9%94%AE%E5%AD%97-%E5%AD%97%E6%95%B0-299"><span class="toc-number">24.</span> <span class="toc-text">24. Verilog 关键字 (字数: 299)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#25-Verilog-%E6%9D%BF%E5%9D%97%E7%BB%93%E6%9E%84-%E5%AD%97%E6%95%B0-300"><span class="toc-number">25.</span> <span class="toc-text">25. Verilog 板块结构 (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#26-%E7%AB%AF%E5%8F%A3-%E5%AD%97%E6%95%B0-298"><span class="toc-number">26.</span> <span class="toc-text">26. 端口 (字数: 298)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#27-%E9%98%BB%E5%A1%9E%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E-%E5%AD%97%E6%95%B0-300"><span class="toc-number">27.</span> <span class="toc-text">27. 阻塞和非阻塞 (字数: 300)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#28-%E7%8A%B6%E6%80%81%E5%8F%8A%E7%8A%B6%E6%80%81%E6%9C%BA-%E5%AD%97%E6%95%B0-300"><span class="toc-number">28.</span> <span class="toc-text">28. 状态及状态机 (字数: 300)</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/14/hello-world/" title="Hello World">Hello World</a><time datetime="2025-02-14T13:16:36.798Z" title="发表于 2025-02-14 21:16:36">2025-02-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/gentoo%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" title="gentoo安装指南">gentoo安装指南</a><time datetime="2024-09-27T14:33:01.000Z" title="发表于 2024-09-27 22:33:01">2024-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/html5-css3%E5%AD%A6%E4%B9%A0/" title="html5+css3学习">html5+css3学习</a><time datetime="2024-09-24T03:59:58.000Z" title="发表于 2024-09-24 11:59:58">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/ppt%E5%AD%A6%E4%B9%A0/" title="ppt学习">ppt学习</a><time datetime="2024-09-24T03:59:45.000Z" title="发表于 2024-09-24 11:59:45">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/12/test/" title="test">test</a><time datetime="2024-09-12T13:22:50.000Z" title="发表于 2024-09-12 21:22:50">2024-09-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By panan13</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

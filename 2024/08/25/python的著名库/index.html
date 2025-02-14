@@ -1,0 +1,312 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>python的著名库 | 我的博客</title><meta name="author" content="panan13"><meta name="copyright" content="panan13"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Python 拥有丰富且强大的库生态系统，使其成为各种应用领域的首选编程语言。以下是一些 Python 中最著名和常用的库，这些库涵盖了数据科学、机器学习、Web 开发、自动化、图像处理等多个领域。1. NumPy领域: 科学计算  简介: NumPy 是 Python 中用于科学计算的基础库，提供了支持高维数组和矩阵运算的强大功能，以及大量用于操作这些数组的函数。 特点:  快速的数组操作。 广">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python的著名库">
+<meta property="og:url" content="http://example.com/2024/08/25/python%E7%9A%84%E8%91%97%E5%90%8D%E5%BA%93/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="Python 拥有丰富且强大的库生态系统，使其成为各种应用领域的首选编程语言。以下是一些 Python 中最著名和常用的库，这些库涵盖了数据科学、机器学习、Web 开发、自动化、图像处理等多个领域。1. NumPy领域: 科学计算  简介: NumPy 是 Python 中用于科学计算的基础库，提供了支持高维数组和矩阵运算的强大功能，以及大量用于操作这些数组的函数。 特点:  快速的数组操作。 广">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
+<meta property="article:published_time" content="2024-08-25T14:47:52.000Z">
+<meta property="article:modified_time" content="2025-02-14T13:20:10.854Z">
+<meta property="article:author" content="panan13">
+<meta property="article:tag" content="Hexo, 博客, 个人博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "python的著名库",
+  "url": "http://example.com/2024/08/25/python%E7%9A%84%E8%91%97%E5%90%8D%E5%BA%93/",
+  "image": "http://example.com/img/butterfly-icon.png",
+  "datePublished": "2024-08-25T14:47:52.000Z",
+  "dateModified": "2025-02-14T13:20:10.854Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "panan13",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/08/25/python%E7%9A%84%E8%91%97%E5%90%8D%E5%BA%93/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'python的著名库',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">我的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">python的著名库</span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">python的著名库</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-25T14:47:52.000Z" title="发表于 2024-08-25 22:47:52">2024-08-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-14T13:20:10.854Z" title="更新于 2025-02-14 21:20:10">2025-02-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="Python-拥有丰富且强大的库生态系统，使其成为各种应用领域的首选编程语言。以下是一些-Python-中最著名和常用的库，这些库涵盖了数据科学、机器学习、Web-开发、自动化、图像处理等多个领域。"><a href="#Python-拥有丰富且强大的库生态系统，使其成为各种应用领域的首选编程语言。以下是一些-Python-中最著名和常用的库，这些库涵盖了数据科学、机器学习、Web-开发、自动化、图像处理等多个领域。" class="headerlink" title="Python 拥有丰富且强大的库生态系统，使其成为各种应用领域的首选编程语言。以下是一些 Python 中最著名和常用的库，这些库涵盖了数据科学、机器学习、Web 开发、自动化、图像处理等多个领域。"></a>Python 拥有丰富且强大的库生态系统，使其成为各种应用领域的首选编程语言。以下是一些 Python 中最著名和常用的库，这些库涵盖了数据科学、机器学习、Web 开发、自动化、图像处理等多个领域。</h2><h3 id="1-NumPy"><a href="#1-NumPy" class="headerlink" title="1. NumPy"></a>1. <strong>NumPy</strong></h3><p><strong>领域</strong>: 科学计算</p>
+<ul>
+<li><strong>简介</strong>: NumPy 是 Python 中用于科学计算的基础库，提供了支持高维数组和矩阵运算的强大功能，以及大量用于操作这些数组的函数。</li>
+<li><strong>特点</strong>: <ul>
+<li>快速的数组操作。</li>
+<li>广泛的数学函数库。</li>
+<li>支持向量化操作，提升计算性能。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-Pandas"><a href="#2-Pandas" class="headerlink" title="2. Pandas"></a>2. <strong>Pandas</strong></h3><p><strong>领域</strong>: 数据处理与分析</p>
+<ul>
+<li><strong>简介</strong>: Pandas 是基于 NumPy 构建的数据处理库，专门用于结构化数据（如表格数据）的操作。它提供了强大的数据结构（如 DataFrame）和操作工具，使数据清洗、分析和处理变得简单高效。</li>
+<li><strong>特点</strong>:<ul>
+<li>易于处理缺失数据。</li>
+<li>强大的数据合并、分组和转换功能。</li>
+<li>与其他数据科学库（如 NumPy、Matplotlib）无缝集成。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-Matplotlib"><a href="#3-Matplotlib" class="headerlink" title="3. Matplotlib"></a>3. <strong>Matplotlib</strong></h3><p><strong>领域</strong>: 数据可视化</p>
+<ul>
+<li><strong>简介</strong>: Matplotlib 是 Python 中最著名的绘图库，用于创建静态、动态和交互式的图形。它支持生成各种类型的图表，如折线图、柱状图、散点图、直方图等。</li>
+<li><strong>特点</strong>:<ul>
+<li>灵活且可定制的绘图功能。</li>
+<li>与 Pandas 和 NumPy 紧密集成。</li>
+<li>支持多种输出格式（如 PNG、PDF、SVG）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-SciPy"><a href="#4-SciPy" class="headerlink" title="4. SciPy"></a>4. <strong>SciPy</strong></h3><p><strong>领域</strong>: 科学计算</p>
+<ul>
+<li><strong>简介</strong>: SciPy 是基于 NumPy 构建的高级科学计算库，提供了用于线性代数、优化、积分、插值、傅里叶变换、信号处理、图像处理等功能的模块。</li>
+<li><strong>特点</strong>:<ul>
+<li>丰富的科学计算工具集。</li>
+<li>广泛用于学术研究和工程应用。</li>
+<li>与 NumPy 无缝衔接。</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-Scikit-learn"><a href="#5-Scikit-learn" class="headerlink" title="5. Scikit-learn"></a>5. <strong>Scikit-learn</strong></h3><p><strong>领域</strong>: 机器学习</p>
+<ul>
+<li><strong>简介</strong>: Scikit-learn 是一个简单而高效的工具，用于数据挖掘和数据分析，内置了各种机器学习算法，如分类、回归、聚类、降维等。它是机器学习入门和应用的首选库之一。</li>
+<li><strong>特点</strong>:<ul>
+<li>丰富的机器学习算法实现。</li>
+<li>易于使用的 API，适合快速原型开发。</li>
+<li>与 NumPy 和 Pandas 等库兼容性良好。</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-TensorFlow"><a href="#6-TensorFlow" class="headerlink" title="6. TensorFlow"></a>6. <strong>TensorFlow</strong></h3><p><strong>领域</strong>: 深度学习</p>
+<ul>
+<li><strong>简介</strong>: TensorFlow 是由 Google 开发的开源深度学习框架，广泛用于机器学习和人工智能应用。它支持从研究到生产环境的所有阶段。</li>
+<li><strong>特点</strong>:<ul>
+<li>强大的张量计算和自动微分功能。</li>
+<li>支持分布式计算，适合大规模训练。</li>
+<li>提供高层 API（如 Keras），简化模型构建。</li>
+</ul>
+</li>
+</ul>
+<h3 id="7-Keras"><a href="#7-Keras" class="headerlink" title="7. Keras"></a>7. <strong>Keras</strong></h3><p><strong>领域</strong>: 深度学习</p>
+<ul>
+<li><strong>简介</strong>: Keras 是一个高级神经网络 API，能够在 TensorFlow、Theano 和 CNTK 之上运行。Keras 的设计目的是为了简化深度学习模型的构建与实验。</li>
+<li><strong>特点</strong>:<ul>
+<li>用户友好的接口，易于学习和使用。</li>
+<li>支持快速原型开发。</li>
+<li>与 TensorFlow 集成良好，适合初学者和研究人员。</li>
+</ul>
+</li>
+</ul>
+<h3 id="8-Flask"><a href="#8-Flask" class="headerlink" title="8. Flask"></a>8. <strong>Flask</strong></h3><p><strong>领域</strong>: Web 开发</p>
+<ul>
+<li><strong>简介</strong>: Flask 是一个轻量级的 Web 框架，提供了构建 Web 应用所需的基本工具和灵活性。它遵循 WSGI 标准，适合中小型 Web 项目的开发。</li>
+<li><strong>特点</strong>:<ul>
+<li>极简设计，易于扩展。</li>
+<li>灵活性高，可以自由选择第三方扩展。</li>
+<li>学习曲线较低，适合初学者。</li>
+</ul>
+</li>
+</ul>
+<h3 id="9-Django"><a href="#9-Django" class="headerlink" title="9. Django"></a>9. <strong>Django</strong></h3><p><strong>领域</strong>: Web 开发</p>
+<ul>
+<li><strong>简介</strong>: Django 是一个功能齐全且强大的 Web 开发框架，内置了大量开箱即用的功能，如 ORM、身份验证、管理后台等。Django 的设计理念是“快速开发”和“干净的设计”。</li>
+<li><strong>特点</strong>:<ul>
+<li>内置了丰富的功能模块，减少了开发时间。</li>
+<li>强大的 ORM 系统，简化数据库操作。</li>
+<li>社区活跃，拥有丰富的第三方插件和文档。</li>
+</ul>
+</li>
+</ul>
+<h3 id="10-Beautiful-Soup"><a href="#10-Beautiful-Soup" class="headerlink" title="10. Beautiful Soup"></a>10. <strong>Beautiful Soup</strong></h3><p><strong>领域</strong>: 网页抓取</p>
+<ul>
+<li><strong>简介</strong>: Beautiful Soup 是一个用于从 HTML 或 XML 文件中提取数据的库，它提供了简单而直观的 API，帮助开发者轻松解析网页内容。</li>
+<li><strong>特点</strong>:<ul>
+<li>易于使用，适合快速开发网页抓取脚本。</li>
+<li>能够处理不规范的 HTML 代码。</li>
+<li>与请求库（如 <code>requests</code>）搭配使用效果更佳。</li>
+</ul>
+</li>
+</ul>
+<h3 id="11-Requests"><a href="#11-Requests" class="headerlink" title="11. Requests"></a>11. <strong>Requests</strong></h3><p><strong>领域</strong>: HTTP 请求</p>
+<ul>
+<li><strong>简介</strong>: Requests 是一个简洁而强大的 HTTP 库，用于发送 HTTP 请求。它是 Python 中最流行的网络请求库，简化了与 Web 服务的交互。</li>
+<li><strong>特点</strong>:<ul>
+<li>简洁易用的 API，适合处理各种 HTTP 请求。</li>
+<li>支持保持会话、Cookies、认证等功能。</li>
+<li>处理重定向和连接池等功能，使得网络请求更加高效。</li>
+</ul>
+</li>
+</ul>
+<h3 id="12-Pillow"><a href="#12-Pillow" class="headerlink" title="12. Pillow"></a>12. <strong>Pillow</strong></h3><p><strong>领域</strong>: 图像处理</p>
+<ul>
+<li><strong>简介</strong>: Pillow 是 Python Imaging Library（PIL）的一个分支和改进版，专门用于图像处理。它支持打开、操作和保存多种图像格式。</li>
+<li><strong>特点</strong>:<ul>
+<li>支持图像的基本操作，如裁剪、旋转、缩放等。</li>
+<li>支持丰富的图像格式（如 JPEG、PNG、GIF 等）。</li>
+<li>可用于创建缩略图、应用滤镜、绘制文本等。</li>
+</ul>
+</li>
+</ul>
+<h3 id="13-PyTorch"><a href="#13-PyTorch" class="headerlink" title="13. PyTorch"></a>13. <strong>PyTorch</strong></h3><p><strong>领域</strong>: 深度学习</p>
+<ul>
+<li><strong>简介</strong>: PyTorch 是由 Facebook 开发的深度学习框架，以其灵活性和动态计算图的特点而著称。它在研究和生产环境中都被广泛使用。</li>
+<li><strong>特点</strong>:<ul>
+<li>动态计算图，使得调试和开发更加灵活。</li>
+<li>提供了高级 API 和低级 Tensor 操作。</li>
+<li>社区活跃，拥有大量教程和资源。</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-OpenCV"><a href="#14-OpenCV" class="headerlink" title="14. OpenCV"></a>14. <strong>OpenCV</strong></h3><p><strong>领域</strong>: 计算机视觉</p>
+<ul>
+<li><strong>简介</strong>: OpenCV 是一个开源的计算机视觉库，提供了丰富的计算机视觉算法和函数。它广泛用于实时图像处理、目标检测、对象识别等领域。</li>
+<li><strong>特点</strong>:<ul>
+<li>支持多种编程语言（如 Python、C++）。</li>
+<li>包含了丰富的图像处理算法库。</li>
+<li>适用于实时图像和视频处理。</li>
+</ul>
+</li>
+</ul>
+<h3 id="15-NLTK"><a href="#15-NLTK" class="headerlink" title="15. NLTK"></a>15. <strong>NLTK</strong></h3><p><strong>领域</strong>: 自然语言处理</p>
+<ul>
+<li><strong>简介</strong>: NLTK（Natural Language Toolkit）是一个用于处理和分析自然语言数据的库。它是自然语言处理（NLP）领域中最早的工具之一，包含了丰富的文本处理工具和语料库。</li>
+<li><strong>特点</strong>:<ul>
+<li>提供了词法分析、语法分析、情感分析等工具。</li>
+<li>包含丰富的语言学资源，如语料库、词典等。</li>
+<li>易于学习，适合 NLP 初学者。</li>
+</ul>
+</li>
+</ul>
+<h2 id="这些库只是-Python-生态系统中广泛使用的库的一部分。每个库都有其特定的用途和适用场景，开发者可以根据项目需求选择合适的库来提升开发效率和项目质量。"><a href="#这些库只是-Python-生态系统中广泛使用的库的一部分。每个库都有其特定的用途和适用场景，开发者可以根据项目需求选择合适的库来提升开发效率和项目质量。" class="headerlink" title="这些库只是 Python 生态系统中广泛使用的库的一部分。每个库都有其特定的用途和适用场景，开发者可以根据项目需求选择合适的库来提升开发效率和项目质量。"></a>这些库只是 Python 生态系统中广泛使用的库的一部分。每个库都有其特定的用途和适用场景，开发者可以根据项目需求选择合适的库来提升开发效率和项目质量。</h2></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">panan13</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/08/25/python%E7%9A%84%E8%91%97%E5%90%8D%E5%BA%93/">http://example.com/2024/08/25/python%E7%9A%84%E8%91%97%E5%90%8D%E5%BA%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">我的博客</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/08/25/API/" title="API"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">API</div></div><div class="info-2"><div class="info-item-1">API 相关内容总结1. API 的基本概念API，全称为应用程序编程接口（Application Programming Interface），是一组定义了软件组件之间如何交互的协议和工具。API 为开发者提供了一种标准化的方式来访问操作系统、库或其他服务提供的功能和数据。通过 API，开发者可以调用其他程序或服务的功能，而无需了解底层实现的细节。这使得软件开发变得更加模块化、易于维护和扩展。 2. API 的使用场景API 广泛应用于各种软件开发场景，包括但不限于：  数据传输：API 常用于在不同系统或服务之间传输数据。例如，前端应用可以通过 REST API 从后端获取数据，展示在网页或应用中。 服务集成：API 允许开发者将不同的服务集成到他们的应用程序中。例如，支付 API 使得开发者可以在他们的应用中轻松实现支付功能，而不必从头构建整个支付系统。类似地，地图 API 可以嵌入地图服务，提供位置和导航功能。 自动化任务：通过 API，开发者可以自动化处理任务，比如利用云服务 API 批量处理图像或分析数据。 扩展功能：通过第三方...</div></div></div></a><a class="pagination-related" href="/2024/08/25/vscode%E9%85%8D%E7%BD%AEjson/" title="vscode配置json"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">vscode配置json</div></div><div class="info-2"><div class="info-item-1">1. Visual Studio Code 官方文档   官方文档是了解如何开发 VS Code 扩展的最佳资源，包括如何配置 settings.json 等内容。你可以通过以下链接访问：  VS Code 官方文档 - 扩展 API VS Code 官方文档 - 配置扩展  2. API 参考文档   详细的 API 文档可以帮助你了解如何使用 VS Code 提供的 API，例如配置管理、工作区管理、编辑器扩展等：  VS Code API 参考文档  3. GitHub 示例仓库   VS Code 官方 GitHub 仓库中有很多示例和社区提供的扩展代码，可以帮助你学习如何编写和配置扩展：  VS Code 官方 GitHub 仓库  4. 社区和论坛   你也可以在 Stack Overflow 或者 VS Code 的官方论坛上提问和搜索，了解其他开发者在编写扩展时的实践经验：  Stack Overflow VS Code 官方 GitHub 讨论区  5. VS Code 插件市场   在 VS Code...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">panan13</div><div class="author-info-description">这是我的 Hexo 博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-%E6%8B%A5%E6%9C%89%E4%B8%B0%E5%AF%8C%E4%B8%94%E5%BC%BA%E5%A4%A7%E7%9A%84%E5%BA%93%E7%94%9F%E6%80%81%E7%B3%BB%E7%BB%9F%EF%BC%8C%E4%BD%BF%E5%85%B6%E6%88%90%E4%B8%BA%E5%90%84%E7%A7%8D%E5%BA%94%E7%94%A8%E9%A2%86%E5%9F%9F%E7%9A%84%E9%A6%96%E9%80%89%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E3%80%82%E4%BB%A5%E4%B8%8B%E6%98%AF%E4%B8%80%E4%BA%9B-Python-%E4%B8%AD%E6%9C%80%E8%91%97%E5%90%8D%E5%92%8C%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BA%93%EF%BC%8C%E8%BF%99%E4%BA%9B%E5%BA%93%E6%B6%B5%E7%9B%96%E4%BA%86%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%81Web-%E5%BC%80%E5%8F%91%E3%80%81%E8%87%AA%E5%8A%A8%E5%8C%96%E3%80%81%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AD%89%E5%A4%9A%E4%B8%AA%E9%A2%86%E5%9F%9F%E3%80%82"><span class="toc-number">1.</span> <span class="toc-text">Python 拥有丰富且强大的库生态系统，使其成为各种应用领域的首选编程语言。以下是一些 Python 中最著名和常用的库，这些库涵盖了数据科学、机器学习、Web 开发、自动化、图像处理等多个领域。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-NumPy"><span class="toc-number">1.1.</span> <span class="toc-text">1. NumPy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Pandas"><span class="toc-number">1.2.</span> <span class="toc-text">2. Pandas</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Matplotlib"><span class="toc-number">1.3.</span> <span class="toc-text">3. Matplotlib</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-SciPy"><span class="toc-number">1.4.</span> <span class="toc-text">4. SciPy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Scikit-learn"><span class="toc-number">1.5.</span> <span class="toc-text">5. Scikit-learn</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-TensorFlow"><span class="toc-number">1.6.</span> <span class="toc-text">6. TensorFlow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-Keras"><span class="toc-number">1.7.</span> <span class="toc-text">7. Keras</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-Flask"><span class="toc-number">1.8.</span> <span class="toc-text">8. Flask</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-Django"><span class="toc-number">1.9.</span> <span class="toc-text">9. Django</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-Beautiful-Soup"><span class="toc-number">1.10.</span> <span class="toc-text">10. Beautiful Soup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-Requests"><span class="toc-number">1.11.</span> <span class="toc-text">11. Requests</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-Pillow"><span class="toc-number">1.12.</span> <span class="toc-text">12. Pillow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-PyTorch"><span class="toc-number">1.13.</span> <span class="toc-text">13. PyTorch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-OpenCV"><span class="toc-number">1.14.</span> <span class="toc-text">14. OpenCV</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-NLTK"><span class="toc-number">1.15.</span> <span class="toc-text">15. NLTK</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E4%BA%9B%E5%BA%93%E5%8F%AA%E6%98%AF-Python-%E7%94%9F%E6%80%81%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%B9%BF%E6%B3%9B%E4%BD%BF%E7%94%A8%E7%9A%84%E5%BA%93%E7%9A%84%E4%B8%80%E9%83%A8%E5%88%86%E3%80%82%E6%AF%8F%E4%B8%AA%E5%BA%93%E9%83%BD%E6%9C%89%E5%85%B6%E7%89%B9%E5%AE%9A%E7%9A%84%E7%94%A8%E9%80%94%E5%92%8C%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%8C%E5%BC%80%E5%8F%91%E8%80%85%E5%8F%AF%E4%BB%A5%E6%A0%B9%E6%8D%AE%E9%A1%B9%E7%9B%AE%E9%9C%80%E6%B1%82%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E5%BA%93%E6%9D%A5%E6%8F%90%E5%8D%87%E5%BC%80%E5%8F%91%E6%95%88%E7%8E%87%E5%92%8C%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E3%80%82"><span class="toc-number">2.</span> <span class="toc-text">这些库只是 Python 生态系统中广泛使用的库的一部分。每个库都有其特定的用途和适用场景，开发者可以根据项目需求选择合适的库来提升开发效率和项目质量。</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/14/hello-world/" title="Hello World">Hello World</a><time datetime="2025-02-14T13:16:36.798Z" title="发表于 2025-02-14 21:16:36">2025-02-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/gentoo%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" title="gentoo安装指南">gentoo安装指南</a><time datetime="2024-09-27T14:33:01.000Z" title="发表于 2024-09-27 22:33:01">2024-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/html5-css3%E5%AD%A6%E4%B9%A0/" title="html5+css3学习">html5+css3学习</a><time datetime="2024-09-24T03:59:58.000Z" title="发表于 2024-09-24 11:59:58">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/ppt%E5%AD%A6%E4%B9%A0/" title="ppt学习">ppt学习</a><time datetime="2024-09-24T03:59:45.000Z" title="发表于 2024-09-24 11:59:45">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/12/test/" title="test">test</a><time datetime="2024-09-12T13:22:50.000Z" title="发表于 2024-09-12 21:22:50">2024-09-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By panan13</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

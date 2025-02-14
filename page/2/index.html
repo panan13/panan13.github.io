@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>我的博客</title><meta name="author" content="panan13"><meta name="copyright" content="panan13"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="这是我的 Hexo 博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="我的博客">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="这是我的 Hexo 博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
+<meta property="article:author" content="panan13">
+<meta property="article:tag" content="Hexo, 博客, 个人博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '我的博客',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">我的博客</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">我的博客</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/04/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%AD%A6%E4%B9%A0/" title="概率论学习">概率论学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-09-04T10:44:31.000Z" title="发表于 2024-09-04 18:44:31">2024-09-04</time></span></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/04/%E3%80%8A%E6%B4%BB%E7%9D%80%E3%80%8B%E8%AF%BB%E4%B9%A6%E6%84%9F%E6%82%9F/" title="《活着》读书感悟">《活着》读书感悟</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-09-04T10:44:14.000Z" title="发表于 2024-09-04 18:44:14">2024-09-04</time></span></div><div class="content">...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/31/java%E5%AD%A6%E4%B9%A0/" title="Java项目结构与代码示例">Java项目结构与代码示例</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-31T02:00:00.000Z" title="发表于 2024-08-31 10:00:00">2024-08-31</time></span></div><div class="content">Java是一种面向对象的编程语言，广泛应用于软件开发领域。以下是Java入门的几个关键知识点总结： 1. Java基础语法 数据类型：Java有八种基本数据类型，包括byte、short、int、long、float、double、char和boolean。另外，Java还有引用数据类型，如类、接口和数组。 变量声明：变量在使用前必须声明，格式为：数据类型 变量名 = 初始值;。 运算符：包括算术运算符（+、-、*、/、%）、关系运算符（==、!=、&gt;、&lt;、&gt;=、&lt;=）、逻辑运算符（&amp;&amp;、||、!）等。  2. 面向对象编程 (OOP) 类与对象：类是对象的模板，对象是类的实例。类中可以包含属性（成员变量）和方法（函数）。 封装：使用访问修饰符（private、public、protected）来保护数据，外部只能通过特定的方法访问这些数据。 继承：通过extends关键字，子类可以继承父类的属性和方法，支持代码复用。 多态：允许不同的类以相同的接口进行交互，分为方法重载（编译时多态）和方法重写（运行时多态）。  3....</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/31/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/" title="开源协议介绍">开源协议介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-31T02:00:00.000Z" title="发表于 2024-08-31 10:00:00">2024-08-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">什么是开源协议？开源协议（Open Source License）是一套法律条款，规定了软件的使用、复制、修改和分发的规则。开源协议的主要目的是确保软件的自由使用，并保护开发者的权利。不同的开源协议对用户和开发者的权利和义务有不同的规定。以下是几种常见的开源协议的详细介绍。 常见的开源协议1. GNU通用公共许可证（GPL）概述GNU通用公共许可证（General Public License, GPL）是由自由软件基金会（Free Software Foundation, FSF）发布的一种“强”开源协议。GPL要求衍生作品也必须采用GPL协议，这意味着任何基于GPL软件的修改和扩展都必须公开源代码。 主要特点 强制开源：任何基于GPL软件的派生作品都必须采用GPL协议，并且必须公开源代码。 自由使用：用户可以自由地使用、复制、修改和分发软件，但需要遵守GPL的条款。 衍生作品：无论是对代码的微小修改还是大规模的改进，都必须以GPL许可证发布。  适用场景GPL适用于那些希望确保所有衍生作品都保持开源的项目，如Linux内核等。 2....</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/28/MC%E5%AE%9E%E7%8E%B0%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9E%E6%8E%A5%E5%8E%9F%E7%90%86/" title="MC实现局域网连接原理">MC实现局域网连接原理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-28T10:21:29.000Z" title="发表于 2024-08-28 18:21:29">2024-08-28</time></span></div><div class="content">Minecraft可以通过局域网加入到别人的游戏主要是由于以下几个技术机制的共同作用： 1. 局域网的共享网络环境局域网（Local Area Network, LAN）是一个共享的网络环境，所有连接到同一局域网的设备都可以互相通信。这意味着当某个设备在局域网中启动一个Minecraft游戏并开启局域网联机功能时，其他设备能够“看到”这个游戏，并有机会与其建立连接。 2. Minecraft的局域网游戏广播机制当一个玩家在Minecraft中选择“打开局域网”选项时，Minecraft会在后台执行以下操作：  启动一个局域网服务器: 该玩家的设备开始充当一个本地服务器，管理其他玩家的连接和游戏世界的状态。  发送UDP广播: Minecraft通过UDP协议向局域网中所有设备广播这个服务器的可用性。这个广播消息中包含了服务器的IP地址、端口号和一些关于游戏世界的基本信息（例如游戏模式、允许的玩家数量等）。   3....</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/28/android%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" title="使用Flutter开发Android应用的完整指南">使用Flutter开发Android应用的完整指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-27T16:00:00.000Z" title="发表于 2024-08-28 00:00:00">2024-08-28</time></span></div><div class="content">在移动应用开发领域，Flutter作为一个跨平台框架，以其高效的开发流程和优美的UI设计能力，受到了广泛的欢迎。本文将详细介绍使用Flutter开发Android应用的步骤、相关语法介绍以及Flutter框架的文件结构和开发时的注意事项。 使用Flutter开发Android实时温度显示软件的步骤1. 准备开发环境在开发Flutter应用之前，首先需要准备好开发环境：  安装Flutter SDK: 从Flutter的官方网站下载并安装适合你操作系统的Flutter SDK。 安装Android Studio: Android Studio提供了必要的Android开发工具，包括Android SDK和一个功能齐全的IDE。 设置环境变量: 将Flutter SDK路径添加到系统的PATH环境变量中，以便在命令行中使用flutter命令。 配置Android设备: 可以使用真实设备或Android模拟器进行开发和测试。确保设备连接正确，并开启开发者模式和USB调试。  2. 创建Flutter项目接下来，创建一个新的Flutter项目：  创建新项目: 使用命令flutter...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/27/%E9%BB%91%E7%8C%B4%E5%AD%90/" title="黑猴子">黑猴子</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-27T04:24:36.000Z" title="发表于 2024-08-27 12:24:36">2024-08-27</time></span></div><div class="content"> </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/27/%E6%98%BE%E5%8D%A1%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/" title="显卡厂家及其产品线介绍">显卡厂家及其产品线介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-27T04:00:00.000Z" title="发表于 2024-08-27 12:00:00">2024-08-27</time></span></div><div class="content">显卡厂家及其产品线介绍1. NVIDIANVIDIA 是全球领先的图形处理器（GPU）制造商，广泛应用于游戏、专业图形、数据中心和人工智能领域。  GeForce 系列：  GeForce GTX：针对主流游戏玩家，提供高性价比的游戏性能。 GeForce RTX：针对高端游戏玩家，支持光线追踪（Ray Tracing）和 AI 加速的 DLSS 技术，提供卓越的图形表现。 GeForce MX：轻量级 GPU，主要用于笔记本电脑，适合轻度游戏和图形应用。   Quadro 系列（现更名为 NVIDIA RTX A 系列）：  专业图形卡，针对工程设计、视频编辑、3D 渲染和科学计算等专业领域，提供更高的精度、稳定性和特定应用的优化。   Tesla 系列（现更名为 NVIDIA A100 系列）：  高性能计算（HPC）和数据中心领域的加速卡，主要用于人工智能、深度学习和大规模计算任务。   TITAN 系列：  面向发烧友和专业用户的高性能显卡，介于 GeForce 和 Quadro 之间，适合高端游戏、内容创作和计算任务。   Jetson...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/27/linux%E4%B8%8B%E7%9A%84%E6%B8%B8%E6%88%8F%E8%BF%90%E8%A1%8C/" title="linux下的游戏运行">linux下的游戏运行</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-27T01:02:09.000Z" title="发表于 2024-08-27 09:02:09">2024-08-27</time></span></div><div class="content">在 Linux 上运行 3A 游戏的方法在 Linux 上运行 3A 游戏可以通过以下几种方式实现： 1. Wine 和 Proton Wine: 通过兼容层运行 Windows 应用程序，包括许多 3A 游戏。 Proton: Valve 开发的基于 Wine 的工具，用于在 Steam 上无缝运行 Windows 游戏。  2. 原生 Linux 游戏 一些 3A 游戏开发商提供了原生的 Linux 版本，直接安装和运行即可。  3. DXVK 和 VKD3D DXVK: 将 Direct3D 9&#x2F;10&#x2F;11 转换为 Vulkan 的兼容层，提升性能。 VKD3D: 将 Direct3D 12 转换为 Vulkan，使得新游戏可以在 Linux 上运行。  4. Lutris 开源的游戏管理器，支持多种运行时，提供统一界面管理和启动各种平台的游戏。  5. Steam Play 通过 Steam Play 和 Proton，在 Linux 上直接运行 Steam 库中的 Windows 游戏。  6. 虚拟机和 GPU 直通 使用虚拟机和 GPU...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/27/flutter%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Flutter 详细介绍">Flutter 详细介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-26T16:00:00.000Z" title="发表于 2024-08-27 00:00:00">2024-08-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a></span></div><div class="content">什么是 Flutter？Flutter 是由 Google 开发的一款开源 UI 软件开发工具包，主要用于跨平台的移动应用、桌面应用和 Web 应用的开发。通过 Flutter，开发者可以使用一套代码库同时开发适用于 iOS、Android、Windows、macOS、Linux 和 Web 等多个平台的应用。 Flutter 的核心特点 跨平台开发：Flutter 允许开发者编写一次代码，并在多个平台上运行，极大地减少了开发时间和成本。 高性能：Flutter 采用了硬件加速的 Skia 图形引擎，能够直接编译成机器码，从而提供高性能的 UI 渲染。 丰富的组件库：Flutter 提供了丰富的预置组件（widgets），包括 Material Design 和 Cupertino 组件库。 热重载（Hot Reload）：热重载允许开发者在不重新加载应用程序的情况下，立即查看代码更改的效果。 灵活的 UI 设计：Flutter 采用了声明式 UI 编程模型，允许开发者通过组合不同的 widgets 构建复杂的界面。  Flutter 的架构Flutter...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">panan13</div><div class="author-info-description">这是我的 Hexo 博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/14/hello-world/" title="Hello World">Hello World</a><time datetime="2025-02-14T13:16:36.798Z" title="发表于 2025-02-14 21:16:36">2025-02-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/gentoo%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" title="gentoo安装指南">gentoo安装指南</a><time datetime="2024-09-27T14:33:01.000Z" title="发表于 2024-09-27 22:33:01">2024-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/html5-css3%E5%AD%A6%E4%B9%A0/" title="html5+css3学习">html5+css3学习</a><time datetime="2024-09-24T03:59:58.000Z" title="发表于 2024-09-24 11:59:58">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/ppt%E5%AD%A6%E4%B9%A0/" title="ppt学习">ppt学习</a><time datetime="2024-09-24T03:59:45.000Z" title="发表于 2024-09-24 11:59:45">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/12/test/" title="test">test</a><time datetime="2024-09-12T13:22:50.000Z" title="发表于 2024-09-12 21:22:50">2024-09-12</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">开发工具</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">技术</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"><span class="card-category-list-name">技术分享</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%A7%A3%E6%9E%90/"><span class="card-category-list-name">技术解析</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"><span class="card-category-list-name">目标检测</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">编程</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/MATLAB/"><span class="card-category-list-name">MATLAB</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/Python/"><span class="card-category-list-name">Python</span><span class="card-category-list-count">1</span></a></li></ul></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Python/" style="font-size: 1.5em; color: #99a9bf">Python</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1.1em; color: #999">博客</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 1.1em; color: #999">云计算</a> <a href="/tags/%E5%8D%8F%E8%AE%AE/" style="font-size: 1.1em; color: #999">协议</a> <a href="/tags/MATLAB/" style="font-size: 1.1em; color: #999">MATLAB</a> <a href="/tags/Testbench/" style="font-size: 1.1em; color: #999">Testbench</a> <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" style="font-size: 1.1em; color: #999">版本控制</a> <a href="/tags/Dart/" style="font-size: 1.1em; color: #999">Dart</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.1em; color: #999">编程语言</a> <a href="/tags/VS-Code/" style="font-size: 1.1em; color: #999">VS Code</a> <a href="/tags/Hexo/" style="font-size: 1.3em; color: #99a1ac">Hexo</a> <a href="/tags/AMD/" style="font-size: 1.1em; color: #999">AMD</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90/" style="font-size: 1.1em; color: #999">软件分析</a> <a href="/tags/Kubernetes/" style="font-size: 1.1em; color: #999">Kubernetes</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">移动开发</a> <a href="/tags/Apache/" style="font-size: 1.1em; color: #999">Apache</a> <a href="/tags/Libraries/" style="font-size: 1.1em; color: #999">Libraries</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 1.1em; color: #999">插件</a> <a href="/tags/Bash/" style="font-size: 1.3em; color: #99a1ac">Bash</a> <a href="/tags/PowerShell/" style="font-size: 1.1em; color: #999">PowerShell</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 1.5em; color: #99a9bf">编程</a> <a href="/tags/%E8%BD%AC%E6%8D%A2%E5%85%B3%E7%B3%BB/" style="font-size: 1.1em; color: #999">转换关系</a> <a href="/tags/GPL/" style="font-size: 1.1em; color: #999">GPL</a> <a href="/tags/LaTeX/" style="font-size: 1.1em; color: #999">LaTeX</a> <a href="/tags/MIT/" style="font-size: 1.1em; color: #999">MIT</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 1.1em; color: #999">编码</a> <a href="/tags/%E5%AD%98%E5%82%A8%E7%B1%BB%E5%9E%8B/" style="font-size: 1.1em; color: #999">存储类型</a> <a href="/tags/XML/" style="font-size: 1.1em; color: #999">XML</a> <a href="/tags/%E4%BB%BF%E7%9C%9F/" style="font-size: 1.3em; color: #99a1ac">仿真</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" style="font-size: 1.1em; color: #999">虚拟环境</a> <a href="/tags/Android/" style="font-size: 1.1em; color: #999">Android</a> <a href="/tags/ModelSim/" style="font-size: 1.1em; color: #999">ModelSim</a> <a href="/tags/Git/" style="font-size: 1.5em; color: #99a9bf">Git</a> <a href="/tags/%E9%80%9F%E5%BA%A6%E6%AF%94%E8%BE%83/" style="font-size: 1.1em; color: #999">速度比较</a> <a href="/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" style="font-size: 1.1em; color: #999">逆向工程</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 1.1em; color: #999">开源</a> <a href="/tags/MPL/" style="font-size: 1.1em; color: #999">MPL</a> <a href="/tags/BSD/" style="font-size: 1.1em; color: #999">BSD</a> <a href="/tags/Docker/" style="font-size: 1.1em; color: #999">Docker</a> <a href="/tags/%E5%AE%B9%E5%99%A8/" style="font-size: 1.1em; color: #999">容器</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/02/">
+            <span class="card-archive-list-date">
+              二月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/09/">
+            <span class="card-archive-list-date">
+              九月 2024
+            </span>
+            <span class="card-archive-list-count">11</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/08/">
+            <span class="card-archive-list-date">
+              八月 2024
+            </span>
+            <span class="card-archive-list-count">38</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">50</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-02-14T13:36:16.152Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By panan13</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

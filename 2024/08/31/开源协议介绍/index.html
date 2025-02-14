@@ -1,0 +1,211 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>开源协议介绍 | 我的博客</title><meta name="author" content="panan13"><meta name="copyright" content="panan13"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="什么是开源协议？开源协议（Open Source License）是一套法律条款，规定了软件的使用、复制、修改和分发的规则。开源协议的主要目的是确保软件的自由使用，并保护开发者的权利。不同的开源协议对用户和开发者的权利和义务有不同的规定。以下是几种常见的开源协议的详细介绍。 常见的开源协议1. GNU通用公共许可证（GPL）概述GNU通用公共许可证（General Public License,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开源协议介绍">
+<meta property="og:url" content="http://example.com/2024/08/31/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="什么是开源协议？开源协议（Open Source License）是一套法律条款，规定了软件的使用、复制、修改和分发的规则。开源协议的主要目的是确保软件的自由使用，并保护开发者的权利。不同的开源协议对用户和开发者的权利和义务有不同的规定。以下是几种常见的开源协议的详细介绍。 常见的开源协议1. GNU通用公共许可证（GPL）概述GNU通用公共许可证（General Public License,">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
+<meta property="article:published_time" content="2024-08-31T02:00:00.000Z">
+<meta property="article:modified_time" content="2025-02-14T13:20:20.245Z">
+<meta property="article:author" content="panan13">
+<meta property="article:tag" content="开源">
+<meta property="article:tag" content="协议">
+<meta property="article:tag" content="GPL">
+<meta property="article:tag" content="MIT">
+<meta property="article:tag" content="Apache">
+<meta property="article:tag" content="BSD">
+<meta property="article:tag" content="MPL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "开源协议介绍",
+  "url": "http://example.com/2024/08/31/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/",
+  "image": "http://example.com/img/butterfly-icon.png",
+  "datePublished": "2024-08-31T02:00:00.000Z",
+  "dateModified": "2025-02-14T13:20:20.245Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "panan13",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/08/31/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '开源协议介绍',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">我的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">开源协议介绍</span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">开源协议介绍</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-31T02:00:00.000Z" title="发表于 2024-08-31 10:00:00">2024-08-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-14T13:20:20.245Z" title="更新于 2025-02-14 21:20:20">2025-02-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="什么是开源协议？"><a href="#什么是开源协议？" class="headerlink" title="什么是开源协议？"></a>什么是开源协议？</h2><p>开源协议（Open Source License）是一套法律条款，规定了软件的使用、复制、修改和分发的规则。开源协议的主要目的是确保软件的自由使用，并保护开发者的权利。不同的开源协议对用户和开发者的权利和义务有不同的规定。以下是几种常见的开源协议的详细介绍。</p>
+<h2 id="常见的开源协议"><a href="#常见的开源协议" class="headerlink" title="常见的开源协议"></a>常见的开源协议</h2><h3 id="1-GNU通用公共许可证（GPL）"><a href="#1-GNU通用公共许可证（GPL）" class="headerlink" title="1. GNU通用公共许可证（GPL）"></a>1. GNU通用公共许可证（GPL）</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>GNU通用公共许可证（General Public License, GPL）是由自由软件基金会（Free Software Foundation, FSF）发布的一种“强”开源协议。GPL要求衍生作品也必须采用GPL协议，这意味着任何基于GPL软件的修改和扩展都必须公开源代码。</p>
+<h4 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h4><ul>
+<li><strong>强制开源</strong>：任何基于GPL软件的派生作品都必须采用GPL协议，并且必须公开源代码。</li>
+<li><strong>自由使用</strong>：用户可以自由地使用、复制、修改和分发软件，但需要遵守GPL的条款。</li>
+<li><strong>衍生作品</strong>：无论是对代码的微小修改还是大规模的改进，都必须以GPL许可证发布。</li>
+</ul>
+<h4 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h4><p>GPL适用于那些希望确保所有衍生作品都保持开源的项目，如Linux内核等。</p>
+<h3 id="2-MIT许可证"><a href="#2-MIT许可证" class="headerlink" title="2. MIT许可证"></a>2. MIT许可证</h3><h4 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h4><p>MIT许可证是一种非常宽松的开源协议，允许用户对软件进行自由使用、复制、修改和分发，只要保留原始版权声明和许可声明即可。没有强制要求衍生作品开源。</p>
+<h4 id="主要特点-1"><a href="#主要特点-1" class="headerlink" title="主要特点"></a>主要特点</h4><ul>
+<li><strong>高度自由</strong>：允许用户几乎不受限制地使用、复制、修改和分发软件。</li>
+<li><strong>版权声明</strong>：唯一要求是保留原始版权声明和许可声明。</li>
+<li><strong>商业化使用</strong>：允许将软件用于商业用途，无需开源衍生作品。</li>
+</ul>
+<h4 id="适用场景-1"><a href="#适用场景-1" class="headerlink" title="适用场景"></a>适用场景</h4><p>MIT许可证适用于希望最大化软件使用和传播，同时不限制衍生作品的项目，例如很多JavaScript库（如jQuery）都采用MIT许可证。</p>
+<h3 id="3-Apache许可证"><a href="#3-Apache许可证" class="headerlink" title="3. Apache许可证"></a>3. Apache许可证</h3><h4 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h4><p>Apache许可证是一种宽松的开源协议，允许用户自由使用、修改和分发软件，并且对专利权有明确的规定，防止专利诉讼。与GPL不同，Apache许可证允许衍生作品可以不再保持开源。</p>
+<h4 id="主要特点-2"><a href="#主要特点-2" class="headerlink" title="主要特点"></a>主要特点</h4><ul>
+<li><strong>专利权保护</strong>：明确规定了专利权的授予和保护，防止专利诉讼。</li>
+<li><strong>无需开源衍生作品</strong>：允许衍生作品使用其他许可证，甚至可以闭源发布。</li>
+<li><strong>版权声明</strong>：要求保留原始版权声明和许可声明。</li>
+</ul>
+<h4 id="适用场景-2"><a href="#适用场景-2" class="headerlink" title="适用场景"></a>适用场景</h4><p>Apache许可证适用于既希望软件自由使用，又不强制要求衍生作品开源的项目，且对专利权有要求的场景。常见于企业软件项目，如Apache HTTP Server。</p>
+<h3 id="4-BSD许可证"><a href="#4-BSD许可证" class="headerlink" title="4. BSD许可证"></a>4. BSD许可证</h3><h4 id="概述-3"><a href="#概述-3" class="headerlink" title="概述"></a>概述</h4><p>BSD许可证最初由加州大学伯克利分校发布，是非常简单且宽松的开源协议。BSD许可证允许用户自由使用、修改和分发代码，但包括一项防止使用项目名称来做推广的条款。</p>
+<h4 id="主要特点-3"><a href="#主要特点-3" class="headerlink" title="主要特点"></a>主要特点</h4><ul>
+<li><strong>高度自由</strong>：与MIT类似，允许用户自由使用、修改和分发代码。</li>
+<li><strong>名称限制</strong>：禁止在未经授权的情况下使用原项目名称进行推广。</li>
+<li><strong>双条款</strong>：现代BSD许可证通常有两个版本：带有广告条款的“原始BSD许可证”和去掉广告条款的“简化BSD许可证”。</li>
+</ul>
+<h4 id="适用场景-3"><a href="#适用场景-3" class="headerlink" title="适用场景"></a>适用场景</h4><p>BSD许可证适用于希望代码能够广泛使用和分发，但不希望代码的名称和作者被用作推广的项目。著名的项目如FreeBSD和OpenBSD都使用BSD许可证。</p>
+<h3 id="5-Mozilla公共许可证（MPL）"><a href="#5-Mozilla公共许可证（MPL）" class="headerlink" title="5. Mozilla公共许可证（MPL）"></a>5. Mozilla公共许可证（MPL）</h3><h4 id="概述-4"><a href="#概述-4" class="headerlink" title="概述"></a>概述</h4><p>Mozilla公共许可证（Mozilla Public License, MPL）是一种介于GPL和MIT之间的协议，允许在开源和非开源代码中混合使用。如果修改了MPL许可证的代码，需要开源这些修改，但可以将其与专有代码一起使用。</p>
+<h4 id="主要特点-4"><a href="#主要特点-4" class="headerlink" title="主要特点"></a>主要特点</h4><ul>
+<li><strong>灵活性</strong>：允许MPL代码与闭源代码混合使用，但要求对MPL代码的修改部分保持开源。</li>
+<li><strong>文件级别的开放</strong>：只需要对修改的MPL代码文件进行开源，而不是整个项目。</li>
+<li><strong>商业友好</strong>：适合于需要同时包含开源和闭源部分的项目。</li>
+</ul>
+<h4 id="适用场景-4"><a href="#适用场景-4" class="headerlink" title="适用场景"></a>适用场景</h4><p>MPL适用于希望确保修改后的代码开源，但也希望能够与闭源代码进行混合的项目，如Mozilla Firefox浏览器。</p>
+<h2 id="如何选择合适的开源协议？"><a href="#如何选择合适的开源协议？" class="headerlink" title="如何选择合适的开源协议？"></a>如何选择合适的开源协议？</h2><p>选择合适的开源协议需要考虑以下几个方面：</p>
+<ol>
+<li><strong>项目目标</strong>：是否希望保持所有衍生作品的开源？</li>
+<li><strong>商业用途</strong>：是否希望允许他人将软件用于商业用途并闭源发布？</li>
+<li><strong>专利保护</strong>：是否对专利权有特别的保护需求？</li>
+<li><strong>社区参与</strong>：是否希望通过开源协议吸引更多的开发者参与项目？</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">panan13</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/08/31/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/">http://example.com/2024/08/31/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">我的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BC%80%E6%BA%90/">开源</a><a class="post-meta__tags" href="/tags/%E5%8D%8F%E8%AE%AE/">协议</a><a class="post-meta__tags" href="/tags/GPL/">GPL</a><a class="post-meta__tags" href="/tags/MIT/">MIT</a><a class="post-meta__tags" href="/tags/Apache/">Apache</a><a class="post-meta__tags" href="/tags/BSD/">BSD</a><a class="post-meta__tags" href="/tags/MPL/">MPL</a></div><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/08/31/java%E5%AD%A6%E4%B9%A0/" title="Java项目结构与代码示例"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Java项目结构与代码示例</div></div><div class="info-2"><div class="info-item-1">Java是一种面向对象的编程语言，广泛应用于软件开发领域。以下是Java入门的几个关键知识点总结： 1. Java基础语法 数据类型：Java有八种基本数据类型，包括byte、short、int、long、float、double、char和boolean。另外，Java还有引用数据类型，如类、接口和数组。 变量声明：变量在使用前必须声明，格式为：数据类型 变量名 = 初始值;。 运算符：包括算术运算符（+、-、*、/、%）、关系运算符（==、!=、&gt;、&lt;、&gt;=、&lt;=）、逻辑运算符（&amp;&amp;、||、!）等。  2. 面向对象编程 (OOP) 类与对象：类是对象的模板，对象是类的实例。类中可以包含属性（成员变量）和方法（函数）。 封装：使用访问修饰符（private、public、protected）来保护数据，外部只能通过特定的方法访问这些数据。 继承：通过extends关键字，子类可以继承父类的属性和方法，支持代码复用。 多态：允许不同的类以相同的接口进行交互，分为方法重载（编译时多态）和方法重写（运行时多态）。  3....</div></div></div></a><a class="pagination-related" href="/2024/09/04/%E3%80%8A%E6%B4%BB%E7%9D%80%E3%80%8B%E8%AF%BB%E4%B9%A6%E6%84%9F%E6%82%9F/" title="《活着》读书感悟"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">《活着》读书感悟</div></div><div class="info-2"><div class="info-item-1">...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">panan13</div><div class="author-info-description">这是我的 Hexo 博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">什么是开源协议？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text">常见的开源协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-GNU%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E8%AE%B8%E5%8F%AF%E8%AF%81%EF%BC%88GPL%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">1. GNU通用公共许可证（GPL）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">2.1.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9"><span class="toc-number">2.1.2.</span> <span class="toc-text">主要特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.1.3.</span> <span class="toc-text">适用场景</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-MIT%E8%AE%B8%E5%8F%AF%E8%AF%81"><span class="toc-number">2.2.</span> <span class="toc-text">2. MIT许可证</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">主要特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-1"><span class="toc-number">2.2.3.</span> <span class="toc-text">适用场景</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Apache%E8%AE%B8%E5%8F%AF%E8%AF%81"><span class="toc-number">2.3.</span> <span class="toc-text">3. Apache许可证</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-2"><span class="toc-number">2.3.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9-2"><span class="toc-number">2.3.2.</span> <span class="toc-text">主要特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-2"><span class="toc-number">2.3.3.</span> <span class="toc-text">适用场景</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-BSD%E8%AE%B8%E5%8F%AF%E8%AF%81"><span class="toc-number">2.4.</span> <span class="toc-text">4. BSD许可证</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-3"><span class="toc-number">2.4.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9-3"><span class="toc-number">2.4.2.</span> <span class="toc-text">主要特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-3"><span class="toc-number">2.4.3.</span> <span class="toc-text">适用场景</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Mozilla%E5%85%AC%E5%85%B1%E8%AE%B8%E5%8F%AF%E8%AF%81%EF%BC%88MPL%EF%BC%89"><span class="toc-number">2.5.</span> <span class="toc-text">5. Mozilla公共许可证（MPL）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-4"><span class="toc-number">2.5.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9-4"><span class="toc-number">2.5.2.</span> <span class="toc-text">主要特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-4"><span class="toc-number">2.5.3.</span> <span class="toc-text">适用场景</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">如何选择合适的开源协议？</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/14/hello-world/" title="Hello World">Hello World</a><time datetime="2025-02-14T13:16:36.798Z" title="发表于 2025-02-14 21:16:36">2025-02-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/gentoo%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" title="gentoo安装指南">gentoo安装指南</a><time datetime="2024-09-27T14:33:01.000Z" title="发表于 2024-09-27 22:33:01">2024-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/html5-css3%E5%AD%A6%E4%B9%A0/" title="html5+css3学习">html5+css3学习</a><time datetime="2024-09-24T03:59:58.000Z" title="发表于 2024-09-24 11:59:58">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/ppt%E5%AD%A6%E4%B9%A0/" title="ppt学习">ppt学习</a><time datetime="2024-09-24T03:59:45.000Z" title="发表于 2024-09-24 11:59:45">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/12/test/" title="test">test</a><time datetime="2024-09-12T13:22:50.000Z" title="发表于 2024-09-12 21:22:50">2024-09-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By panan13</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
